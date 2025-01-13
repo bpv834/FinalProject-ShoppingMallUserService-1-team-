@@ -13,10 +13,17 @@ class HomeMainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        test()
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home_main, container, false)
     }
 
+}
+
+fun test(){
+    val a = 3
+    val b= 6
+    val c= a+b
 }
 
 // 하위 프래그먼트들의 이름
