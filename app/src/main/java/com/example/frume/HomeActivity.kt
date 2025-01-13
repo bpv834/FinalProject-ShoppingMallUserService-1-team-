@@ -6,4 +6,6 @@ class HomeActivity {
 enum class HomeFragmentName(var number:Int, var str:String){
     // 게시판 메인 화면
     HOME_MAIN_FRAGMENT(1, "HomeMainFragment"),
+
+    // khs 테스트용 14:21
 }
