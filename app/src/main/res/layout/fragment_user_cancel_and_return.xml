@@ -35,7 +35,7 @@
                 />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayoutUserCancelAndReturnOrderStateFilter"
+                android:id="@+id/textInputLayoutUserInfoModifyArrivalName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -59,7 +59,7 @@
                 android:layout_marginTop="50dp"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                app:layout_constraintTop_toBottomOf="@id/textInputLayoutUserCancelAndReturnOrderStateFilter"
+                app:layout_constraintTop_toBottomOf="@id/textInputLayoutUserInfoModifyArrivalName"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
@@ -220,6 +220,46 @@
                     android:hint="반품/교환/취소 사유"
                     android:entries="@array/item_user_order_state_order_state" />
             </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/buttonUserCancelAndReturnPost"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/nanumsquareneo_3"
+                android:background="@drawable/ic_selector_button_background"
+                app:layout_constraintEnd_toStartOf="@id/buttonUserCancelAndReturnDirection"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textInputLayoutUserCancelAndReturnInputTextLayout"
+                android:text="택배 수거"
+                />
+
+            <Button
+                android:id="@+id/buttonUserCancelAndReturnDirection"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:enabled="false"
+                android:fontFamily="@font/nanumsquareneo_3"
+                android:background="@drawable/ic_selector_button_background"
+                app:layout_constraintStart_toEndOf="@id/buttonUserCancelAndReturnPost"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textInputLayoutUserCancelAndReturnInputTextLayout"
+                android:text="직접 발송"
+                />
+
+            <Button
+                android:id="@+id/buttonUserCancelAndReturnRequest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="40dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/nanumsquareneo_3"
+                android:background="@drawable/ic_selector_button_background"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/buttonUserCancelAndReturnDirection"
+                android:text="요청하기"
+                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
