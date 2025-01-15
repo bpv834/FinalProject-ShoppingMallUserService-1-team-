@@ -13,7 +13,7 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/toolBarUserAddressModify"
+                android:id="@+id/toolbarUserInfoModify"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/green100"
@@ -26,24 +26,24 @@
                 app:titleTextColor="@color/white" />
 
             <View
-                android:id="@+id/viewUserAddressModifyShowInfo"
+                android:id="@+id/viewUserInfoModifyShowInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
 
-                app:layout_constraintTop_toBottomOf="@id/toolBarUserAddressModify"
+                app:layout_constraintTop_toBottomOf="@id/toolbarUserInfoModify"
                 app:layout_constraintStart_toStartOf="parent"
                 />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayoutUserAddressModifyArrivalName"
+                android:id="@+id/textInputLayoutUserInfoModifyArrivalName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                app:layout_constraintTop_toTopOf="@id/viewUserAddressModifyShowInfo"
-                app:layout_constraintStart_toStartOf="@id/viewUserAddressModifyShowInfo"
-                app:layout_constraintEnd_toEndOf="@id/viewUserAddressModifyShowInfo"
+                app:layout_constraintTop_toTopOf="@id/viewUserInfoModifyShowInfo"
+                app:layout_constraintStart_toStartOf="@id/viewUserInfoModifyShowInfo"
+                app:layout_constraintEnd_toEndOf="@id/viewUserInfoModifyShowInfo"
                 app:endIconMode="clear_text">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -55,15 +55,15 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayoutUserAddressModifyUserName"
+                android:id="@+id/textInputLayoutUserInfoModifyUserName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginTop="25dp"
-                app:layout_constraintTop_toBottomOf="@id/textInputLayoutUserAddressModifyArrivalName"
-                app:layout_constraintStart_toStartOf="@id/viewUserAddressModifyShowInfo"
-                app:layout_constraintEnd_toEndOf="@id/viewUserAddressModifyShowInfo"
+                app:layout_constraintTop_toBottomOf="@id/textInputLayoutUserInfoModifyArrivalName"
+                app:layout_constraintStart_toStartOf="@id/viewUserInfoModifyShowInfo"
+                app:layout_constraintEnd_toEndOf="@id/viewUserInfoModifyShowInfo"
                 app:endIconMode="clear_text"
                 >
 
@@ -76,15 +76,15 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayoutUserAddressModifyPhoneNumber"
+                android:id="@+id/textInputLayoutUserInfoModifyPhoneNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginTop="25dp"
-                app:layout_constraintTop_toBottomOf="@id/textInputLayoutUserAddressModifyUserName"
-                app:layout_constraintStart_toStartOf="@id/viewUserAddressModifyShowInfo"
-                app:layout_constraintEnd_toEndOf="@id/viewUserAddressModifyShowInfo"
+                app:layout_constraintTop_toBottomOf="@id/textInputLayoutUserInfoModifyUserName"
+                app:layout_constraintStart_toStartOf="@id/viewUserInfoModifyShowInfo"
+                app:layout_constraintEnd_toEndOf="@id/viewUserInfoModifyShowInfo"
                 app:endIconMode="clear_text"
                 >
 
@@ -97,47 +97,47 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/textViewUserAddressModifyShowAddress"
+                android:id="@+id/textViewUserInfoModifyShowAddress"
                 android:padding="20dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                app:layout_constraintTop_toBottomOf="@id/textInputLayoutUserAddressModifyPhoneNumber"
-                app:layout_constraintStart_toStartOf="@id/viewUserAddressModifyShowInfo"
-                app:layout_constraintEnd_toEndOf="@id/viewUserAddressModifyShowInfo"
+                app:layout_constraintTop_toBottomOf="@id/textInputLayoutUserInfoModifyPhoneNumber"
+                app:layout_constraintStart_toStartOf="@id/viewUserInfoModifyShowInfo"
+                app:layout_constraintEnd_toEndOf="@id/viewUserInfoModifyShowInfo"
                 android:text="주소"
                 android:fontFamily="@font/nanumsquareneo_3"
                 android:background="@drawable/background_textview"
                 />
 
             <TextView
-                android:id="@+id/textViewUserAddressModifyShowPostNumber"
+                android:id="@+id/textViewUserInfoModifyShowPostNumber"
                 android:padding="20dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                app:layout_constraintTop_toBottomOf="@id/textViewUserAddressModifyShowAddress"
-                app:layout_constraintStart_toStartOf="@id/viewUserAddressModifyShowInfo"
-                app:layout_constraintEnd_toEndOf="@id/viewUserAddressModifyShowInfo"
+                app:layout_constraintTop_toBottomOf="@id/textViewUserInfoModifyShowAddress"
+                app:layout_constraintStart_toStartOf="@id/viewUserInfoModifyShowInfo"
+                app:layout_constraintEnd_toEndOf="@id/viewUserInfoModifyShowInfo"
                 android:text="우편번호 "
                 android:fontFamily="@font/nanumsquareneo_3"
                 android:background="@drawable/background_textview"
                 />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayoutUserModifyAddressAddDetailAddress"
+                android:id="@+id/textInputLayoutUserInfoModifyDetailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginTop="25dp"
-                app:layout_constraintTop_toBottomOf="@id/textViewUserAddressModifyShowPostNumber"
-                app:layout_constraintStart_toStartOf="@id/viewUserAddressModifyShowInfo"
-                app:layout_constraintEnd_toEndOf="@id/viewUserAddressModifyShowInfo"
+                app:layout_constraintTop_toBottomOf="@id/textViewUserInfoModifyShowPostNumber"
+                app:layout_constraintStart_toStartOf="@id/viewUserInfoModifyShowInfo"
+                app:layout_constraintEnd_toEndOf="@id/viewUserInfoModifyShowInfo"
                 app:endIconMode="clear_text">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -149,15 +149,15 @@
 
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonUserAddressModifyArrivalAdd"
+                android:id="@+id/buttonUserInfoManageModifyUserInfo"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="완료"
-                app:layout_constraintTop_toBottomOf="@id/textInputLayoutUserModifyAddressAddDetailAddress"
-                app:layout_constraintStart_toStartOf="@id/viewUserAddressModifyShowInfo"
+                app:layout_constraintTop_toBottomOf="@id/textInputLayoutUserInfoModifyDetailAddress"
+                app:layout_constraintStart_toStartOf="@id/viewUserInfoModifyShowInfo"
                 android:fontFamily="@font/nanumsquareneo_3"
                 android:textColor="@color/black"
                 style="@style/Widget.Material3.Button.OutlinedButton" />
