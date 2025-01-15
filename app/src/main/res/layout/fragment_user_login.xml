@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragment.user_fragment.UserLoginFragment">
+
+        <TextView
+            android:id="@+id/textViewUserLoginTitle"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="120dp"
+            android:fontFamily="@font/nanumsquareneo_3"
+            android:text="로그인"
+            android:textAlignment="center"
+            android:textSize="35dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textFieldUserLoginId"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="아이디"
+            app:endIconMode="clear_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewUserLoginTitle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textFieldUserLoginPw"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="비밀번호"
+            app:endIconMode="password_toggle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textFieldUserLoginId">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <CheckBox
+            android:id="@+id/checkBoxUserLoginAuto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="210dp"
+            android:checked="true"
+            android:fontFamily="@font/nanumsquareneo_3"
+            android:text="자동 로그인"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textFieldUserLoginPw" />
+
+        <Button
+            android:id="@+id/buttonUserLogin"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ic_selector_button_background"
+            android:drawablePadding="0dp"
+            android:fontFamily="@font/nanumsquareneo_3"
+            android:text="로그인"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkBoxUserLoginAuto" />
+
+
+        <TextView
+            android:id="@+id/textViewUserLoginSignUpButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/nanumsquareneo_3"
+            android:text="회원가입"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/textViewUserLoginFindIdButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonUserLogin" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/textViewUserLoginFindIdButton"
+            app:layout_constraintStart_toEndOf="@+id/textViewUserLoginSignUpButton"
+            app:layout_constraintTop_toBottomOf="@+id/buttonUserLogin"
+            android:background="#8E8E8E"
+            android:layout_marginTop="20dp"/>
+
+
+        <TextView
+            android:id="@+id/textViewUserLoginFindIdButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/nanumsquareneo_3"
+            android:text="ID 찾기"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/textViewUserLoginFindPwButton"
+            app:layout_constraintStart_toEndOf="@+id/textViewUserLoginSignUpButton"
+            app:layout_constraintTop_toBottomOf="@+id/buttonUserLogin" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/textViewUserLoginFindIdButton"
+            app:layout_constraintStart_toEndOf="@+id/textViewUserLoginFindPwButton"
+            app:layout_constraintTop_toBottomOf="@+id/buttonUserLogin"
+            android:background="#8E8E8E"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/textViewUserLoginFindPwButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="90dp"
+            android:fontFamily="@font/nanumsquareneo_3"
+            android:text="PW 찾기"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewUserLoginFindIdButton"
+            app:layout_constraintTop_toBottomOf="@+id/buttonUserLogin" />
+
+        <View
+            android:id="@+id/dividerLine"
+            android:layout_width="300dp"
+            android:layout_height="1dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="20dp"
+            android:background="#8E8E8E"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewUserLoginFindIdButton" />
+
+        <Button
+            android:id="@+id/buttonUserLoginKakao"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ic_selector_button_background"
+            android:drawablePadding="0dp"
+            android:fontFamily="@font/nanumsquareneo_3"
+            android:text="카카오 로그인"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dividerLine" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
