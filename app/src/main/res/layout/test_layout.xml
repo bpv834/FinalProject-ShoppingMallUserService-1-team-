@@ -1,78 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/main"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:fontFamily="@font/nanumsquareneo_1"
-        />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:fontFamily="@font/nanumsquareneo_2"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:fontFamily="@font/nanumsquareneo_3"
-        />
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Hello World!"
+		android:fontFamily="@font/nanumsquareneo_1"
+		/>
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:fontFamily="@font/nanumsquareneo_4"
-        />
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Hello World!"
+		android:fontFamily="@font/nanumsquareneo_2"
+		/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:fontFamily="@font/nanumsquareneo_5"
-        />
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Hello World!"
+		android:fontFamily="@font/nanumsquareneo_3"
+		/>
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello!"
-        android:fontFamily="@font/nanumsquareneo_5"
-        android:background="@drawable/background_textview"
-        android:padding="12dp"
-        android:gravity="center"
-        />
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Hello World!"
+		android:fontFamily="@font/nanumsquareneo_4"
+		/>
 
-    <Button
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/ic_selector_button_background"
-        android:text="테두리 있음"
-        android:enabled="false"
-        android:textStyle="bold" />
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Hello World!"
+		android:fontFamily="@font/nanumsquareneo_5"
+		/>
 
-    <Button
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/background_green100"
-        android:text="테두리 있음"
-        android:textStyle="bold" />
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Hello!"
+		android:fontFamily="@font/nanumsquareneo_5"
+		android:background="@drawable/background_textview"
+		android:padding="12dp"
+		android:gravity="center"
+		/>
+
+	<Button
+		android:layout_width="150dp"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:layout_marginTop="50dp"
+		android:background="@drawable/ic_selector_button_background"
+		android:text="테두리 있음"
+		android:enabled="false"
+		android:textStyle="bold" />
+
+	<Button
+		android:layout_width="150dp"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:layout_marginTop="50dp"
+		android:background="@drawable/background_green100"
+		android:text="테두리 있음"
+		android:textStyle="bold" />
 
 </LinearLayout>

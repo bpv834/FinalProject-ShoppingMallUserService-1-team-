@@ -1,5 +1,30 @@
 <resources>
-    <string name="app_name">FruMe</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+	<string name="app_name">FruMe</string>
+	<!-- TODO: Remove or change this placeholder text -->
+	<string name="hello_blank_fragment">Hello blank fragment</string>
+	<string name="user_product_info_description_delivery_charge_label">• 배송비: 3,000원 (50,000원 이상 구매 시 무료 배송)</string>
+	<string name="user_product_info_description_dispatch_location_label">• 출고지: 산지(오전10시 이전 주문 시 당일 출고)</string>
+	<string name="delivery_label">
+		• 기상 악화 및 교통 상황에 따라 부득이하게 배송이 지연될 수 있습니다.\n
+		• 신선 식품 특성 상 제주 및 도서 산간 배송이 불가합니다.\n
+		• 주말 및 공휴일은 상품을 출고하지 않습니다. (단, 신선 식품 특성 상 상품에 따라 변동 될 수 있습니다.)\n
+		• 산지 상황에 따라 상품이 조기 품절 될 수 있습니다.\n
+		• 신선 식품 특성 상 금액 및 상품 구성에 변동이 있을 수 있습니다.\n
+		• 단체 및 다량 주문 시 고객센터로 별도 문의 후 주문 바랍니다.\n
+</string>
+
+	<string name="return_label">
+		• 신선 식품 특성 상 다음 사유에 해당할 경우 교환 및 반품이 불가합니다. 단순 변심 / 주문 착오 / 개인 정보 오 기재 / 수취인 연락 부재\n
+		• 품질 및 배송 관련 문제가 있는 경우 수령 후 1~2일 이내, 상품 확인이 가능 한 이미지를 첨부하여 주시후레시 카카오톡 채널 고객센터로 문의바랍니다.
+		교환 및 반품 희망 시 상담원에게 먼저 문의해 주세요. 임의 접수 시 처리가 불가합니다.\n
+		• 교환 및 반품은 품질에 문제가 있는 원물의 수량만큼 처리됩니다.\n
+
+</string>
+	<string name="company_label">
+		상호명 /t 주시후레시\n
+		대표자 /t최호준\n
+		주소 /t멋쟁이사자
+
+</string>
+	<string name="common_likelion">멋쟁이사자</string>
 </resources>
