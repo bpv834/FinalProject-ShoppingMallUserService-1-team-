@@ -1,6 +1,7 @@
 package com.example.frume.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,8 +44,10 @@ class BottomNavFragment(val combinationFragment: CombinationFragment) : Fragment
 
 
 
-    // 첫 프레그트로 Home 으로 설정, 바텀 nav 아이템이 home에 클릭되도록 설정
+    // 첫 프레그먼트로 Home 으로 설정, 바텀 nav 아이템이 home에 클릭되도록 설정
     fun openHome() {
+        // 화면을 이동한다음 돌아오면 무조건 실행됨 따라서, 어디서든 돌아오면 홈이 뜸 이거 수정해야함 상태값으로 화면 띄워야 함
+        Log.d("test100", "test100")
         replaceFragment(BottomNavSubFragmentName.USER_HOME_FRAGMENT,true,true,null)
         bottomNavBinding.bottomNavMain.selectedItemId = R.id.menu_home
 
