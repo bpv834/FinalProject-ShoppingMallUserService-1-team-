@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import com.example.frume.HomeActivity
 import com.example.frume.MainActivity
 import com.example.frume.R
 import com.example.frume.databinding.FragmentUserInfoBinding
@@ -16,7 +17,7 @@ import com.example.frume.util.UserInfoType
 
 class UserInfoFragment(val bottomNavFragment: BottomNavFragment) : Fragment() {
 
-    lateinit var mainActivity: MainActivity
+    lateinit var homeActivity: HomeActivity
     lateinit var fragmentUserInfoBinding: FragmentUserInfoBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +26,7 @@ class UserInfoFragment(val bottomNavFragment: BottomNavFragment) : Fragment() {
 
         fragmentUserInfoBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_user_info, container, false)
-        mainActivity = activity as MainActivity
+        homeActivity = activity as HomeActivity
         // Inflate the layout for this fragment
         onClickOrderHistory()
         onClickDeliverySpotManagement()

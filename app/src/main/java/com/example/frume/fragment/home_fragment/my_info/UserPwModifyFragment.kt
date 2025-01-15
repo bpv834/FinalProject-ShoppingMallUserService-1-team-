@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import com.example.frume.HomeActivity
 import com.example.frume.MainActivity
 import com.example.frume.R
 import com.example.frume.databinding.FragmentUserPwModifyBinding
@@ -16,7 +17,7 @@ import com.example.frume.fragment_main.UserInfoSubFragment
 class UserPwModifyFragment(val userInfoMainFragment: UserInfoMainFragment) : Fragment() {
 
     lateinit var fragmentPwModifyBinding: FragmentUserPwModifyBinding
-    lateinit var mainActivity: MainActivity
+    lateinit var homeActivity: HomeActivity
 
 
     override fun onCreateView(

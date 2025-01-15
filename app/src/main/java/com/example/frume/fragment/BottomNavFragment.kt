@@ -1,15 +1,14 @@
 package com.example.frume.fragment
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.commit
-import com.example.frume.MainActivity
+import com.example.frume.HomeActivity
 import com.example.frume.R
 import com.example.frume.databinding.FragmentBottomNavBinding
 import com.example.frume.fragment.home_fragment.my_info.UserInfoFragment
@@ -23,7 +22,7 @@ import com.google.android.material.transition.MaterialSharedAxis
 class BottomNavFragment(val combinationFragment: CombinationFragment) : Fragment() {
 
     lateinit var bottomNavBinding: FragmentBottomNavBinding
-    lateinit var mainActivity: MainActivity
+    lateinit var homeActivity: HomeActivity
 
     // 현재 Fragment와 다음 Fragment를 담을 변수(애니메이션 이동 때문에...)
     var newFragment: Fragment? = null
@@ -35,7 +34,7 @@ class BottomNavFragment(val combinationFragment: CombinationFragment) : Fragment
         savedInstanceState: Bundle?
     ): View? {
         bottomNavBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_bottom_nav,container,false)
-        mainActivity = activity as MainActivity
+        homeActivity = activity as HomeActivity
         // Inflate the layout for this fragment
         openHome()
         onClickBottomNavigationItem()
@@ -97,7 +96,7 @@ class BottomNavFragment(val combinationFragment: CombinationFragment) : Fragment
         }
 
         // 프래그먼트 교체
-        mainActivity.supportFragmentManager.commit {
+        homeActivity.supportFragmentManager.commit {
 
             if(animate) {
                 // 만약 이전 프래그먼트가 있다면
@@ -121,7 +120,7 @@ class BottomNavFragment(val combinationFragment: CombinationFragment) : Fragment
 
     // 프래그먼트를 BackStack에서 제거하는 메서드
     fun removeFragment(fragmentName: SubMainFragmentName){
-        mainActivity.supportFragmentManager.popBackStack(fragmentName.str, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        homeActivity.supportFragmentManager.popBackStack(fragmentName.str, FragmentManager.POP_BACK_STACK_INCLUSIVE)
     }
 
 

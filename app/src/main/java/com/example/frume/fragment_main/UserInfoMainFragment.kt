@@ -9,11 +9,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.commit
+import com.example.frume.HomeActivity
 import com.example.frume.MainActivity
 import com.example.frume.R
 import com.example.frume.databinding.FragmentUserInfoMainBinding
 import com.example.frume.fragment.CombinationFragment
-import com.example.frume.fragment.SubMainFragmentName
 import com.example.frume.fragment.home_fragment.my_info.UserAddressManageFragment
 import com.example.frume.fragment.home_fragment.my_info.UserCancelAndReturnFragment
 import com.example.frume.fragment.home_fragment.my_info.UserInfoManageFragment
@@ -34,7 +34,7 @@ class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragm
     var newFragment: Fragment? = null
     var oldFragment: Fragment? = null
     lateinit var fragmentUserInfoMainFragment: FragmentUserInfoMainBinding
-    lateinit var mainActivity: MainActivity
+    lateinit var homeActivity: HomeActivity
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -48,7 +48,7 @@ class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragm
         arguments?.getInt("UserInfoType")
         settingUserInfoType()
         Log.d("test100", "bundle 값: ${arguments?.getInt("UserInfoType")}")
-        mainActivity = activity as MainActivity
+        homeActivity = activity as HomeActivity
         replaceFragmentByArguments()
         return fragmentUserInfoMainFragment.root
     }
@@ -116,7 +116,7 @@ class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragm
         }
 
         // 프래그먼트 교체
-        mainActivity.supportFragmentManager.commit {
+        homeActivity.supportFragmentManager.commit {
 
             if (animate) {
                 // 만약 이전 프래그먼트가 있다면
@@ -147,7 +147,7 @@ class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragm
 
     // 프래그먼트를 BackStack에서 제거하는 메서드
     fun removeFragment(fragmentName: UserInfoSubFragment) {
-        mainActivity.supportFragmentManager.popBackStack(
+        homeActivity.supportFragmentManager.popBackStack(
             fragmentName.str,
             FragmentManager.POP_BACK_STACK_INCLUSIVE
         )

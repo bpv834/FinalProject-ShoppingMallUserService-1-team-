@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import com.example.frume.MainActivity
+import com.example.frume.HomeActivity
 import com.example.frume.R
 import com.example.frume.databinding.FragmentUserHomeBinding
 import com.example.frume.fragment.BottomNavFragment
@@ -15,7 +15,7 @@ import com.example.frume.fragment.BottomNavSubFragmentName
 /*import com.example.frume.fragment.FullSubFragmentName*/
 
 class UserHomeFragment(val bottomNavFragment: BottomNavFragment) : Fragment() {
-    lateinit var mainActivity: MainActivity
+    lateinit var homeActivity: HomeActivity
     lateinit var fragmentUserHomeBinding: FragmentUserHomeBinding
 
     override fun onCreateView(
@@ -23,9 +23,9 @@ class UserHomeFragment(val bottomNavFragment: BottomNavFragment) : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         fragmentUserHomeBinding= DataBindingUtil.inflate(inflater,R.layout.fragment_user_home,container,false)
-        mainActivity = activity as MainActivity
+        homeActivity = activity as HomeActivity
 
-        r()
+        showSearchView()
         return fragmentUserHomeBinding.root
     }
 
@@ -36,7 +36,7 @@ class UserHomeFragment(val bottomNavFragment: BottomNavFragment) : Fragment() {
         bottomNavFragment.replaceFragment(BottomNavSubFragmentName.USER_PRODUCT_SHOW_LIST_FRAGMENT,true,true,null)
     }
 
-    fun r() {
+    private fun showSearchView() {
         fragmentUserHomeBinding.toolbarUserHome.setOnMenuItemClickListener { item->
             when(item.itemId){
                 R.id.menuSearch->{
