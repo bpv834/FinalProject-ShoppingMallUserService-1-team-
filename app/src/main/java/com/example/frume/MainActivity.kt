@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setLayout() {
+        // 백스텍에 추가 안함
         supportFragmentManager.beginTransaction().replace(R.id.containerMain, CombinationFragment()).commit()
     }
 

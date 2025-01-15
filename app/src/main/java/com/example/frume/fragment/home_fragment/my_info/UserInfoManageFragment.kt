@@ -5,16 +5,49 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import com.example.frume.MainActivity
 import com.example.frume.R
+import com.example.frume.databinding.FragmentUserInfoManageBinding
+import com.example.frume.fragment_main.UserInfoMainFragment
+import com.example.frume.fragment_main.UserInfoSubFragment
 
-class UserInfoManageFragment : Fragment() {
+class UserInfoManageFragment(val userInfoMainFragment: UserInfoMainFragment) : Fragment() {
+
+    lateinit var fragmentUserInfoManageBinding: FragmentUserInfoManageBinding
+    lateinit var mainActivity: MainActivity
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user_info_manage, container, false)
+        fragmentUserInfoManageBinding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_user_info_manage,
+            container,
+            false
+        )
+        onClickButtonUserInfoModify()
+        onClickButtonModifyPw()
+
+        return fragmentUserInfoManageBinding.root
+    }
+
+    fun onClickButtonUserInfoModify() {
+        fragmentUserInfoManageBinding.buttonUserInfoManageModifyUserInfo.setOnClickListener {
+            userInfoMainFragment.replaceFragment(
+                UserInfoSubFragment.USER_INFO_MODIFY_FRAGMENT,
+                true,
+                true,
+                null
+            )
+        }
+    }
+
+    fun onClickButtonModifyPw() {
+        fragmentUserInfoManageBinding.buttonUserInfoManageModifyPW.setOnClickListener {
+            userInfoMainFragment.replaceFragment(UserInfoSubFragment.USER_PW_MODIFY_FRAGMENT,true,true,null)
+        }
     }
 
 }

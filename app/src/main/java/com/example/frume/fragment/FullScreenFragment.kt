@@ -1,3 +1,4 @@
+/*
 package com.example.frume.fragment
 
 import android.os.Bundle
@@ -11,6 +12,7 @@ import com.example.frume.MainActivity
 import com.example.frume.R
 import com.example.frume.databinding.FragmentCombinationBinding
 import com.example.frume.databinding.FragmentFullScreenBinding
+import com.example.frume.fragment.home_fragment.user_home.UserProductShowListFragment
 import com.example.frume.fragment.user_fragment.UserLoginFragment
 import com.google.android.material.transition.MaterialSharedAxis
 
@@ -46,6 +48,7 @@ class FullScreenFragment(val combinationFragment: CombinationFragment) : Fragmen
         newFragment = when(fragmentName){
             // 로그인
             FullSubFragmentName.USER_LOGIN_FRAGMENT -> UserLoginFragment(this@FullScreenFragment)
+
         }
 
         // bundle 객체가 null이 아니라면
@@ -59,14 +62,26 @@ class FullScreenFragment(val combinationFragment: CombinationFragment) : Fragmen
             if(animate) {
                 // 만약 이전 프래그먼트가 있다면
                 if(oldFragment != null){
-                    oldFragment?.exitTransition = MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ true)
-                    oldFragment?.reenterTransition = MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ false)
+                    oldFragment?.exitTransition = MaterialSharedAxis(MaterialSharedAxis.X, */
+/* forward= *//*
+ true)
+                    oldFragment?.reenterTransition = MaterialSharedAxis(MaterialSharedAxis.X, */
+/* forward= *//*
+ false)
                 }
 
-                newFragment?.exitTransition = MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ true)
-                newFragment?.reenterTransition = MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ false)
-                newFragment?.enterTransition = MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ true)
-                newFragment?.returnTransition = MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ false)
+                newFragment?.exitTransition = MaterialSharedAxis(MaterialSharedAxis.X, */
+/* forward= *//*
+ true)
+                newFragment?.reenterTransition = MaterialSharedAxis(MaterialSharedAxis.X, */
+/* forward= *//*
+ false)
+                newFragment?.enterTransition = MaterialSharedAxis(MaterialSharedAxis.X, */
+/* forward= *//*
+ true)
+                newFragment?.returnTransition = MaterialSharedAxis(MaterialSharedAxis.X, */
+/* forward= *//*
+ false)
             }
 
             replace(R.id.containerCombination, newFragment!!)
@@ -89,3 +104,4 @@ enum class FullSubFragmentName(var number:Int, var str:String){
     USER_LOGIN_FRAGMENT(1, "UserLoginFragment"),
 }
 
+*/

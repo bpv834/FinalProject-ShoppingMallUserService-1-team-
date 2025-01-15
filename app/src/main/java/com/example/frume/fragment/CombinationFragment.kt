@@ -1,30 +1,21 @@
 package com.example.frume.fragment
 
-import android.content.DialogInterface
-import android.graphics.Rect
 import android.os.Bundle
-import android.os.SystemClock
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
-import android.widget.SearchView
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity.INPUT_METHOD_SERVICE
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.commit
 import com.example.frume.MainActivity
 import com.example.frume.R
 import com.example.frume.databinding.FragmentCombinationBinding
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.example.frume.fragment_main.PaymentMainFragment
+import com.example.frume.fragment_main.ProductMainFragment
+import com.example.frume.fragment_main.UserInfoMainFragment
 import com.google.android.material.transition.MaterialSharedAxis
-import kotlin.concurrent.thread
 
 
 class CombinationFragment : Fragment() {
@@ -46,8 +37,8 @@ class CombinationFragment : Fragment() {
         mainActivity= activity as MainActivity
         // Inflate the layout for this fragment
 
-        replaceFragment(SubMainFragmentName.FULL_MAIN_FRAGMENT,false, false, null)
-        return inflater.inflate(R.layout.fragment_combination, container, false)
+        replaceFragment(SubMainFragmentName.NAV_MAIN_FRAGMENT,false, false, null)
+        return combinationBinding.root
     }
 
 
@@ -55,20 +46,18 @@ class CombinationFragment : Fragment() {
     // 프래그먼트를 교체하는 함수
     fun replaceFragment(fragmentName: SubMainFragmentName, isAddToBackStack:Boolean, animate:Boolean, dataBundle: Bundle?){
         // newFragment가 null이 아니라면 oldFragment 변수에 담아준다.
+
+
         if(newFragment != null){
             oldFragment = newFragment
         }
         // 프래그먼트 객체
         newFragment = when(fragmentName){
-            // 게시글 목록 화면
-            SubMainFragmentName.FULL_MAIN_FRAGMENT -> {
-                FullScreenFragment(this@CombinationFragment)
-            }
-            // 게시글 작성 화면
-            SubMainFragmentName.NAV_MAIN_FRAGMENT -> {
-                BottomNavFragment(this@CombinationFragment)
-            }
-
+            // 네브 프레그먼트
+            SubMainFragmentName.NAV_MAIN_FRAGMENT -> BottomNavFragment(this@CombinationFragment)
+            SubMainFragmentName.PRODUCT_MAIN_FRAGMENT -> ProductMainFragment(this)
+            SubMainFragmentName.USER_INFO_MAIN_FRAGMENT -> UserInfoMainFragment(this)
+            SubMainFragmentName.PAYMENT_MAIN_FRAGMENT -> PaymentMainFragment(this)
         }
 
         // bundle 객체가 null이 아니라면
@@ -94,6 +83,7 @@ class CombinationFragment : Fragment() {
 
             replace(R.id.containerCombination, newFragment!!)
             if(isAddToBackStack){
+
                 addToBackStack(fragmentName.str)
             }
         }
@@ -104,42 +94,17 @@ class CombinationFragment : Fragment() {
         mainActivity.supportFragmentManager.popBackStack(fragmentName.str, FragmentManager.POP_BACK_STACK_INCLUSIVE)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_user_home_search, menu) // 메뉴 XML 파일을 팽창
-
-        val searchItem = menu.findItem(R.id.menuItemUserHomeSearch) // 메뉴 아이템 참조
-        val searchView = searchItem.actionView as SearchView // SearchView로 변환
-
-        // SearchView 동작 설정
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                // 검색 버튼 (엔터 또는 Done 버튼) 눌렀을 때 동작
-                Toast.makeText(context, "Search: $query", Toast.LENGTH_SHORT).show()
-                searchView.clearFocus() // 키보드 닫기
-                return true
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                // 텍스트 입력 중 동작
-                return false
-            }
-        })
-
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
-
-
-
-
-
 }
 
 // 하위 프래그먼트들의 이름
 enum class SubMainFragmentName(var number:Int, var str:String){
-    // 풀 스크린
-    FULL_MAIN_FRAGMENT(1, "FullScreenFragment"),
     // 네비 스크린
-    NAV_MAIN_FRAGMENT(2, "BottomNavFragment"),
+    NAV_MAIN_FRAGMENT(0, "BottomNavFragment"),
+    // 상품 스크린
+    PRODUCT_MAIN_FRAGMENT(1,"ProductMainFragment"),
+    // 유저 정보 스크린
+    USER_INFO_MAIN_FRAGMENT(2,"UserInfoMainFragment"),
+    // 결제 스크린
+    PAYMENT_MAIN_FRAGMENT(3,"PaymentMainFragment")
 
 }

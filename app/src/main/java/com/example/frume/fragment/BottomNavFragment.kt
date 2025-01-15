@@ -1,6 +1,7 @@
 package com.example.frume.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +14,7 @@ import com.example.frume.R
 import com.example.frume.databinding.FragmentBottomNavBinding
 import com.example.frume.fragment.home_fragment.my_info.UserInfoFragment
 import com.example.frume.fragment.home_fragment.user_home.UserHomeFragment
-import com.example.frume.fragment.user_fragment.UserLoginFragment
+import com.example.frume.fragment.home_fragment.user_home.UserProductShowListFragment
 import com.example.frume.fragment.user_fragment.category.UserCategoryFragment
 import com.example.frume.fragment.user_fragment.user_cart.UserCartFragment
 import com.google.android.material.transition.MaterialSharedAxis
@@ -37,32 +38,33 @@ class BottomNavFragment(val combinationFragment: CombinationFragment) : Fragment
         mainActivity = activity as MainActivity
         // Inflate the layout for this fragment
         openHome()
-        onClickBottomNavigation()
+        onClickBottomNavigationItem()
         return bottomNavBinding.root
     }
 
 
 
+    // 첫 프레그트로 Home 으로 설정, 바텀 nav 아이템이 home에 클릭되도록 설정
     fun openHome() {
-
-        replaceFragment(BottomNavSubFragmentName.USER_HOME_FRAGMENT,false,true,null)
+        replaceFragment(BottomNavSubFragmentName.USER_HOME_FRAGMENT,true,true,null)
         bottomNavBinding.bottomNavMain.selectedItemId = R.id.menu_home
+
     }
 
-    fun onClickBottomNavigation() {
+    fun onClickBottomNavigationItem() {
         bottomNavBinding.bottomNavMain.setOnItemSelectedListener {item->
             when(item.itemId){
                 R.id.menu_category->{
-                    replaceFragment(BottomNavSubFragmentName.USER_CATEGORY_FRAGMENT,false,false,null)
+                    replaceFragment(BottomNavSubFragmentName.USER_CATEGORY_FRAGMENT,true,false,null)
                 }
                 R.id.menu_home->{
-                    replaceFragment(BottomNavSubFragmentName.USER_HOME_FRAGMENT,false,false,null)
+                    replaceFragment(BottomNavSubFragmentName.USER_HOME_FRAGMENT,true,false,null)
                 }
                 R.id.menu_profile->{
-                    replaceFragment(BottomNavSubFragmentName.USER_INFO_FRAGMENT,false,false,null)
+                    replaceFragment(BottomNavSubFragmentName.USER_INFO_FRAGMENT,true,false,null)
                 }
                 R.id.menu_cart->{
-                    replaceFragment(BottomNavSubFragmentName.USER_CART_FRAGMENT,false,false,null)
+                    replaceFragment(BottomNavSubFragmentName.USER_CART_FRAGMENT,true,false,null)
                 }
             }
             true
@@ -74,16 +76,19 @@ class BottomNavFragment(val combinationFragment: CombinationFragment) : Fragment
     // 프래그먼트를 교체하는 함수
     fun replaceFragment(fragmentName: BottomNavSubFragmentName, isAddToBackStack:Boolean, animate:Boolean, dataBundle: Bundle?){
         // newFragment가 null이 아니라면 oldFragment 변수에 담아준다.
+
+        // newFragment가 null이 아니라면 oldFragment 변수에 담아준다.
         if(newFragment != null){
             oldFragment = newFragment
         }
         // 프래그먼트 객체
         newFragment = when(fragmentName){
             // 로그인
-            BottomNavSubFragmentName.USER_HOME_FRAGMENT -> UserHomeFragment()
-            BottomNavSubFragmentName.USER_INFO_FRAGMENT -> UserInfoFragment()
+            BottomNavSubFragmentName.USER_HOME_FRAGMENT -> UserHomeFragment(this@BottomNavFragment)
+            BottomNavSubFragmentName.USER_INFO_FRAGMENT -> UserInfoFragment(this)
             BottomNavSubFragmentName.USER_CATEGORY_FRAGMENT -> UserCategoryFragment()
             BottomNavSubFragmentName.USER_CART_FRAGMENT -> UserCartFragment()
+            BottomNavSubFragmentName.USER_PRODUCT_SHOW_LIST_FRAGMENT -> UserProductShowListFragment()
         }
 
         // bundle 객체가 null이 아니라면
@@ -131,6 +136,8 @@ enum class BottomNavSubFragmentName(var number:Int, var str:String){
     // 내정보
     USER_INFO_FRAGMENT(2,"UserInfoFragment"),
     // 장바구니
-    USER_CART_FRAGMENT(3,"UserCartFragment")
+    USER_CART_FRAGMENT(3,"UserCartFragment"),
+    // 상품 리스트 뷰
+    USER_PRODUCT_SHOW_LIST_FRAGMENT(4,"userProductShowListFragment")
 }
 
