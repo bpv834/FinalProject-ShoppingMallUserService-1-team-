@@ -45,12 +45,13 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayoutUserOrderHistoryOrderStateFilter"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             app:layout_constraintTop_toTopOf="@id/viewUserOrderHistoryFilter"
             app:layout_constraintStart_toEndOf="@id/textViewUserOrderHistoryOrderFilterText"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:endIconMode="dropdown_menu"
 
             >
 
@@ -77,12 +78,14 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayoutUserOrderHistorySearchPeriodFilter"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="15dp"
             app:layout_constraintTop_toBottomOf="@id/textInputLayoutUserOrderHistoryOrderStateFilter"
             app:layout_constraintStart_toEndOf="@id/textViewUserOrderHistorySearchPeriod"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:endIconMode="dropdown_menu"
+
 
             >
 
