@@ -16,5 +16,4 @@ class UserPaymentScreenFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_user_payment_screen, container, false)
     }
-
 }

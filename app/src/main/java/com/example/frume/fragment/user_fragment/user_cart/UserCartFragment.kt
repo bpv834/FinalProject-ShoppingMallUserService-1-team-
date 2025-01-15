@@ -18,5 +18,4 @@ class UserCartFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_user_cart, container, false)
     }
 
-
 }

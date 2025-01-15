@@ -16,7 +16,6 @@
             android:layout_height="match_parent"
             >
 
-            <!--툴바 -->
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toolbarUserCart"
                 android:layout_width="match_parent"

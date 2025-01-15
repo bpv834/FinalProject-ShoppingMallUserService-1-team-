@@ -83,7 +83,6 @@
             android:background="@drawable/background_gray100"
             app:layout_constraintTop_toBottomOf="@id/textViewRecyclerViewProductPrice"
             app:layout_constraintStart_toEndOf="@id/imageViewRecyclerViewImage"
-
             />
 
         <ImageView
@@ -122,16 +121,6 @@
             app:layout_constraintBottom_toBottomOf="@id/viewRecyclerViewCount"
             app:layout_constraintEnd_toEndOf="@id/viewRecyclerViewCount"
             app:layout_constraintTop_toTopOf="@id/viewRecyclerViewCount" />
-
-
-
-
-
-
-
-
-
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
