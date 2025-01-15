@@ -14,6 +14,8 @@ import com.example.frume.databinding.FragmentBottomNavBinding
 import com.example.frume.fragment.home_fragment.my_info.UserInfoFragment
 import com.example.frume.fragment.home_fragment.user_home.UserHomeFragment
 import com.example.frume.fragment.user_fragment.UserLoginFragment
+import com.example.frume.fragment.user_fragment.category.UserCategoryFragment
+import com.example.frume.fragment.user_fragment.user_cart.UserCartFragment
 import com.google.android.material.transition.MaterialSharedAxis
 
 
@@ -42,14 +44,25 @@ class BottomNavFragment(val combinationFragment: CombinationFragment) : Fragment
 
 
     fun openHome() {
+
         replaceFragment(BottomNavSubFragmentName.USER_HOME_FRAGMENT,false,true,null)
+        bottomNavBinding.bottomNavMain.selectedItemId = R.id.menu_home
     }
 
     fun onClickBottomNavigation() {
         bottomNavBinding.bottomNavMain.setOnItemSelectedListener {item->
             when(item.itemId){
+                R.id.menu_category->{
+                    replaceFragment(BottomNavSubFragmentName.USER_CATEGORY_FRAGMENT,false,false,null)
+                }
+                R.id.menu_home->{
+                    replaceFragment(BottomNavSubFragmentName.USER_HOME_FRAGMENT,false,false,null)
+                }
                 R.id.menu_profile->{
                     replaceFragment(BottomNavSubFragmentName.USER_INFO_FRAGMENT,false,false,null)
+                }
+                R.id.menu_cart->{
+                    replaceFragment(BottomNavSubFragmentName.USER_CART_FRAGMENT,false,false,null)
                 }
             }
             true
@@ -69,6 +82,8 @@ class BottomNavFragment(val combinationFragment: CombinationFragment) : Fragment
             // 로그인
             BottomNavSubFragmentName.USER_HOME_FRAGMENT -> UserHomeFragment()
             BottomNavSubFragmentName.USER_INFO_FRAGMENT -> UserInfoFragment()
+            BottomNavSubFragmentName.USER_CATEGORY_FRAGMENT -> UserCategoryFragment()
+            BottomNavSubFragmentName.USER_CART_FRAGMENT -> UserCartFragment()
         }
 
         // bundle 객체가 null이 아니라면
@@ -109,9 +124,13 @@ class BottomNavFragment(val combinationFragment: CombinationFragment) : Fragment
 
 // 하위 프래그먼트들의 이름
 enum class BottomNavSubFragmentName(var number:Int, var str:String){
+    // 카테고리
+    USER_CATEGORY_FRAGMENT(0,"UserCategoryFragment"),
     // 홈
     USER_HOME_FRAGMENT(1, "UserHomeFragment"),
     // 내정보
-    USER_INFO_FRAGMENT(2,"UserInfoFragment")
+    USER_INFO_FRAGMENT(2,"UserInfoFragment"),
+    // 장바구니
+    USER_CART_FRAGMENT(3,"UserCartFragment")
 }
 

@@ -1,17 +1,30 @@
 package com.example.frume.fragment
 
+import android.content.DialogInterface
+import android.graphics.Rect
 import android.os.Bundle
+import android.os.SystemClock
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import android.widget.SearchView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity.INPUT_METHOD_SERVICE
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.commit
 import com.example.frume.MainActivity
 import com.example.frume.R
 import com.example.frume.databinding.FragmentCombinationBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.transition.MaterialSharedAxis
+import kotlin.concurrent.thread
 
 
 class CombinationFragment : Fragment() {
@@ -90,6 +103,35 @@ class CombinationFragment : Fragment() {
     fun removeFragment(fragmentName: SubMainFragmentName){
         mainActivity.supportFragmentManager.popBackStack(fragmentName.str, FragmentManager.POP_BACK_STACK_INCLUSIVE)
     }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_user_home_search, menu) // 메뉴 XML 파일을 팽창
+
+        val searchItem = menu.findItem(R.id.menuItemUserHomeSearch) // 메뉴 아이템 참조
+        val searchView = searchItem.actionView as SearchView // SearchView로 변환
+
+        // SearchView 동작 설정
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                // 검색 버튼 (엔터 또는 Done 버튼) 눌렀을 때 동작
+                Toast.makeText(context, "Search: $query", Toast.LENGTH_SHORT).show()
+                searchView.clearFocus() // 키보드 닫기
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                // 텍스트 입력 중 동작
+                return false
+            }
+        })
+
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+
+
+
+
 
 }
 
