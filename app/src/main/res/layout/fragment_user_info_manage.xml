@@ -185,7 +185,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="정보 수정하기"
+                android:text="계정 탈퇴하기"
                 app:layout_constraintTop_toBottomOf="@id/buttonUserInfoManageModifyUserInfo"
                 app:layout_constraintStart_toStartOf="@id/viewUserInfoModifyShowInfo"
                 android:fontFamily="@font/nanumsquareneo_3"
