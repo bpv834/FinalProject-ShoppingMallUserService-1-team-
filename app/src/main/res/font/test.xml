@@ -4,27 +4,27 @@
     <font
         android:fontStyle="normal"
         android:fontWeight="400"
-        android:font="@font/nanumsquareneo_alt" />
+        android:font="@font/nanumsquareneo_1" />
 
     <font
         android:fontStyle="normal"
         android:fontWeight="400"
-        android:font="@font/nanumsquareneo_brg" />
+        android:font="@font/nanumsquareneo_2" />
 
     <font
         android:fontStyle="normal"
         android:fontWeight="400"
-        android:font="@font/nanumsquareneo_cbd" />
+        android:font="@font/nanumsquareneo_3" />
 
     <font
         android:fontStyle="normal"
         android:fontWeight="400"
-        android:font="@font/nanumsquareneo_deb" />
+        android:font="@font/nanumsquareneo_4" />
 
     <font
         android:fontStyle="normal"
         android:fontWeight="400"
-        android:font="@font/nanumsquareneo_ehv" />
+        android:font="@font/nanumsquareneo_5" />
 
 
 </font-family>

@@ -2,4 +2,36 @@
     <string name="app_name">FruMe</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string-array name="item_user_order_state_order_state">
+        <item>전체</item>
+        <item>출고 준비중</item>
+        <item>출고 완료</item>
+        <item>배송 준비중</item>
+        <item>배송중</item>
+        <item>배송 완료</item>
+        <item>결제 대기중</item>
+        <item>결제 완료</item>
+        <item>취소</item>
+        <item>반품</item>
+        <item>교환</item>
+    </string-array>
+
+
+    <string-array name="item_user_order_state_search_period">
+        <item>전체</item>
+        <item>15일</item>
+        <item>1개월</item>
+        <item>3개월</item>
+        <item>6개월</item>
+    </string-array>
+
+    <string-array name="item_user_cancel_and_return">
+        <item>반품</item>
+        <item>교환</item>
+        <item>취소</item>
+    </string-array>
+
+
 </resources>
