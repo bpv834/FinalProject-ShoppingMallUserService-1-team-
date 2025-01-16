@@ -9,31 +9,38 @@ import androidx.databinding.DataBindingUtil
 import com.example.frume.HomeActivity
 import com.example.frume.MainActivity
 import com.example.frume.R
-import com.example.frume.databinding.FragmentUserInfoModifyBinding
+import com.example.frume.databinding.FragmentUserPwModifyBinding
 import com.example.frume.fragment_main.UserInfoMainFragment
 import com.example.frume.fragment_main.UserInfoSubFragment
 
-class UserInfoModifyFragment(val userInfoMainFragment: UserInfoMainFragment) : Fragment() {
 
-    lateinit var fragmentUserInfoModifyBinding: FragmentUserInfoModifyBinding
+class UserPwModifyFragment(val userInfoMainFragment: UserInfoMainFragment) : Fragment() {
+
+    lateinit var fragmentPwModifyBinding: FragmentUserPwModifyBinding
     lateinit var homeActivity: HomeActivity
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        fragmentUserInfoModifyBinding = DataBindingUtil.inflate(
+
+        fragmentPwModifyBinding = DataBindingUtil.inflate(
             inflater,
-            R.layout.fragment_user_info_modify,
+            R.layout.fragment_user_pw_modify,
             container,
             false
         )
         onClickButtonSubmit()
-        return fragmentUserInfoModifyBinding.root
+
+
+        return fragmentPwModifyBinding.root
     }
 
     fun onClickButtonSubmit() {
-        fragmentUserInfoModifyBinding.buttonUserInfoManageModifyUserInfo.setOnClickListener {
-            userInfoMainFragment.removeFragment(UserInfoSubFragment.USER_INFO_MODIFY_FRAGMENT)
+        fragmentPwModifyBinding.buttonUserPwModifySubmit.setOnClickListener {
+            userInfoMainFragment.removeFragment(UserInfoSubFragment.USER_PW_MODIFY_FRAGMENT)
+
         }
     }
 

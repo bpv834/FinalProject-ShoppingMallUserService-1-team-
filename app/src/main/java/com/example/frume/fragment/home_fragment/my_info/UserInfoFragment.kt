@@ -2,46 +2,84 @@ package com.example.frume.fragment.home_fragment.my_info
 
 import android.os.Bundle
 import android.util.Log
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.databinding.DataBindingUtil
+import com.example.frume.HomeActivity
+import com.example.frume.MainActivity
+import com.example.frume.R
 import com.example.frume.databinding.FragmentUserInfoBinding
-import com.example.frume.fragment.screen_manager.HomeMainFragment
+import com.example.frume.fragment.BottomNavFragment
+import com.example.frume.fragment.SubMainFragmentName
+import com.example.frume.util.UserInfoType
 
-class UserInfoFragment : Fragment() {
-    private var _binding: FragmentUserInfoBinding? = null
-    private val binding get() = _binding!!
+class UserInfoFragment(val bottomNavFragment: BottomNavFragment) : Fragment() {
 
+    lateinit var homeActivity: HomeActivity
+    lateinit var fragmentUserInfoBinding: FragmentUserInfoBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentUserInfoBinding.inflate(inflater, container, false)
-        return binding.root
+    ): View? {
+
+        fragmentUserInfoBinding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_user_info, container, false)
+        homeActivity = activity as HomeActivity
+        // Inflate the layout for this fragment
+        onClickOrderHistory()
+        onClickDeliverySpotManagement()
+        onClickUserInfoManagementOrLeave()
+        return fragmentUserInfoBinding.root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        onClickModify()
-    }
 
-    private fun onClickModify() {
-        binding.textViewUserInfoAccountInfo.setOnClickListener {
-            setLayout()
+    fun onClickOrderHistory() {
+        fragmentUserInfoBinding.textViewUserInfoOrderHistory.setOnClickListener {
+            val dataBundle = Bundle()
+            Log.d("test100","UserInfoType.USER_ORDER_HISTORY_FRAGMENT.number : ${UserInfoType.USER_ORDER_HISTORY_FRAGMENT.number}")
+            dataBundle.putInt("UserInfoType", UserInfoType.USER_ORDER_HISTORY_FRAGMENT.number)
+           bottomNavFragment.combinationFragment.replaceFragment(
+                SubMainFragmentName.USER_INFO_MAIN_FRAGMENT,
+                true,
+                true,
+                dataBundle
+            )
         }
     }
+    fun onClickDeliverySpotManagement() {
+        fragmentUserInfoBinding.textViewUserInfoShippingInfo.setOnClickListener {
+            val dataBundle = Bundle()
+            Log.d("test100","UserInfoType.USER_ADDRESS_MANAGE_FRAGMENT.number : ${UserInfoType.USER_ADDRESS_MANAGE_FRAGMENT}")
 
-    private fun setLayout() {
-        val dataBundle = Bundle()
-        dataBundle.putString("Fragment", "Info")
-        Log.d("UserInfoFragment", "Sending dataBundle: $dataBundle")
-        (parentFragment?.parentFragment as? HomeMainFragment)?.switchToFragment(dataBundle)
+            dataBundle.putInt("UserInfoType", UserInfoType.USER_ADDRESS_MANAGE_FRAGMENT.number)
+            bottomNavFragment.combinationFragment.replaceFragment(
+                SubMainFragmentName.USER_INFO_MAIN_FRAGMENT,
+                true,
+                true,
+                dataBundle
+            )
+        }
+
     }
+
+    fun onClickUserInfoManagementOrLeave() {
+        fragmentUserInfoBinding.textViewUserInfoAccountInfo.setOnClickListener {
+            val dataBundle = Bundle()
+            Log.d("test100","UserInfoType.USER_INFO_MANAGE_FRAGMENT.number : ${UserInfoType.USER_INFO_MANAGE_FRAGMENT.number}")
+
+            dataBundle.putInt("UserInfoType", UserInfoType.USER_INFO_MANAGE_FRAGMENT.number)
+            bottomNavFragment.combinationFragment.replaceFragment(
+                SubMainFragmentName.USER_INFO_MAIN_FRAGMENT,
+                true,
+                true,
+                dataBundle
+            )
+        }
+
+    }
+
 
 }

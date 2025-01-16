@@ -9,12 +9,11 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragment.FullScreenFragment">
+        tools:context=".fragment.CombinationFragment">
 
         <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/containerFullScreen"
+            android:id="@+id/containerCombination"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
