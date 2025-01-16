@@ -45,6 +45,8 @@ enum class ProductSubFragment(var number:Int, var str:String){
     // 상품 후기 작성
     USER_PRODUCT_INFO_WRITE_REVIEW_FRAGMENT(4,"UserProductWriteReviewFragment"),
     // 상품 주문 다이얼로그
-    USER_PRODUCT_INFO_DIALOG_FRAGMENT(5,"UserProductInfoDialogFragment")
+    USER_PRODUCT_INFO_DIALOG_FRAGMENT(5,"UserProductInfoDialogFragment"),
+    // 상품 리스트 뷰
+    USER_PRODUCT_SHOW_LIST_FRAGMENT(6,"userProductShowListFragment")
 
 }

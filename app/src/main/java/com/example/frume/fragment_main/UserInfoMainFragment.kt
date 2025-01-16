@@ -117,7 +117,6 @@ class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragm
 
         // 프래그먼트 교체
         homeActivity.supportFragmentManager.commit {
-
             if (animate) {
                 // 만약 이전 프래그먼트가 있다면
                 if (oldFragment != null) {
@@ -126,7 +125,6 @@ class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragm
                     oldFragment?.reenterTransition =
                         MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ false)
                 }
-
                 newFragment?.exitTransition =
                     MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ true)
                 newFragment?.reenterTransition =
@@ -136,12 +134,10 @@ class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragm
                 newFragment?.returnTransition =
                     MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ false)
             }
-
             replace(R.id.containerUserInfoMain, newFragment!!)
             if (isAddToBackStack) {
                 addToBackStack(fragmentName.str)
             }
-
         }
     }
 
@@ -188,10 +184,8 @@ class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragm
                 // 5
                 userInfoType = UserInfoType.USER_ADDRESS_MANAGE_FRAGMENT
             }
-
         }
     }
-
 
 }
 
