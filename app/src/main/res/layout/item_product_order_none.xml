@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
-
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
@@ -17,5 +15,3 @@
             android:textColor="@color/gray50"
             android:layout_gravity="center" />
     </LinearLayout>
-
-</layout>
