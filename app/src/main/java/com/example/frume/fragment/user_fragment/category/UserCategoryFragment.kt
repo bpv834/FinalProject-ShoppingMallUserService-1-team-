@@ -1,23 +1,47 @@
 package com.example.frume.fragment.user_fragment.category
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.frume.R
+import com.example.frume.databinding.FragmentUserCategoryBinding
+import com.example.frume.fragment.screen_manager.HomeMainFragment
 
 
 class UserCategoryFragment : Fragment() {
-
+    private var _binding: FragmentUserCategoryBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user_category, container, false)
+    ): View {
+        _binding = FragmentUserCategoryBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding=null
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        onClickItem()
+    }
+
+    private fun onClickItem() {
+        binding.textViewUserCategoryStrawberry.setOnClickListener {
+            setLayout()
+        }
+    }
+
+    private fun setLayout() {
+        val dataBundle = Bundle()
+        dataBundle.putString("Fragment","Category")
+        (parentFragment?.parentFragment as? HomeMainFragment)?.switchToFragment(dataBundle)
+    }
 }

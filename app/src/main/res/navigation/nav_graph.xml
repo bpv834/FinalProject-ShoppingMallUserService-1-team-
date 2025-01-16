@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/nav_graph"
+	app:startDestination="@id/userLoginFragment">
+	<fragment
+		android:id="@+id/userLoginFragment"
+		android:name="com.example.frume.fragment.user_fragment.UserLoginFragment"
+		android:label="UserLoginFragment"
+		tools:layout="@layout/fragment_user_login">
+		<action
+			android:id="@+id/action_userLoginFragment_to_userHomeFragment2"
+			app:destination="@id/navigation_home" />
+	</fragment>
+	<fragment
+		android:id="@+id/navigation_home"
+		android:name="com.example.frume.fragment.home_fragment.user_home.UserHomeFragment"
+		android:label="UserHomeFragment"
+		tools:layout="@layout/fragment_user_home" />
+	<fragment
+		android:id="@+id/navigation_category"
+		android:name="com.example.frume.fragment.user_fragment.category.UserCategoryFragment"
+		android:label="fragment_user_category"
+		tools:layout="@layout/fragment_user_category" />
+	<fragment
+		android:id="@+id/navigation_info"
+		android:name="com.example.frume.fragment.home_fragment.my_info.UserInfoFragment"
+		android:label="UserInfoFragment"
+		tools:layout="@layout/fragment_user_info" />
+	<fragment
+		android:id="@+id/navigation_cart"
+		android:name="com.example.frume.fragment.user_fragment.user_cart.UserCartFragment"
+		android:label="UserCartFragment"
+		tools:layout="@layout/fragment_user_cart" />
+</navigation>
