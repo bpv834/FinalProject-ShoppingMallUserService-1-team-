@@ -2,10 +2,17 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
+<!--    <item
         android:id="@+id/menuItemUserHomeSearch"
         android:icon="@drawable/ic_search_24px"
         android:title="검색 기능"
         app:actionViewClass="android.widget.SearchView"
-        app:showAsAction="always" />
+        app:showAsAction="always"
+        android:imeOptions="actionSearch"
+        />-->
+    <item
+        android:id="@+id/menuSearch"
+        android:title="t"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_search_24px" />
 </menu>
