@@ -6,15 +6,10 @@
     <data>
 
     </data>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
         <com.google.android.material.carousel.MaskableFrameLayout
             android:id="@+id/maskableFrameLayoutUserProductInfoDescriptionCarousel"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="match_parent"
             android:layout_margin="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -23,14 +18,13 @@
             app:shapeAppearance="?attr/shapeAppearanceCornerExtraLarge">
 
             <ImageView
-                android:id="@+id/imageViewUserProductInfoDescriptionCarousel"
+                android:id="@+id/imageViewItemProductInfoImageCarousel"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:background="@color/red50"
+               android:src="@drawable/img_straw1_png"
                 />
 
         </com.google.android.material.carousel.MaskableFrameLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

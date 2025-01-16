@@ -39,13 +39,15 @@ class UserProductInfoFragment(val productMainFragment: ProductMainFragment) : Fr
     }
 
 
-
-     // ViewPager2와 TabLayout 초기화 메서드
+    // ViewPager2와 TabLayout 초기화 메서드
     private fun setupViewPagerAndTabs() {
         // ViewPager2 어댑터 설정
         val adapter = ProductInfoPagerAdapter(this)
-        fragmentUserProductInfoBinding.viewPagerUserProductInfo.adapter=adapter
 
+
+        fragmentUserProductInfoBinding.viewPagerUserProductInfo.adapter = adapter
+       // 사용자가 스와이프하여 페이지를 전환할 수 없도록 설정
+        fragmentUserProductInfoBinding.viewPagerUserProductInfo.isUserInputEnabled = false
         // TabLayout과 ViewPager2 연결
         TabLayoutMediator(
             fragmentUserProductInfoBinding.tabLayoutUserProductInfo,

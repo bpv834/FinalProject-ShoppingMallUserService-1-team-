@@ -77,8 +77,8 @@ class ProductMainFragment(val combinationFragment: CombinationFragment) : Fragme
             ProductSubFragment.USER_PRODUCT_INFO_DESCRIPTION_FRAGMENT -> UserProductInfoDescriptionFragment(this@ProductMainFragment)
             ProductSubFragment.USER_PRODUCT_INFO_DETAIL_FRAGMENT -> UserProductInfoDetailFragment(this@ProductMainFragment)
             ProductSubFragment.USER_PRODUCT_INFO_REVIEW_FRAGMENT -> UserProductInfoReviewFragment(this@ProductMainFragment)
-            ProductSubFragment.USER_PRODUCT_INFO_WRITE_REVIEW_FRAGMENT -> UserProductInfoWriteReviewFragment()
-            ProductSubFragment.USER_PRODUCT_INFO_DIALOG_FRAGMENT -> UserProductInfoDialogFragment()
+            ProductSubFragment.USER_PRODUCT_INFO_WRITE_REVIEW_FRAGMENT -> UserProductInfoWriteReviewFragment(this@ProductMainFragment)
+            ProductSubFragment.USER_PRODUCT_INFO_DIALOG_FRAGMENT -> UserProductInfoDialogFragment(this)
             ProductSubFragment.USER_PRODUCT_SHOW_LIST_FRAGMENT -> UserProductShowListFragment()
         }
 
@@ -114,7 +114,7 @@ class ProductMainFragment(val combinationFragment: CombinationFragment) : Fragme
     }
 
     // 프래그먼트를 BackStack에서 제거하는 메서드
-    fun removeFragment(fragmentName: UserInfoSubFragment) {
+    fun removeFragment(fragmentName: ProductSubFragment) {
         homeActivity.supportFragmentManager.popBackStack(
             fragmentName.str,
             FragmentManager.POP_BACK_STACK_INCLUSIVE
@@ -139,5 +139,7 @@ enum class ProductSubFragment(var number:Int, var str:String){
     USER_PRODUCT_INFO_DIALOG_FRAGMENT(5,"UserProductInfoDialogFragment"),
     // 상품 리스트 뷰
     USER_PRODUCT_SHOW_LIST_FRAGMENT(6,"userProductShowListFragment")
+    // 구매 뷰
+
 
 }
