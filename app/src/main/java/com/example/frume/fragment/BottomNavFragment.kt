@@ -87,9 +87,8 @@ class BottomNavFragment(val combinationFragment: CombinationFragment) : Fragment
             // 로그인
             BottomNavSubFragmentName.USER_HOME_FRAGMENT -> UserHomeFragment(this@BottomNavFragment)
             BottomNavSubFragmentName.USER_INFO_FRAGMENT -> UserInfoFragment(this)
-            BottomNavSubFragmentName.USER_CATEGORY_FRAGMENT -> UserCategoryFragment()
+            BottomNavSubFragmentName.USER_CATEGORY_FRAGMENT -> UserCategoryFragment(this@BottomNavFragment)
             BottomNavSubFragmentName.USER_CART_FRAGMENT -> UserCartFragment()
-            BottomNavSubFragmentName.USER_PRODUCT_SHOW_LIST_FRAGMENT -> UserProductShowListFragment()
         }
 
         // bundle 객체가 null이 아니라면
