@@ -149,7 +149,7 @@ class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragm
         )
     }
 
-    // 게시판 타입 값을 담는 메서드
+    // 유저 보드 타입 값을 담는 메서드
     fun settingUserInfoType() {
         val tempType = arguments?.getInt("UserInfoType")!!
         Log.d("test100", "tempType = ${tempType}")

@@ -137,6 +137,5 @@ enum class BottomNavSubFragmentName(var number:Int, var str:String){
     USER_INFO_FRAGMENT(2,"UserInfoFragment"),
     // 장바구니
     USER_CART_FRAGMENT(3,"UserCartFragment"),
-
 }
 

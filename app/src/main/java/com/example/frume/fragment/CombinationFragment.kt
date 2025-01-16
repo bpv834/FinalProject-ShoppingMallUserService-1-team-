@@ -1,6 +1,7 @@
 package com.example.frume.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,8 +36,11 @@ class CombinationFragment : Fragment() {
         combinationBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_combination, container, false)
         homeActivity= activity as HomeActivity
         // Inflate the layout for this fragment
+        Log.d("test100","combiFragment")
 
-        replaceFragment(SubMainFragmentName.NAV_MAIN_FRAGMENT,false, false, null)
+
+        // 맞는 코드replaceFragment(SubMainFragmentName.NAV_MAIN_FRAGMENT,false, false, null)
+        replaceFragment(SubMainFragmentName.PRODUCT_MAIN_FRAGMENT,true,true,null)
         return combinationBinding.root
     }
 
