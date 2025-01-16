@@ -15,6 +15,7 @@ import com.example.frume.databinding.FragmentBottomNavBinding
 import com.example.frume.fragment.home_fragment.my_info.UserInfoFragment
 import com.example.frume.fragment.home_fragment.user_home.UserHomeFragment
 import com.example.frume.fragment.home_fragment.user_home.UserProductShowListFragment
+import com.example.frume.fragment.user_fragment.category.UserCategoryDetailFragment
 import com.example.frume.fragment.user_fragment.category.UserCategoryFragment
 import com.example.frume.fragment.user_fragment.user_cart.UserCartFragment
 import com.google.android.material.transition.MaterialSharedAxis
@@ -88,9 +89,11 @@ class BottomNavFragment(val combinationFragment: CombinationFragment) : Fragment
             // 로그인
             BottomNavSubFragmentName.USER_HOME_FRAGMENT -> UserHomeFragment(this@BottomNavFragment)
             BottomNavSubFragmentName.USER_INFO_FRAGMENT -> UserInfoFragment(this)
-            BottomNavSubFragmentName.USER_CATEGORY_FRAGMENT -> UserCategoryFragment()
+            BottomNavSubFragmentName.USER_CATEGORY_FRAGMENT -> UserCategoryFragment(this)
             BottomNavSubFragmentName.USER_CART_FRAGMENT -> UserCartFragment()
             BottomNavSubFragmentName.USER_PRODUCT_SHOW_LIST_FRAGMENT -> UserProductShowListFragment()
+//            // hyeonseo 0116 13:52 추가
+//            BottomNavSubFragmentName.USER_CATEGORY_DETAIL_FRAGMENT -> UserCategoryDetailFragment()
         }
 
         // bundle 객체가 null이 아니라면
@@ -139,7 +142,13 @@ enum class BottomNavSubFragmentName(var number:Int, var str:String){
     USER_INFO_FRAGMENT(2,"UserInfoFragment"),
     // 장바구니
     USER_CART_FRAGMENT(3,"UserCartFragment"),
-    // 상품 리스트 뷰
-    USER_PRODUCT_SHOW_LIST_FRAGMENT(4,"userProductShowListFragment")
+    // 상품 리스트 뷰 -> 검색결과
+    USER_PRODUCT_SHOW_LIST_FRAGMENT(4,"userProductShowListFragment"),
+
+//
+//    // 카테고리 선택 -> 상품 리스트 뷰
+//    USER_CATEGORY_DETAIL_FRAGMENT(5,"UserCategoryDetailFragment")
 }
+
+
 

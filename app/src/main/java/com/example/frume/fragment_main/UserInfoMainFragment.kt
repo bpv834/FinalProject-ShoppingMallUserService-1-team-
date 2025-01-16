@@ -33,8 +33,10 @@ class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragm
     // 현재 Fragment와 다음 Fragment를 담을 변수(애니메이션 이동 때문에...)
     var newFragment: Fragment? = null
     var oldFragment: Fragment? = null
+
     lateinit var fragmentUserInfoMainFragment: FragmentUserInfoMainBinding
     lateinit var homeActivity: HomeActivity
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -194,6 +196,10 @@ class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragm
 
 
 }
+
+
+
+
 
 
 enum class UserInfoSubFragment(var number: Int, var str: String) {

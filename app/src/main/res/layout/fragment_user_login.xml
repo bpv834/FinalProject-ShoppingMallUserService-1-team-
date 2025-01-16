@@ -160,5 +160,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dividerLine" />
 
+        <Button
+            android:id="@+id/buttonUserLoginNonMember"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ic_selector_button_background"
+            android:drawablePadding="0dp"
+            android:fontFamily="@font/nanumsquareneo_3"
+            android:text="비회원 접속"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonUserLoginKakao" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

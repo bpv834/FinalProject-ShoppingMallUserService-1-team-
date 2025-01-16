@@ -24,7 +24,13 @@ class UserLoginFragment() : Fragment() {
     ): View? {
         userActivity = activity as UserActivity
         userLoginBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_user_login,container,false)
+
+
         onClickLoginButton()
+        onClickSignUp()
+        onClickNonMember()
+
+
         return userLoginBinding.root
     }
 
@@ -32,6 +38,27 @@ class UserLoginFragment() : Fragment() {
         userLoginBinding.buttonUserLogin.setOnClickListener {
             val dataBundle= Bundle()
 
+            // UserActivity를 실행하고 현재 Activity를 종료한다.
+            val homeIntent = Intent(userActivity, HomeActivity::class.java)
+            startActivity(homeIntent)
+            userActivity.finish()
+        }
+
+
+    }
+
+    // 회원 가입 화면으로 이동시키는 메서드
+    fun onClickSignUp() {
+        userLoginBinding.textViewUserLoginSignUpButton.setOnClickListener {
+
+            userActivity.replaceFragment(UserActivity.UserFragmentName.USER_SIGN_UP_FRAGMENT,false,false,null)
+
+        }
+    }
+
+    // 비회원 접속시 홈화면으로 이동시키는 메서드
+    fun onClickNonMember(){
+        userLoginBinding.buttonUserLoginNonMember.setOnClickListener {
             // UserActivity를 실행하고 현재 Activity를 종료한다.
             val homeIntent = Intent(userActivity, HomeActivity::class.java)
             startActivity(homeIntent)
