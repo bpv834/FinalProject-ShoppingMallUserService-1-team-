@@ -17,6 +17,7 @@ import com.example.frume.databinding.FragmentUserProductInfoDescriptionBinding
 import com.example.frume.databinding.ItemProductInfoImageBinding
 import com.example.frume.databinding.ItemProductInfoImageCarouselBinding
 import com.example.frume.fragment_main.ProductMainFragment
+import com.example.frume.util.ItemMarginDecoration
 import com.google.android.material.carousel.CarouselLayoutManager
 import com.google.android.material.carousel.CarouselSnapHelper
 import com.google.android.material.divider.MaterialDividerItemDecoration
@@ -69,9 +70,9 @@ class UserProductInfoDescriptionFragment(val productMainFragment: ProductMainFra
             recyclerViewUserProductInfoDescriptionDescriptionImage.layoutManager =
                 LinearLayoutManager(homeActivity)
             // 구분선
-            val deco =
-                MaterialDividerItemDecoration(homeActivity, MaterialDividerItemDecoration.VERTICAL)
-            recyclerViewUserProductInfoDescriptionDescriptionImage.addItemDecoration(deco)
+            recyclerViewUserProductInfoDescriptionDescriptionImage.addItemDecoration(
+                ItemMarginDecoration(26) // 상하 여백을 26dp로 설정
+            )
         }
     }
 

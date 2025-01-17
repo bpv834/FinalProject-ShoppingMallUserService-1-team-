@@ -12,6 +12,7 @@ import com.example.frume.HomeActivity
 import com.example.frume.R
 import com.example.frume.databinding.FragmentUserProductInfoBinding
 import com.example.frume.fragment_main.ProductMainFragment
+import com.example.frume.fragment_main.ProductSubFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
 
@@ -34,8 +35,18 @@ class UserProductInfoFragment(val productMainFragment: ProductMainFragment) : Fr
         Log.d("test100", "UserProductInfoFragment")
         // ViewPager2 및 TabLayout 초기화
         setupViewPagerAndTabs()
+        // 뒤로가기 버튼 클릭 이벤트
+        onClickNavigationIconBackStack()
 
         return fragmentUserProductInfoBinding.root
+    }
+
+    fun onClickNavigationIconBackStack() {
+        fragmentUserProductInfoBinding.toolBarUserProductInfo.apply {
+            setNavigationOnClickListener {
+                productMainFragment.removeFragment(ProductSubFragment.USER_PRODUCT_INFO_FRAGMENT)
+            }
+        }
     }
 
 

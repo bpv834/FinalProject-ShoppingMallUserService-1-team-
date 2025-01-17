@@ -125,6 +125,8 @@
 			android:fontFamily="@font/nanumsquareneo_3"
 			android:gravity="center"
 			android:hint="직접입력"
+			android:imeOptions="actionDone"
+			android:maxLines="1"
 			app:layout_constraintBottom_toBottomOf="@id/viewProductInfoDialogCountInput"
 			app:layout_constraintEnd_toStartOf="@id/imageViewProductInfoDialogAdd"
 			app:layout_constraintStart_toEndOf="@id/imageViewProductInfoDialogRemove"

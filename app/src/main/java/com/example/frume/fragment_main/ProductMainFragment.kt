@@ -29,12 +29,15 @@ import com.example.frume.fragment.user_fragment.product_info.UserProductInfoDial
 import com.example.frume.fragment.user_fragment.product_info.UserProductInfoFragment
 import com.example.frume.fragment.user_fragment.product_info.UserProductInfoReviewFragment
 import com.example.frume.fragment.user_fragment.product_info.UserProductInfoWriteReviewFragment
+import com.example.frume.util.ProductInfoType
+import com.example.frume.util.UserInfoType
 import com.google.android.material.transition.MaterialSharedAxis
 
 
 class ProductMainFragment(val combinationFragment: CombinationFragment) : Fragment() {
 
-
+    // 상품화면 타입값
+    var productInfoType: ProductInfoType = ProductInfoType.USER_PRODUCT_INFO_TYPE
 
     lateinit var fragmentProductMainBinding : FragmentProductMainBinding
     lateinit var homeActivity: HomeActivity
@@ -47,11 +50,19 @@ class ProductMainFragment(val combinationFragment: CombinationFragment) : Fragme
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         fragmentProductMainBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_product_main,container,false)
         homeActivity = activity as HomeActivity
+
         // test
-        Log.d("test100","productMainFragment")
+        // Log.d("test100","productMainFragment")
+
+        arguments?.getInt("ProductInfoType")
+        settingUserInfoType()
+        // arguments를 통해 화면 전환 메서드 실행
+        // 아규먼트를 이용해  화면 분기에 사용할 UserInfoType을 지정해줌
+        if(arguments != null){
+            replaceFragmentByArguments()
+        }
 
         replaceFragment(ProductSubFragment.USER_PRODUCT_INFO_FRAGMENT,true,true,null)
         return fragmentProductMainBinding.root
@@ -121,10 +132,69 @@ class ProductMainFragment(val combinationFragment: CombinationFragment) : Fragme
         )
     }
 
+    // 유저 보드 타입 값을 담는 메서드
+    fun settingUserInfoType() {
+        val tempType = arguments?.getInt("ProductInfoType")!!
+        Log.d("test100", "tempType = ${tempType}")
+        when (tempType) {
+            // 상품 0
+            ProductInfoType.USER_PRODUCT_INFO_TYPE.number->{
+                productInfoType = ProductInfoType.USER_PRODUCT_INFO_TYPE
+            }
+
+            // 상품 설명 1
+            ProductInfoType.USER_PRODUCT_INFO_DESCRIPTION_TYPE.number ->{
+                productInfoType = ProductInfoType.USER_PRODUCT_INFO_DESCRIPTION_TYPE
+            }
+                // 상품 상세 정보 2
+            ProductInfoType.USER_PRODUCT_INFO_DETAIL_TYPE.number->{
+                productInfoType = ProductInfoType.USER_PRODUCT_INFO_DETAIL_TYPE
+            }
+                // 상품 후기 3
+            ProductInfoType.USER_PRODUCT_INFO_REVIEW_TYPE.number-> {
+                productInfoType = ProductInfoType.USER_PRODUCT_INFO_REVIEW_TYPE
+            }
+                // 상품 후기 작성 4
+            ProductInfoType.USER_PRODUCT_INFO_WRITE_TYPE.number->{
+                productInfoType = ProductInfoType.USER_PRODUCT_INFO_WRITE_TYPE
+            }
+                // 상품 주문 다이얼로그 5
+            ProductInfoType.USER_PRODUCT_INFO_DIALOG_TYPE.number->{
+                productInfoType = ProductInfoType.USER_PRODUCT_INFO_DIALOG_TYPE
+            }
+                // 상품 리스트 뷰
+            ProductInfoType.USER_PRODUCT_SHOW_LIST_TYPE.number->{
+                productInfoType = ProductInfoType.USER_PRODUCT_SHOW_LIST_TYPE
+            }
+        }
+    }
+
+    // UserInfoType 필드로 분기하여 화면을 전환한다
+    private fun replaceFragmentByArguments() {
+        when (productInfoType) {
+            // 상품 ( 탭레이아웃을 갖고 있는 프레그먼트)
+            ProductInfoType.USER_PRODUCT_INFO_TYPE -> replaceFragment(ProductSubFragment.USER_PRODUCT_INFO_FRAGMENT,true,true,null)
+            // 상품 설명
+            ProductInfoType.USER_PRODUCT_INFO_DESCRIPTION_TYPE -> replaceFragment(ProductSubFragment.USER_PRODUCT_INFO_DESCRIPTION_FRAGMENT,true,true,null)
+            // 상품 상세 설명
+            ProductInfoType.USER_PRODUCT_INFO_DETAIL_TYPE -> replaceFragment(ProductSubFragment.USER_PRODUCT_INFO_DETAIL_FRAGMENT,true,true,null)
+            // 상품 리뷰
+            ProductInfoType.USER_PRODUCT_INFO_REVIEW_TYPE -> replaceFragment(ProductSubFragment.USER_PRODUCT_INFO_REVIEW_FRAGMENT,true,true,null)
+            // 상품 리뷰 쓰기
+            ProductInfoType.USER_PRODUCT_INFO_WRITE_TYPE -> replaceFragment(ProductSubFragment.USER_PRODUCT_INFO_WRITE_REVIEW_FRAGMENT,true,true,null)
+            // 상품 구매 바텀시트
+            ProductInfoType.USER_PRODUCT_INFO_DIALOG_TYPE -> replaceFragment(ProductSubFragment.USER_PRODUCT_INFO_DIALOG_FRAGMENT,true,true,null)
+            // 상품 리스트
+            ProductInfoType.USER_PRODUCT_SHOW_LIST_TYPE -> replaceFragment(ProductSubFragment.USER_PRODUCT_SHOW_LIST_FRAGMENT,true,true,null)
+        }
+
+    }
+
 
 }
 
 enum class ProductSubFragment(var number:Int, var str:String){
+
     // 상품
     USER_PRODUCT_INFO_FRAGMENT(0,"UserProductInfoFragment"),
     // 상품 설명
@@ -140,6 +210,5 @@ enum class ProductSubFragment(var number:Int, var str:String){
     // 상품 리스트 뷰
     USER_PRODUCT_SHOW_LIST_FRAGMENT(6,"userProductShowListFragment")
     // 구매 뷰
-
 
 }

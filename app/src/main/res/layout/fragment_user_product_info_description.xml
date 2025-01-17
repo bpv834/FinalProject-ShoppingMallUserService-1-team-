@@ -113,6 +113,15 @@
 				app:layout_constraintStart_toStartOf="parent"
 				app:layout_constraintTop_toBottomOf="@id/textViewUserProductInfoDescriptionDispatchLocationLabel" />
 
+			<View
+				android:id="@+id/viewUserProductInfoDescriptionDivide"
+				android:layout_width="match_parent"
+				android:layout_height="30dp"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@+id/dividerMid"
+				/>
+
+
 			<androidx.recyclerview.widget.RecyclerView
 				android:id="@+id/recyclerViewUserProductInfoDescriptionDescriptionImage"
 				android:layout_width="0dp"
@@ -121,7 +130,7 @@
 				app:layout_constraintEnd_toEndOf="parent"
 				app:layout_constraintHorizontal_bias="0.0"
 				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintTop_toBottomOf="@id/dividerMid"
+				app:layout_constraintTop_toBottomOf="@id/viewUserProductInfoDescriptionDivide"
 				app:layout_constraintVertical_bias="0.0"
 				android:nestedScrollingEnabled="false"
 				/>
@@ -136,11 +145,12 @@
 				android:text="구매하기"
 				app:layout_constraintBottom_toBottomOf="parent"
 				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintStart_toStartOf="parent" />
+				app:layout_constraintStart_toStartOf="parent"
+				/>
 
 			<View
 				android:layout_width="match_parent"
-				android:layout_height="95dp"
+				android:layout_height="105dp"
 				app:layout_constraintTop_toBottomOf="@id/recyclerViewUserProductInfoDescriptionDescriptionImage"
 				app:layout_constraintStart_toStartOf="parent" />
 

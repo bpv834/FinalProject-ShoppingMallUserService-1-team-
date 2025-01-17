@@ -53,7 +53,7 @@ class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragm
         return fragmentUserInfoMainFragment.root
     }
 
-    fun replaceFragmentByArguments() {
+    private fun replaceFragmentByArguments() {
         when (userInfoType) {
             UserInfoType.USER_ORDER_HISTORY_FRAGMENT -> {
                 replaceFragment(UserInfoSubFragment.USER_ORDER_HISTORY_FRAGMENT, false, true, null)
@@ -91,9 +91,6 @@ class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragm
         animate: Boolean,
         dataBundle: Bundle?
     ) {
-        // newFragment가 null이 아니라면 oldFragment 변수에 담아준다.
-        Log.d("test111", "old : $oldFragment")
-        Log.d("test111", "new : $newFragment")
         // newFragment가 null이 아니라면 oldFragment 변수에 담아준다.
         if (newFragment != null) {
             oldFragment = newFragment

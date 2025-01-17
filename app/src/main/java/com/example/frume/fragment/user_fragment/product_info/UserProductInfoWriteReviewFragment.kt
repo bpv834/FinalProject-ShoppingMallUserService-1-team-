@@ -32,16 +32,29 @@ class UserProductInfoWriteReviewFragment(val productMainFragment: ProductMainFra
         fragmentUserProductInfoWriteReviewBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_user_product_info_write_review, container, false)
         homeActivity = activity as HomeActivity
-        // Inflate the layout for this fragment
 
         // 후기 작성 완료 버튼
         onClickButtonReviewSubmit()
+
+        // 뒤로가기 버튼 실행
+        onClickNavigationIconBackStack()
         return fragmentUserProductInfoWriteReviewBinding.root
     }
+
+    // 후기 작성 완료 버튼 리스너
     fun onClickButtonReviewSubmit() {
         fragmentUserProductInfoWriteReviewBinding.buttonUserProductInfoReviewConfirm.setOnClickListener {
             productMainFragment.removeFragment(ProductSubFragment.USER_PRODUCT_INFO_WRITE_REVIEW_FRAGMENT)
         }
     }
+
+    fun onClickNavigationIconBackStack() {
+        fragmentUserProductInfoWriteReviewBinding.toolbarUserProductInfoWriteReview.apply {
+            setNavigationOnClickListener {
+                productMainFragment.removeFragment(ProductSubFragment.USER_PRODUCT_INFO_WRITE_REVIEW_FRAGMENT)
+            }
+        }
+    }
+
 
 }
