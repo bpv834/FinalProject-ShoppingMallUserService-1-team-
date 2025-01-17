@@ -9,25 +9,40 @@ import androidx.fragment.app.Fragment
 import com.example.frume.HomeActivity
 import com.example.frume.R
 import com.example.frume.databinding.FragmentUserProductShowListBinding
+import com.example.frume.fragment.CombinationFragment
 
 
 class UserProductShowListFragment() : Fragment() {
 
     lateinit var homeActivity: HomeActivity
-    lateinit var fragmentUserProductShowListBinding : FragmentUserProductShowListBinding
+    private var _binding: FragmentUserProductShowListBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         homeActivity = activity as HomeActivity
-        fragmentUserProductShowListBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_user_product_show_list, container, false)
+        _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_user_product_show_list, container, false)
+        return binding.root
+    }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
-        return fragmentUserProductShowListBinding.root
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        test()
+
     }
 
 
-
+    private fun test() {
+        val productName = arguments?.getString("search")
+        binding.toolbarUserProductShowList.title = productName
+    }
 
 
 }

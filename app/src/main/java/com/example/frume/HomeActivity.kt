@@ -30,7 +30,7 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+     //   enableEdgeToEdge()
         activityHomeBinding = DataBindingUtil.setContentView(this@HomeActivity,R.layout.activity_home)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->

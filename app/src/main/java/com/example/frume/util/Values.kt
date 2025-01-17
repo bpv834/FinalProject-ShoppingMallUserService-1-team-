@@ -17,9 +17,18 @@ enum class UserInfoType(var number: Int, var str: String) {
     USER_INFO_MODIFY_FRAGMENT(4, "회원 정보 수정"),
 
     // 배송지 관리
-    USER_ADDRESS_MANAGE_FRAGMENT(5,"배송지 관리")
+    USER_ADDRESS_MANAGE_FRAGMENT(5, "배송지 관리")
 }
-
+    
+    // 홈 화면 탭 레이아웃 분류
+enum class CategoryType(val number: Int, val category: String) {
+    CATEGORY_HOME_MAIN(0, "홈"),
+    CATEGORY_HOME_NEW(1, "신제품"),
+    CATEGORY_HOME_SALE(2, "특가"),
+    CATEGORY_HOME_BEST(3, "베스트"),
+    CATEGORY_HOME_SINGLE(4, "1인가구"),
+    CATEGORY_HOME_PACKAGE(5, "패키지")
+    }
 
 enum class UserPaymentType(var number: Int, var str: String){
     // 장바구니
@@ -29,6 +38,7 @@ enum class UserPaymentType(var number: Int, var str: String){
     // 결제
     USER_PAYMENT_SCREEN_FRAGMENT(3,"UserPaymentScreenFragment")
 }
+
 enum class ProductInfoType(var number: Int, var str: String){
     // 상품 (tabLayout을 갖고있는 화면)
     USER_PRODUCT_INFO_TYPE(0,"UserProductInfoFragment"),

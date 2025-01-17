@@ -1,60 +1,70 @@
 package com.example.frume.fragment.home_fragment.user_home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.frume.R
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import com.example.frume.data.TempProduct
+import com.example.frume.databinding.FragmentUserHomeTabSecondBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [UserHomeTabSecondFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class UserHomeTabSecondFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class UserHomeTabSecondFragment : Fragment(), ProductItemClickListener {
+    private var _binding: FragmentUserHomeTabSecondBinding? = null
+    private val binding get() = _binding!!
+    private val viewModel by viewModels<UserHomeViewModel>()
+    private lateinit var adapter: HomeProductAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user_home_tab_second, container, false)
+    ): View {
+        _binding = FragmentUserHomeTabSecondBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    // tabLayout 연결
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val number = arguments?.getInt(ARG_NUMBER) ?: 0
+        viewModel.updateData(number)
+        Log.d("number", number.toString())
+        viewModel.product.observe(viewLifecycleOwner) {
+            adapter.add(it.toMutableList())
+        }
+        setLayout()
+    }
+
+    private fun setLayout() {
+        adapter = HomeProductAdapter(mutableListOf(), this)
+        binding.recyclerViewUserHomeTabSecondProductList.adapter = adapter
+    }
+
+    override fun onClickProductItem(product: TempProduct) {
+        Toast.makeText(requireContext(), product.productName, Toast.LENGTH_SHORT).show()
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment UserHomeTabSecondFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            UserHomeTabSecondFragment().apply {
+        private const val ARG_NUMBER = "arg_number"
+        fun newInstance(number: Int): UserHomeTabSecondFragment {
+
+            return UserHomeTabSecondFragment().apply {
+                // 값 전달 코드 번들 사용
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putInt(ARG_NUMBER, number)
+
                 }
             }
+        }
     }
+
 }

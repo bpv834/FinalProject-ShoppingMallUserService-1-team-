@@ -3,6 +3,7 @@ package com.example.frume.fragment_main
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,9 +35,8 @@ import com.google.android.material.transition.MaterialSharedAxis
 
 class ProductMainFragment(val combinationFragment: CombinationFragment) : Fragment() {
 
-    // 상품화면 타입값
-    lateinit var productInfoType: ProductInfoType
 
+    lateinit var productInfoType: ProductInfoType
     lateinit var fragmentProductMainBinding : FragmentProductMainBinding
     lateinit var homeActivity: HomeActivity
 
@@ -47,6 +47,7 @@ class ProductMainFragment(val combinationFragment: CombinationFragment) : Fragme
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         fragmentProductMainBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_product_main,container,false)
         homeActivity = activity as HomeActivity
         arguments?.getInt("ProductInfoType")
@@ -60,7 +61,6 @@ class ProductMainFragment(val combinationFragment: CombinationFragment) : Fragme
             // 아규먼트를 이용해  화면 분기에 사용할 UserInfoType을 지정해줌 아규면트가 없다면
             replaceFragmentByArguments()
         }
-
         return fragmentProductMainBinding.root
     }
 
@@ -80,6 +80,7 @@ class ProductMainFragment(val combinationFragment: CombinationFragment) : Fragme
         }
         // 프래그먼트 객체
         newFragment = when (fragmentName) {
+
             ProductSubFragment.USER_PRODUCT_INFO_FRAGMENT -> UserProductInfoFragment(this@ProductMainFragment)
             ProductSubFragment.USER_PRODUCT_INFO_DESCRIPTION_FRAGMENT -> UserProductInfoDescriptionFragment(this@ProductMainFragment)
             ProductSubFragment.USER_PRODUCT_INFO_DETAIL_FRAGMENT -> UserProductInfoDetailFragment(this@ProductMainFragment)
@@ -131,7 +132,6 @@ class ProductMainFragment(val combinationFragment: CombinationFragment) : Fragme
     // 유저 보드 타입 값을 담는 메서드
     fun settingUserInfoType() {
         val tempType = arguments?.getInt("ProductInfoType")!!
-
             Log.d("test100", "tempType = ${tempType}")
             when (tempType) {
                 // 상품 0
@@ -189,10 +189,68 @@ class ProductMainFragment(val combinationFragment: CombinationFragment) : Fragme
     }
 
 
-}
+
+            // 상품 0
+            ProductInfoType.USER_PRODUCT_INFO_TYPE.number -> {
+                productInfoType = ProductInfoType.USER_PRODUCT_INFO_TYPE
+            }
+            // 상품 설명 1
+            ProductInfoType.USER_PRODUCT_INFO_DESCRIPTION_TYPE.number -> {
+                productInfoType = ProductInfoType.USER_PRODUCT_INFO_DESCRIPTION_TYPE
+            }
+            // 상품 상세 정보 2
+            ProductInfoType.USER_PRODUCT_INFO_DETAIL_TYPE.number -> {
+                productInfoType = ProductInfoType.USER_PRODUCT_INFO_DETAIL_TYPE
+            }
+            // 상품 후기 3
+            ProductInfoType.USER_PRODUCT_INFO_REVIEW_TYPE.number -> {
+                productInfoType = ProductInfoType.USER_PRODUCT_INFO_REVIEW_TYPE
+            }
+            // 상품 후기 작성 4
+            ProductInfoType.USER_PRODUCT_INFO_WRITE_TYPE.number -> {
+                productInfoType = ProductInfoType.USER_PRODUCT_INFO_WRITE_TYPE
+            }
+            // 상품 주문 다이얼로그 5
+            ProductInfoType.USER_PRODUCT_INFO_DIALOG_TYPE.number -> {
+                productInfoType = ProductInfoType.USER_PRODUCT_INFO_DIALOG_TYPE
+            }
+            // 상품 리스트 뷰
+            ProductInfoType.USER_PRODUCT_SHOW_LIST_TYPE.number -> {
+                productInfoType = ProductInfoType.USER_PRODUCT_SHOW_LIST_TYPE
+            }
+
+            // 검색 화면 이동
+            ProductInfoType.HOME_SEARCH_VIEW.number -> {
+                productInfoType = ProductInfoType.HOME_SEARCH_VIEW
+            }
+        }
+    }
+
+
+    // UserInfoType 필드로 분기하여 화면을 전환한다
+    private fun replaceFragmentByArguments() {
+        when (productInfoType) {
+            // 상품 ( 탭레이아웃을 갖고 있는 프레그먼트)
+            ProductInfoType.USER_PRODUCT_INFO_TYPE -> replaceFragment(ProductSubFragment.USER_PRODUCT_INFO_FRAGMENT, true, true, null)
+            // 상품 설명
+            ProductInfoType.USER_PRODUCT_INFO_DESCRIPTION_TYPE -> replaceFragment(ProductSubFragment.USER_PRODUCT_INFO_DESCRIPTION_FRAGMENT, true, true, null)
+            // 상품 상세 설명
+            ProductInfoType.USER_PRODUCT_INFO_DETAIL_TYPE -> replaceFragment(ProductSubFragment.USER_PRODUCT_INFO_DETAIL_FRAGMENT, true, true, null)
+            // 상품 리뷰
+            ProductInfoType.USER_PRODUCT_INFO_REVIEW_TYPE -> replaceFragment(ProductSubFragment.USER_PRODUCT_INFO_REVIEW_FRAGMENT, true, true, null)
+            // 상품 리뷰 쓰기
+            ProductInfoType.USER_PRODUCT_INFO_WRITE_TYPE -> replaceFragment(ProductSubFragment.USER_PRODUCT_INFO_WRITE_REVIEW_FRAGMENT, true, true, null)
+            // 상품 구매 바텀시트
+            ProductInfoType.USER_PRODUCT_INFO_DIALOG_TYPE -> replaceFragment(ProductSubFragment.USER_PRODUCT_INFO_DIALOG_FRAGMENT, true, true, null)
+            // 상품 리스트
+            ProductInfoType.USER_PRODUCT_SHOW_LIST_TYPE -> replaceFragment(ProductSubFragment.USER_PRODUCT_SHOW_LIST_FRAGMENT, true, true, null)
+            // 홈-> 검색
+            ProductInfoType.HOME_SEARCH_VIEW -> replaceFragment(ProductSubFragment.USER_HOME_SEARCH_VIEW_FRAGMENT, true, true, null)
+        }
+
+    }
 
 enum class ProductSubFragment(var number:Int, var str:String){
-
     // 상품
     USER_PRODUCT_INFO_FRAGMENT(0,"UserProductInfoFragment"),
     // 상품 설명
@@ -207,6 +265,5 @@ enum class ProductSubFragment(var number:Int, var str:String){
     USER_PRODUCT_INFO_DIALOG_FRAGMENT(5,"UserProductInfoDialogFragment"),
     // 상품 리스트 뷰
     USER_PRODUCT_SHOW_LIST_FRAGMENT(6,"userProductShowListFragment")
-    // 구매 뷰
-
+    
 }

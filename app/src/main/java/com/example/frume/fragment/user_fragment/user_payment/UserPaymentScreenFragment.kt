@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.frume.HomeActivity
@@ -14,11 +15,11 @@ class UserPaymentScreenFragment() : Fragment() {
 
     lateinit var fragmentUserPaymentScreenBinding: FragmentUserPaymentScreenBinding
     lateinit var homeActivity: HomeActivity
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View? {
         fragmentUserPaymentScreenBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_user_payment_screen, container, false)
         homeActivity = activity as HomeActivity
@@ -32,8 +33,4 @@ class UserPaymentScreenFragment() : Fragment() {
         return fragmentUserPaymentScreenBinding.root
     }
 }
-
-
-
-
 

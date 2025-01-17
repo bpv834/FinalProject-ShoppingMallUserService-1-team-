@@ -29,6 +29,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:itemIconTint="@color/selector_bottom_navigation_color"
+            app:itemTextColor="@color/selector_bottom_navigation_color"
+            android:background="@color/white"
+            app:itemActiveIndicatorStyle="@null"
             app:labelVisibilityMode="labeled"
             app:menu="@menu/menu_user_bottom_navigation"
 
