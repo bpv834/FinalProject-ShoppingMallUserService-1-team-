@@ -1,88 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".fragment.home_fragment.user_home.UserHomeFragment">
+	<androidx.coordinatorlayout.widget.CoordinatorLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		tools:context=".fragment.home_fragment.user_home.UserHomeFragment">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbarUserHome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:background="@color/green100"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            app:title="푸르미"
-            app:titleTextColor="@color/white"
-            app:menu="@menu/menu_user_home_search"/>
+		<com.google.android.material.appbar.MaterialToolbar
+			android:id="@+id/toolbarUserHome"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@color/green100"
+			android:minHeight="?attr/actionBarSize"
+			android:theme="?attr/actionBarTheme"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			app:menu="@menu/menu_user_home"
+			app:title="푸르미"
+			app:titleTextColor="@color/white" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tablayoutUserHome"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="60dp"
-                android:backgroundTint="@color/white">
+			<com.google.android.material.tabs.TabLayout
+				android:id="@+id/tabUserHome"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="60dp"
+				android:backgroundTint="@color/white"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.tabs.TabItem
-                    android:id="@+id/tabUserHomeHome"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="홈" />
-
-                <com.google.android.material.tabs.TabItem
-                    android:id="@+id/tabUserHomeNewProduct"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="신제품" />
-
-                <com.google.android.material.tabs.TabItem
-                    android:id="@+id/tabUserHomeSale"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="특가" />
-
-                <com.google.android.material.tabs.TabItem
-                    android:id="@+id/tabUserHomeBest"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="베스트" />
-
-                <com.google.android.material.tabs.TabItem
-                    android:id="@+id/tabUserHomeOnePerson"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="1인 가구" />
-
-                <com.google.android.material.tabs.TabItem
-                    android:id="@+id/tabUserHomePackage"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="패키지" />
-
-            </com.google.android.material.tabs.TabLayout>
-
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/viewpagerUserHomeMain"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tablayoutUserHome"
-                    />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+			<androidx.viewpager2.widget.ViewPager2
+				android:id="@+id/viewpagerUserHomeMain"
+				android:layout_width="0dp"
+				android:layout_height="0dp"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/tabUserHome" />
+		</androidx.constraintlayout.widget.ConstraintLayout>
+	</androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

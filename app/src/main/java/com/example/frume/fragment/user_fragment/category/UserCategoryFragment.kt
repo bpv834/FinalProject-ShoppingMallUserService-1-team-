@@ -17,6 +17,7 @@ import com.example.frume.fragment.SubMainFragmentName
 import com.example.frume.util.UserInfoType
 import com.example.frume.util.ProductCategoryDetailType
 
+import com.example.frume.databinding.FragmentUserCategoryBinding
 
 class UserCategoryFragment(val bottomNavFragment: BottomNavFragment) : Fragment() {
 
@@ -42,16 +43,27 @@ class UserCategoryFragment(val bottomNavFragment: BottomNavFragment) : Fragment(
     // 과일 선택
     fun onClickCategory(){
         userCategoryBinding.textViewUserCategoryStrawberry.setOnClickListener {navigateToCategoryDetail(0)}
+        
         userCategoryBinding.textViewUserCategoryApple.setOnClickListener {navigateToCategoryDetail(1)}
+        
         userCategoryBinding.textViewUserCategoryTangerine.setOnClickListener {navigateToCategoryDetail(2)}
+        
         userCategoryBinding.textViewUserCategoryGrape.setOnClickListener {navigateToCategoryDetail(3)}
+        
         userCategoryBinding.textViewUserCategoryMango.setOnClickListener {navigateToCategoryDetail(4)}
+        
         userCategoryBinding.textViewUserCategoryBlueberry.setOnClickListener {navigateToCategoryDetail(5)}
+        
         userCategoryBinding.textViewUserCategoryKiwi.setOnClickListener {navigateToCategoryDetail(6)}
+        
         userCategoryBinding.textViewUserCategoryOrange.setOnClickListener {navigateToCategoryDetail(7)}
+        
         userCategoryBinding.textViewUserCategorySingle.setOnClickListener {navigateToCategoryDetail(8)}
+        
         userCategoryBinding.textViewUserCategoryBulk.setOnClickListener {navigateToCategoryDetail(9)}
+        
         userCategoryBinding.textViewUserCategoryPackage.setOnClickListener {navigateToCategoryDetail(10)}
+        
         userCategoryBinding.textViewUserCategorySale.setOnClickListener { navigateToCategoryDetail(11)}
 
 
@@ -65,6 +77,7 @@ class UserCategoryFragment(val bottomNavFragment: BottomNavFragment) : Fragment(
         val dataBundle = Bundle().apply {
             putInt("ProductCategoryDetailType", categoryNumber)  // 숫자만 전달
         }
+
 
         bottomNavFragment.combinationFragment.replaceFragment(
             SubMainFragmentName.PRODUCT_MAIN_FRAGMENT,

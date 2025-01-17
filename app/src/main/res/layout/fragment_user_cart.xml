@@ -13,43 +13,59 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="match_parent">
 
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/toolbarUserCart"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:background="@color/green100"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="?attr/actionBarTheme"
-                app:title="장바구니"
-                app:titleTextColor="@color/white"
-                android:fontFamily="@font/nanumsquareneo_5"/> <!--툴바 부분 폰트 적용 재확인 -->
 
-            <!-- 탭바(1회구매/정기구독) -->
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabbarUserCart"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/toolbarUserCart"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                >
-
-                <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/toolbarUserCart"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="1회 구매" />
+                    android:background="@color/green100"
+                    android:fontFamily="@font/nanumsquareneo_5"
+                    android:minHeight="?attr/actionBarSize"
+                    android:theme="?attr/actionBarTheme"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:title="장바구니"
+                    app:titleTextColor="@color/white" /> <!--툴바 부분 폰트 적용 재확인 -->
 
-                <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
+                <!-- 탭바(1회구매/정기구독) -->
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabbarUserCart"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="정기 구독" />
-            </com.google.android.material.tabs.TabLayout>
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/toolbarUserCart">
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1회 구매" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="정기 구독" />
+                </com.google.android.material.tabs.TabLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/view"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tabbarUserCart">
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewpagerUserCartMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </androidx.core.widget.NestedScrollView>
+
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

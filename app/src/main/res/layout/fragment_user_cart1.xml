@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -116,7 +117,7 @@
             app:layout_constraintEnd_toEndOf="@id/viewUserCartDialogDeliveryDate"
             app:layout_constraintStart_toStartOf="@id/viewUserCartDialogDeliveryDate"
             app:layout_constraintTop_toTopOf="@id/viewUserCartDialogDeliveryDate"
-            tools:text="2025년 01월 14일 (화)" />
+            android:text="2025년 01월 14일 (화)" />
 
         <TextView
             android:id="@+id/textViewUserCartDialogPriceLabel"
@@ -140,19 +141,21 @@
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/viewUserCartDialogDeliveryDate"
-            tools:text="15,000원" />
+            android:text="15,000원" />
 
 
         <Button
             android:id="@+id/buttonUserCartOrder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_marginHorizontal="20dp"
             android:background="@drawable/background_green100"
             android:fontFamily="@font/nanumsquareneo_3"
             android:text="주문하기"
             app:layout_anchorGravity="bottom|center_horizontal"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/textViewUserCartDialogPriceLabel"
+            android:layout_marginTop="50dp"/>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

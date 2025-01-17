@@ -6,9 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.frume.R
+import com.example.frume.fragment_main.UserInfoMainFragment
 
 
-class UserOderDetailFragment : Fragment() {
+class UserOderDetailFragment(userInfoMainFragment: UserInfoMainFragment) : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

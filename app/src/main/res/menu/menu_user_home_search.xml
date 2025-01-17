@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<!--    <item
-        android:id="@+id/menuItemUserHomeSearch"
-        android:icon="@drawable/ic_search_24px"
-        android:title="검색 기능"
-        app:actionViewClass="android.widget.SearchView"
-        app:showAsAction="always"
-        android:imeOptions="actionSearch"
-        />-->
-    <item
-        android:id="@+id/menuSearch"
-        android:title="t"
-        app:showAsAction="always"
-        android:icon="@drawable/ic_search_24px" />
+	<!--    UserHomeSearch에서 사용하는 메뉴-->
+	<item
+		android:id="@+id/menu_search_real"
+		android:icon="@drawable/ic_search_24px"
+		android:title="검색"
+		app:actionViewClass="androidx.appcompat.widget.SearchView"
+		app:showAsAction="ifRoom|collapseActionView" />
 </menu>

@@ -55,8 +55,9 @@ class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragm
         return fragmentUserInfoMainFragment.root
     }
 
-    fun replaceFragmentByArguments() {
+    private fun replaceFragmentByArguments() {
         when (userInfoType) {
+            // 회원 주문 내역
             UserInfoType.USER_ORDER_HISTORY_FRAGMENT -> {
                 // 주문 내역 및 배송조회
                 replaceFragment(UserInfoSubFragment.USER_ORDER_HISTORY_FRAGMENT, false, true, null)
@@ -81,6 +82,7 @@ class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragm
                 // 정보 수정
             }
 
+            // 회원 배송지 관리
             UserInfoType.USER_ADDRESS_MANAGE_FRAGMENT -> {
                 // 비밀번호 변경하기
                  replaceFragment(UserInfoSubFragment.USER_ADDRESS_MANAGE_FRAGMENT, false, true, null)
@@ -98,21 +100,18 @@ class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragm
         dataBundle: Bundle?
     ) {
         // newFragment가 null이 아니라면 oldFragment 변수에 담아준다.
-        Log.d("test111", "old : $oldFragment")
-        Log.d("test111", "new : $newFragment")
-        // newFragment가 null이 아니라면 oldFragment 변수에 담아준다.
         if (newFragment != null) {
             oldFragment = newFragment
         }
         // 프래그먼트 객체
         newFragment = when (fragmentName) {
 
-            UserInfoSubFragment.USER_ORDER_HISTORY_FRAGMENT -> UserOrderHistoryFragment()
-            UserInfoSubFragment.USER_ORDER_DETAIL_FRAGMENT -> UserOderDetailFragment()
-            UserInfoSubFragment.USER_CANCEL_AND_RETURN_FRAGMENT -> UserCancelAndReturnFragment()
+            UserInfoSubFragment.USER_ORDER_HISTORY_FRAGMENT -> UserOrderHistoryFragment(this@UserInfoMainFragment)
+            UserInfoSubFragment.USER_ORDER_DETAIL_FRAGMENT -> UserOderDetailFragment(this@UserInfoMainFragment)
+            UserInfoSubFragment.USER_CANCEL_AND_RETURN_FRAGMENT -> UserCancelAndReturnFragment(this@UserInfoMainFragment)
             UserInfoSubFragment.USER_INFO_MANAGE_FRAGMENT -> UserInfoManageFragment(this@UserInfoMainFragment)
             UserInfoSubFragment.USER_INFO_MODIFY_FRAGMENT -> UserInfoModifyFragment(this@UserInfoMainFragment)
-            UserInfoSubFragment.USER_ADDRESS_MANAGE_FRAGMENT -> UserAddressManageFragment()
+            UserInfoSubFragment.USER_ADDRESS_MANAGE_FRAGMENT -> UserAddressManageFragment(this@UserInfoMainFragment)
             UserInfoSubFragment.USER_PW_MODIFY_FRAGMENT -> UserPwModifyFragment(this@UserInfoMainFragment)
         }
 
@@ -123,7 +122,6 @@ class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragm
 
         // 프래그먼트 교체
         homeActivity.supportFragmentManager.commit {
-
             if (animate) {
                 // 만약 이전 프래그먼트가 있다면
                 if (oldFragment != null) {
@@ -132,7 +130,6 @@ class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragm
                     oldFragment?.reenterTransition =
                         MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ false)
                 }
-
                 newFragment?.exitTransition =
                     MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ true)
                 newFragment?.reenterTransition =
@@ -142,12 +139,10 @@ class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragm
                 newFragment?.returnTransition =
                     MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ false)
             }
-
             replace(R.id.containerUserInfoMain, newFragment!!)
             if (isAddToBackStack) {
                 addToBackStack(fragmentName.str)
             }
-
         }
     }
 
@@ -159,7 +154,7 @@ class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragm
         )
     }
 
-    // 게시판 타입 값을 담는 메서드
+    // 유저 보드 타입 값을 담는 메서드
     fun settingUserInfoType() {
         val tempType = arguments?.getInt("UserInfoType")!!
         Log.d("test100", "tempType = ${tempType}")
@@ -194,10 +189,8 @@ class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragm
                 // 5
                 userInfoType = UserInfoType.USER_ADDRESS_MANAGE_FRAGMENT
             }
-
         }
     }
-
 
 }
 

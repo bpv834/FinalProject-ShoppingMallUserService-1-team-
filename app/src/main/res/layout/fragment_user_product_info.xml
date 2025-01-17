@@ -21,7 +21,12 @@
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toTopOf="parent"
 			app:navigationIcon="@drawable/ic_arrow_back_24px"
-			app:title="[상품명]" />
+			app:navigationIconTint="@color/white"
+			app:title="[상품명]"
+			app:titleTextColor="@color/white"
+			android:background="@color/green100"
+			/>
+
 
 		<!--    이름은 코드 내부에서 설정	        -->
 		<!--    상품 설명, 상세 정보, 후기, 문의	-->
