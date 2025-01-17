@@ -90,7 +90,7 @@ class BottomNavFragment(val combinationFragment: CombinationFragment) : Fragment
             BottomNavSubFragmentName.USER_INFO_FRAGMENT -> UserInfoFragment(this)
             BottomNavSubFragmentName.USER_CATEGORY_FRAGMENT -> UserCategoryFragment()
             BottomNavSubFragmentName.USER_CART_FRAGMENT -> UserCartFragment()
-            BottomNavSubFragmentName.USER_PRODUCT_SHOW_LIST_FRAGMENT -> UserProductShowListFragment()
+           // BottomNavSubFragmentName.USER_PRODUCT_SHOW_LIST_FRAGMENT -> UserProductShowListFragment()
         }
 
         // bundle 객체가 null이 아니라면
@@ -139,7 +139,5 @@ enum class BottomNavSubFragmentName(var number:Int, var str:String){
     USER_INFO_FRAGMENT(2,"UserInfoFragment"),
     // 장바구니
     USER_CART_FRAGMENT(3,"UserCartFragment"),
-    // 상품 리스트 뷰
-    USER_PRODUCT_SHOW_LIST_FRAGMENT(4,"userProductShowListFragment")
 }
 

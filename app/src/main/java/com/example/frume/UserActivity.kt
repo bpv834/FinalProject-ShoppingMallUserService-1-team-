@@ -31,7 +31,7 @@ class UserActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+      //  enableEdgeToEdge()
         activityUserBinding = DataBindingUtil.setContentView(this@UserActivity, R.layout.activity_user)
         setContentView(R.layout.activity_user)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->

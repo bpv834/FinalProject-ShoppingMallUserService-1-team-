@@ -1,60 +1,105 @@
 package com.example.frume.fragment.home_fragment.user_home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import androidx.appcompat.widget.SearchView
+import androidx.appcompat.widget.SearchView.OnQueryTextListener
+import androidx.fragment.app.Fragment
+import com.example.frume.HomeActivity
 import com.example.frume.R
+import com.example.frume.databinding.FragmentUserSearchBinding
+import com.example.frume.fragment.CombinationFragment
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [UserSearchFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class UserSearchFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+class UserSearchFragment() : Fragment() {
+    private var _binding: FragmentUserSearchBinding? = null
+    private val binding get() = _binding!!
+    lateinit var homeActivity: HomeActivity
+    private lateinit var searchView: SearchView
+    private lateinit var searchViewItem: MenuItem
+    private lateinit var mySearchViewEditText: EditText
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user_search, container, false)
+    ): View {
+        _binding = FragmentUserSearchBinding.inflate(inflater, container, false)
+        homeActivity = activity as HomeActivity
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment UserSearchFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            UserSearchFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setHasOptionsMenu(true)
+        test2()
+    }
+
+    private fun test1() {
+        val dataBundle = Bundle().apply {
+            //    putString("",User)
+        }
+    }
+
+//    // 검색 결과 화면 이동
+//    private fun showSearchResultFragment(query: String) {
+//        val fragment = UserProductShowListFragment()
+//        val args = Bundle().apply {
+//            //putInt("UserSearchFragment", HomeDetailType.HOME_SEARCH_RESULT.number)
+//            putString("search", query)
+//        }
+//        fragment.arguments = args
+//
+//        homeActivity.supportFragmentManager.beginTransaction()
+//            .replace(R.id.containerCombination, fragment)
+//            .addToBackStack(null)
+//            .commit()
+//    }
+
+    // 검색 결과 화면 이동
+    private fun showSearchResultFragment(query: String) {
+        val fragment = UserProductShowListFragment()
+        val args = Bundle().apply {
+           // putInt("UserSearchFragment", )
+            putString("search", query)
+        }
+        fragment.arguments = args
+
+        homeActivity.supportFragmentManager.beginTransaction()
+            .replace(R.id.containerCombination, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    private fun test(text: String) {
+        showSearchResultFragment(text)
+    }
+
+    private fun test2() {
+        binding.searchViewUserSearch.setOnQueryTextListener(object : OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if (!query.isNullOrEmpty()) {
+                    // Search 버튼을 눌렀을 때 실행할 동작
+                    test(query) // query 값을 사용하여 함수 호출
+                }
+                return false // true를 반환하면 기본 동작을 막을 수 있음
+            }
+
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                // text가 변경될 때 마다 실행
+                return false
+            }
+
+        })
+    }
+
 }

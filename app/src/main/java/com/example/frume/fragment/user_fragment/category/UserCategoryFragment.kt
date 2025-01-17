@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.frume.R
 import com.example.frume.databinding.FragmentUserCategoryBinding
-import com.example.frume.fragment.screen_manager.HomeMainFragment
 
 
 class UserCategoryFragment : Fragment() {
@@ -35,13 +34,8 @@ class UserCategoryFragment : Fragment() {
 
     private fun onClickItem() {
         binding.textViewUserCategoryStrawberry.setOnClickListener {
-            setLayout()
+
         }
     }
 
-    private fun setLayout() {
-        val dataBundle = Bundle()
-        dataBundle.putString("Fragment","Category")
-        (parentFragment?.parentFragment as? HomeMainFragment)?.switchToFragment(dataBundle)
-    }
 }
