@@ -105,6 +105,5 @@ enum class SubMainFragmentName(var number:Int, var str:String){
     // 유저 정보 스크린
     USER_INFO_MAIN_FRAGMENT(2,"UserInfoMainFragment"),
     // 결제 스크린
-    PAYMENT_MAIN_FRAGMENT(3,"PaymentMainFragment")
-
+    PAYMENT_MAIN_FRAGMENT(3,"PaymentMainFragment"),
 }

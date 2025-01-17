@@ -7,8 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.commit
 import com.example.frume.HomeActivity
 import com.example.frume.MainActivity
 import com.example.frume.R
@@ -42,7 +40,6 @@ class ProductMainFragment(val combinationFragment: CombinationFragment) : Fragme
     lateinit var fragmentProductMainBinding : FragmentProductMainBinding
     lateinit var homeActivity: HomeActivity
 
-
     // 현재 Fragment와 다음 Fragment를 담을 변수(애니메이션 이동 때문에...)
     var newFragment: Fragment? = null
     var oldFragment: Fragment? = null
@@ -52,7 +49,6 @@ class ProductMainFragment(val combinationFragment: CombinationFragment) : Fragme
     ): View? {
         fragmentProductMainBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_product_main,container,false)
         homeActivity = activity as HomeActivity
-
         arguments?.getInt("ProductInfoType")
         Log.d("test100","arg : ${arguments}")
 
@@ -64,9 +60,6 @@ class ProductMainFragment(val combinationFragment: CombinationFragment) : Fragme
             // 아규먼트를 이용해  화면 분기에 사용할 UserInfoType을 지정해줌 아규면트가 없다면
             replaceFragmentByArguments()
         }
-
-
-
 
         return fragmentProductMainBinding.root
     }

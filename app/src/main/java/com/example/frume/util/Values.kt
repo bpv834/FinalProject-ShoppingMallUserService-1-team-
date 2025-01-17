@@ -20,6 +20,15 @@ enum class UserInfoType(var number: Int, var str: String) {
     USER_ADDRESS_MANAGE_FRAGMENT(5,"배송지 관리")
 }
 
+
+enum class UserPaymentType(var number: Int, var str: String){
+    // 장바구니
+    USER_CART_FRAGMENT(1, "UserCartFragment"),
+    // 장바구니 2 (1회 구매)
+    USER_CART_FRAGMENT1(2, "UserCartFragment1"),
+    // 결제
+    USER_PAYMENT_SCREEN_FRAGMENT(3,"UserPaymentScreenFragment")
+}
 enum class ProductInfoType(var number: Int, var str: String){
     // 상품 (tabLayout을 갖고있는 화면)
     USER_PRODUCT_INFO_TYPE(0,"UserProductInfoFragment"),
