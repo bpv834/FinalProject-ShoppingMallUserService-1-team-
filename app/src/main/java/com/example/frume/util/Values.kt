@@ -23,6 +23,7 @@ enum class UserInfoType(var number: Int, var str: String) {
 
     // 비밀번호 변경
     USER_INFO_MODIFY_PW_TYPE(7,"비밀번호 변경"),
+
 }
     
     // 홈 화면 탭 레이아웃 분류
@@ -88,7 +89,7 @@ enum class BottomNavSubType(var number: Int, var str: String){
     // 장바구니
     BOTTOM_NAV_SUB_CART_TYPE(2,"장바구니"),
     // 내정보
-    BOTTOM_NAV_SUB_USER_INFO_TYPE(3,"내정보"),
+    BOTTOM_NAV_SUB_USER_INFO_MAIN_TYPE(3,"내정보"),
     // 홈 검색
     BOTTOM_NAV_SUB_SEARCH_TYPE(4,"검색화면")
 }

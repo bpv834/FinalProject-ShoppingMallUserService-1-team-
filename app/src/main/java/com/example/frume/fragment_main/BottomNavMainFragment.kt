@@ -69,11 +69,11 @@ class BottomNavMainFragment(val combinationFragment: CombinationFragment) : Frag
                 }
 
                 R.id.menu_profile -> {
-                    replaceFragment(BottomNavSubFragmentName.BOTTOM_NAV_SUB_USER_INFO_FRAGMENT, true, false, null)
+                    replaceFragment(BottomNavSubFragmentName.BOTTOM_NAV_SUB_USER_INFO_MAIN_FRAGMENT, true, false, null)
                 }
 
                 R.id.menu_cart -> {
-                    replaceFragment(BottomNavSubFragmentName.BOTTOM_NAV_SUB_CART_Fragment, true, false, null)
+                    replaceFragment(BottomNavSubFragmentName.BOTTOM_NAV_SUB_CART_FRAGMENT, true, false, null)
                 }
             }
             true
@@ -96,8 +96,8 @@ class BottomNavMainFragment(val combinationFragment: CombinationFragment) : Frag
         newFragment = when (fragmentName) {
             BottomNavSubFragmentName.BOTTOM_NAV_SUB_CATEGORY_FRAGMENT -> UserCategoryFragment(this@BottomNavMainFragment)
             BottomNavSubFragmentName.BOTTOM_NAV_SUB_HOME_FRAGMENT -> UserHomeFragment(this@BottomNavMainFragment)
-            BottomNavSubFragmentName.BOTTOM_NAV_SUB_CART_Fragment -> UserCartFragment(this@BottomNavMainFragment)
-            BottomNavSubFragmentName.BOTTOM_NAV_SUB_USER_INFO_FRAGMENT -> UserInfoMainFragment(this@BottomNavMainFragment)
+            BottomNavSubFragmentName.BOTTOM_NAV_SUB_CART_FRAGMENT -> UserCartFragment(this@BottomNavMainFragment)
+            BottomNavSubFragmentName.BOTTOM_NAV_SUB_USER_INFO_MAIN_FRAGMENT -> UserInfoMainFragment(this@BottomNavMainFragment)
             BottomNavSubFragmentName.BOTTOM_NAV_SUB_HOME_SEARCH_FRAGMENT -> UserSearchFragment(this@BottomNavMainFragment)
             BottomNavSubFragmentName.BOTTOM_NAV_SUB_CATEGORY_DETAIL_FRAGMENT -> UserCategoryDetailFragment(this@BottomNavMainFragment)
         }
@@ -143,8 +143,8 @@ class BottomNavMainFragment(val combinationFragment: CombinationFragment) : Frag
         when (bottomNavType) {
             BottomNavSubType.BOTTOM_NAV_SUB_CATEGORY_TYPE -> replaceFragment(BottomNavSubFragmentName.BOTTOM_NAV_SUB_HOME_FRAGMENT,true,true,null)
             BottomNavSubType.BOTTOM_NAV_SUB_HOME_TYPE -> replaceFragment(BottomNavSubFragmentName.BOTTOM_NAV_SUB_HOME_FRAGMENT,false,false,null)
-            BottomNavSubType.BOTTOM_NAV_SUB_CART_TYPE -> replaceFragment(BottomNavSubFragmentName.BOTTOM_NAV_SUB_CART_Fragment,true,true,null)
-            BottomNavSubType.BOTTOM_NAV_SUB_USER_INFO_TYPE -> replaceFragment(BottomNavSubFragmentName.BOTTOM_NAV_SUB_USER_INFO_FRAGMENT,true,true,null)
+            BottomNavSubType.BOTTOM_NAV_SUB_CART_TYPE -> replaceFragment(BottomNavSubFragmentName.BOTTOM_NAV_SUB_CART_FRAGMENT,true,true,null)
+            BottomNavSubType.BOTTOM_NAV_SUB_USER_INFO_MAIN_TYPE -> replaceFragment(BottomNavSubFragmentName.BOTTOM_NAV_SUB_USER_INFO_MAIN_FRAGMENT,true,true,null)
             BottomNavSubType.BOTTOM_NAV_SUB_SEARCH_TYPE -> replaceFragment(BottomNavSubFragmentName.BOTTOM_NAV_SUB_HOME_SEARCH_FRAGMENT,true,true,null)
         }
 
@@ -161,10 +161,10 @@ enum class BottomNavSubFragmentName(var number: Int, var str: String) {
     BOTTOM_NAV_SUB_HOME_FRAGMENT(1, "홈"),
 
     // 장바구니
-    BOTTOM_NAV_SUB_CART_Fragment(2, "장바구니"),
+    BOTTOM_NAV_SUB_CART_FRAGMENT(2, "장바구니"),
 
     // 내정보 -> UserInfoFragment 에서 UserInfoMainFragment를 부르는것으로 변경 hj 25.01.17
-    BOTTOM_NAV_SUB_USER_INFO_FRAGMENT(3, "내정보"),
+    BOTTOM_NAV_SUB_USER_INFO_MAIN_FRAGMENT(3, "유저 메인"),
 
     // 서치 뷰 -> 원래 이것도 UserInfoMain에서 분기 값에 따라 화면을 나눠야 하기때문에 HomeMainFragment에서 홈, 서치뷰를 관리 해야 하는데 두개뿐이라 안나눔 25.01.17 hj
     BOTTOM_NAV_SUB_HOME_SEARCH_FRAGMENT(4,"검색 화면"),

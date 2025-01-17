@@ -29,7 +29,7 @@ class UserInfoMainFragment(val bottomNavMainFragment: BottomNavMainFragment) : F
 
     // 게시 판 타입값  -> 데이터번들로 받은것
     // 기본값은 유저 정보 넣음
-    var userInfoType: UserInfoType = UserInfoType.USER_INFO_TYPE
+     var userInfoType: UserInfoType = UserInfoType.USER_INFO_TYPE
 
     // 현재 Fragment와 다음 Fragment를 담을 변수(애니메이션 이동 때문에...)
     var newFragment: Fragment? = null
@@ -52,7 +52,7 @@ class UserInfoMainFragment(val bottomNavMainFragment: BottomNavMainFragment) : F
         // 다음부턴 bundle값에 따라 화면 분기
         arguments?.getInt("UserInfoType", UserInfoType.USER_INFO_TYPE.number)
         settingUserInfoType()
-        Log.d("test100", "bundle 값: ${arguments?.getInt("UserInfoType")}")
+        Log.d("test100", "bundle 값: ${arguments?.getInt("UserInfoType", UserInfoType.USER_INFO_TYPE.number)}")
         homeActivity = activity as HomeActivity
         replaceFragmentByArguments() // 여기서 받은 값에 따라 화면을 넘김.
         return fragmentUserInfoMainFragment.root
@@ -62,34 +62,41 @@ class UserInfoMainFragment(val bottomNavMainFragment: BottomNavMainFragment) : F
         when (userInfoType) {
             // 유저 정보 0값
             UserInfoType.USER_INFO_TYPE -> {
+                Log.d("test100","userInfoType : $userInfoType")
                 replaceFragment(UserInfoSubFragment.USER_INFO_FRAGMENT, false, false, null)
             }
             // 회원 주문 내역
             UserInfoType.USER_ORDER_HISTORY_TYPE -> {
+                Log.d("test100","userInfoType : $userInfoType")
                 replaceFragment(UserInfoSubFragment.USER_ORDER_HISTORY_FRAGMENT, false, true, null)
             }
 
             // 주문 상세정보
             UserInfoType.USER_ORDER_DETAIL_TYPE -> {
+                Log.d("test100","userInfoType : $userInfoType")
 
             }
 
             // 주문 반품 및 취소
             UserInfoType.USER_CANCEL_AND_RETURN_TYPE -> {
+                Log.d("test100","userInfoType : $userInfoType")
 
             }
 
             // 회원 정보 수정
             UserInfoType.USER_INFO_MANAGE_TYPE -> {
+                Log.d("test100","userInfoType : $userInfoType")
                 replaceFragment(UserInfoSubFragment.USER_INFO_MANAGE_FRAGMENT, false, true, null)
             }
 
             // 정보 수정
             UserInfoType.USER_INFO_MODIFY_TYPE -> {
+                Log.d("test100","userInfoType : $userInfoType")
             }
 
             // 회원 배송지 관리
             UserInfoType.USER_ADDRESS_MANAGE_TYPE -> {
+                Log.d("test100","userInfoType : $userInfoType")
                 replaceFragment(UserInfoSubFragment.USER_ADDRESS_MANAGE_FRAGMENT, false, true, null)
             }
 
@@ -114,12 +121,19 @@ class UserInfoMainFragment(val bottomNavMainFragment: BottomNavMainFragment) : F
         newFragment = when (fragmentName) {
 
             UserInfoSubFragment.USER_ORDER_HISTORY_FRAGMENT -> UserOrderHistoryFragment(this@UserInfoMainFragment)
+
             UserInfoSubFragment.USER_ORDER_DETAIL_FRAGMENT -> UserOderDetailFragment(this@UserInfoMainFragment)
+
             UserInfoSubFragment.USER_CANCEL_AND_RETURN_FRAGMENT -> UserCancelAndReturnFragment(this@UserInfoMainFragment)
+
             UserInfoSubFragment.USER_INFO_MANAGE_FRAGMENT -> UserInfoManageFragment(this@UserInfoMainFragment)
+
             UserInfoSubFragment.USER_INFO_MODIFY_FRAGMENT -> UserInfoModifyFragment(this@UserInfoMainFragment)
+
             UserInfoSubFragment.USER_ADDRESS_MANAGE_FRAGMENT -> UserAddressManageFragment(this@UserInfoMainFragment)
+
             UserInfoSubFragment.USER_PW_MODIFY_FRAGMENT -> UserPwModifyFragment(this@UserInfoMainFragment)
+
             UserInfoSubFragment.USER_INFO_FRAGMENT -> UserInfoFragment(this@UserInfoMainFragment)
         }
 
