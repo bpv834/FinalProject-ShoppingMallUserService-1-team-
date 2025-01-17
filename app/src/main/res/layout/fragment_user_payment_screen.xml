@@ -6,7 +6,10 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragment.user_fragment.user_payment.UserPaymentScreenFragment">>
+        tools:context=".fragment.user_fragment.user_payment.UserPaymentScreenFragment"
+        android:transitionGroup="true"
+        >
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/main"

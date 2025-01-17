@@ -34,8 +34,8 @@ class UserCartFragment1(val userCartFragment: UserCartFragment) : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_user_cart1, container, false)
         homeActivity = activity as HomeActivity
 
-        // 배송지 변경 버튼 호출
-        onClickCartDeliverySpotChange()
+       /* // 배송지 변경 버튼 호출
+        onClickCartDeliverySpotChange()*/
 
         // 구매하기 버튼 호출
         onClickCartOrderProduct()
@@ -47,6 +47,7 @@ class UserCartFragment1(val userCartFragment: UserCartFragment) : Fragment() {
         return fragmentUserCart1Binding.root
     }
 
+/*
     // 배송지 변경 버튼 클릭 시, UserAddressManageFragment로 이동
     fun onClickCartDeliverySpotChange() {
         fragmentUserCart1Binding.buttonUserCartDialogModifyAddress.setOnClickListener {
@@ -59,6 +60,7 @@ class UserCartFragment1(val userCartFragment: UserCartFragment) : Fragment() {
             navigateToFragment(fragment)
         }
     }
+*/
 
     // 구매하기 버튼 클릭 시, UserPaymentScreenFragment로 이동
     fun onClickCartOrderProduct() {

@@ -6,7 +6,9 @@
 	<androidx.constraintlayout.widget.ConstraintLayout
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		tools:context=".fragment.home_fragment.user_home.UserSearchFragment">
+		tools:context=".fragment.home_fragment.user_home.UserSearchFragment"
+		android:transitionGroup="true"
+		>
 
 				<com.google.android.material.card.MaterialCardView
 					android:id="@+id/cardViewUserSearch"

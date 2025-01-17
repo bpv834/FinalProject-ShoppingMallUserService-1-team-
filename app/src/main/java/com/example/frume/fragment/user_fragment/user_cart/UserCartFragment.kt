@@ -11,13 +11,13 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.frume.HomeActivity
 import com.example.frume.R
 import com.example.frume.databinding.FragmentUserCartBinding
-import com.example.frume.fragment.BottomNavFragment
+import com.example.frume.fragment_main.BottomNavMainFragment
 import com.example.frume.fragment_main.PaymentMainFragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import org.checkerframework.common.subtyping.qual.Bottom
 
-class UserCartFragment(val bottomNavFragment: BottomNavFragment) : Fragment() {
+class UserCartFragment(val bottomNavFragment: BottomNavMainFragment) : Fragment() {
 
     lateinit var fragmentUserCartBinding: FragmentUserCartBinding
     lateinit var viewPager: ViewPager2

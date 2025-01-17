@@ -14,15 +14,17 @@
         android:icon="@drawable/ic_home_24px"
         android:title="홈" />
 
+    <!-- 장바구니 탭 -->
+    <item
+        android:id="@+id/menu_cart"
+        android:icon="@drawable/ic_shopping_cart_24px"
+        android:title="장바구니" />
+
     <!-- 내 정보 탭 -->
     <item
         android:id="@+id/menu_profile"
         android:icon="@drawable/ic_person_24px"
         android:title="내 정보" />
 
-    <!-- 장바구니 탭 -->
-    <item
-        android:id="@+id/menu_cart"
-        android:icon="@drawable/ic_shopping_cart_24px"
-        android:title="장바구니" />
+
 </menu>

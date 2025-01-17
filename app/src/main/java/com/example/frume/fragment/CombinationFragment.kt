@@ -15,6 +15,7 @@ import com.example.frume.databinding.FragmentCombinationBinding
 import com.example.frume.fragment.home_fragment.user_home.UserHomeFragment
 import com.example.frume.fragment.home_fragment.user_home.UserProductShowListFragment
 import com.example.frume.fragment.home_fragment.user_home.UserSearchFragment
+import com.example.frume.fragment_main.BottomNavMainFragment
 import com.example.frume.fragment_main.PaymentMainFragment
 import com.example.frume.fragment_main.ProductMainFragment
 import com.example.frume.fragment_main.UserInfoMainFragment
@@ -37,7 +38,7 @@ class CombinationFragment : Fragment() {
     ): View? {
         combinationBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_combination, container, false)
         homeActivity= activity as HomeActivity
-        replaceFragment(SubMainFragmentName.NAV_MAIN_FRAGMENT,false, false, null)
+        replaceFragment(SubMainFragmentName.BOTTOM_NAV_MAIN_FRAGMENT,false, false, null)
         //   replaceFragment(SubMainFragmentName.PRODUCT_MAIN_FRAGMENT,true,true,null)
 
         return combinationBinding.root
@@ -54,10 +55,10 @@ class CombinationFragment : Fragment() {
         // 프래그먼트 객체
         newFragment = when (fragmentName) {
             // 네브 프레그먼트
-            SubMainFragmentName.NAV_MAIN_FRAGMENT -> BottomNavFragment(this@CombinationFragment)
-            SubMainFragmentName.PRODUCT_MAIN_FRAGMENT -> ProductMainFragment(this)
-            SubMainFragmentName.USER_INFO_MAIN_FRAGMENT -> UserInfoMainFragment(this)
-            SubMainFragmentName.PAYMENT_MAIN_FRAGMENT -> PaymentMainFragment(this)
+            SubMainFragmentName.BOTTOM_NAV_MAIN_FRAGMENT -> BottomNavMainFragment(this@CombinationFragment)
+            SubMainFragmentName.PRODUCT_MAIN_FRAGMENT -> ProductMainFragment(this@CombinationFragment)
+            // SubMainFragmentName.USER_INFO_MAIN_FRAGMENT -> UserInfoMainFragment(this@CombinationFragment)
+            SubMainFragmentName.PAYMENT_MAIN_FRAGMENT -> PaymentMainFragment(this@CombinationFragment)
         }
 
         // bundle 객체가 null이 아니라면
@@ -101,14 +102,12 @@ class CombinationFragment : Fragment() {
 // 하위 프래그먼트들의 이름
 enum class SubMainFragmentName(var number: Int, var str: String) {
     // 네비 스크린
-    NAV_MAIN_FRAGMENT(0, "BottomNavFragment"),
-
+    //NAV_MAIN_FRAGMENT(0, "BottomNavFragment"),
+    BOTTOM_NAV_MAIN_FRAGMENT(0,"BottomNavMainFragment"),
     // 상품 스크린
     PRODUCT_MAIN_FRAGMENT(1, "ProductMainFragment"),
-
-    // 유저 정보 스크린
-  
-    USER_INFO_MAIN_FRAGMENT(2,"UserInfoMainFragment"),
+    // 유저 정보 스크린-> BottomNavMain으로 빠졌습니다. 25.01.17 hj
+    //USER_INFO_MAIN_FRAGMENT(2,"UserInfoMainFragment"),
     // 결제 스크린
     PAYMENT_MAIN_FRAGMENT(3,"PaymentMainFragment"),
 

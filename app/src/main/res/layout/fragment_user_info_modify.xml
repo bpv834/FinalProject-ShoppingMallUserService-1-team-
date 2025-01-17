@@ -6,7 +6,9 @@
 	<androidx.core.widget.NestedScrollView
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		tools:context=".fragment.home_fragment.my_info.UserInfoModifyFragment">
+		tools:context=".fragment.home_fragment.my_info.UserInfoModifyFragment"
+		android:transitionGroup="true"
+		>
 
 		<androidx.constraintlayout.widget.ConstraintLayout
 			style="@style/LayoutBasicSetting"

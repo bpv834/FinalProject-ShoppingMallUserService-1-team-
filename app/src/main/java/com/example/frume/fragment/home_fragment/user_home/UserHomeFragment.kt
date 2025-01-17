@@ -1,6 +1,7 @@
 package com.example.frume.fragment.home_fragment.user_home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,15 +11,15 @@ import com.example.frume.HomeActivity
 import com.example.frume.R
 import com.example.frume.data.Storage
 import com.example.frume.databinding.FragmentUserHomeBinding
-import com.example.frume.fragment.BottomNavFragment
 import com.example.frume.fragment.SubMainFragmentName
+import com.example.frume.fragment_main.BottomNavMainFragment
 import com.example.frume.util.ProductInfoType
 import com.google.android.material.tabs.TabLayoutMediator
 
 /*import com.example.frume.fragment.FullSubFragmentName*/
 
 class UserHomeFragment(
-    val bottomNavFragment: BottomNavFragment
+    val bottomNavFragment: BottomNavMainFragment
 ) : Fragment() {
     lateinit var homeActivity: HomeActivity
     lateinit var fragmentUserHomeBinding: FragmentUserHomeBinding
@@ -31,6 +32,7 @@ class UserHomeFragment(
         fragmentUserHomeBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_user_home, container, false)
         homeActivity = activity as HomeActivity
 
+        Log.d("test100", "userHomeFragment")
 
         return fragmentUserHomeBinding.root
     }
@@ -43,20 +45,9 @@ class UserHomeFragment(
 
     fun showSearchFragment() {
         homeActivity.supportFragmentManager.beginTransaction()
-            .replace(R.id.containerCombination, UserSearchFragment())
+            .replace(R.id.containerCombination, UserSearchFragment(bottomNavFragment))
             .addToBackStack("UserHomeFragment")
             .commit()
-    }
-
-    fun test() {
-        val dataBundle = Bundle()
-        dataBundle.putInt("UserInfoType", ProductInfoType.HOME_SEARCH_VIEW.number)
-        bottomNavFragment.combinationFragment.replaceFragment(
-            SubMainFragmentName.NAV_MAIN_FRAGMENT,
-            true,
-            true,
-            dataBundle
-        )
     }
 
   /*  fun showSearchFragment() {

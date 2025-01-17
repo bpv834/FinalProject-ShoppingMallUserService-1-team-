@@ -11,15 +11,13 @@ import com.example.frume.HomeActivity
 import com.example.frume.MainActivity
 import com.example.frume.R
 import com.example.frume.databinding.FragmentUserCategoryBinding
-import com.example.frume.fragment.BottomNavFragment
 import com.example.frume.fragment.CombinationFragment
 import com.example.frume.fragment.SubMainFragmentName
+import com.example.frume.fragment_main.BottomNavMainFragment
 import com.example.frume.util.UserInfoType
 import com.example.frume.util.ProductCategoryDetailType
 
-import com.example.frume.databinding.FragmentUserCategoryBinding
-
-class UserCategoryFragment(val bottomNavFragment: BottomNavFragment) : Fragment() {
+class UserCategoryFragment(val bottomNavMainFragment: BottomNavMainFragment) : Fragment() {
 
     lateinit var userCategoryBinding: FragmentUserCategoryBinding
     lateinit var homeActivity: HomeActivity
@@ -79,7 +77,7 @@ class UserCategoryFragment(val bottomNavFragment: BottomNavFragment) : Fragment(
         }
 
 
-        bottomNavFragment.combinationFragment.replaceFragment(
+        bottomNavMainFragment.combinationFragment.replaceFragment(
             SubMainFragmentName.PRODUCT_MAIN_FRAGMENT,
             true,
             true,

@@ -9,7 +9,9 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragment.user_fragment.user_cart.UserCartFragment">
+        tools:context=".fragment.user_fragment.user_cart.UserCartFragment"
+        android:transitionGroup="true"
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

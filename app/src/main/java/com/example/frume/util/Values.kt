@@ -1,23 +1,28 @@
 package com.example.frume.util
 
 enum class UserInfoType(var number: Int, var str: String) {
+    // 사용자 정보
+    USER_INFO_TYPE(0,"유저 정보"),
     // 주문 내역 및 배송조회
-    USER_ORDER_HISTORY_FRAGMENT(0, "주문 내역 및 배송조회"),
+    USER_ORDER_HISTORY_TYPE(1, "주문 내역 및 배송조회"),
 
     // 주문 상세 내역
-    USER_ORDER_DETAIL_FRAGMENT(1, "주문 상세 내역"),
+    USER_ORDER_DETAIL_TYPE(2, "주문 상세 내역"),
 
     // 주문 반품 및 취소
-    USER_CANCEL_AND_RETURN_FRAGMENT(2, "주문 반품 및 취소"),
+    USER_CANCEL_AND_RETURN_TYPE(3, "주문 반품 및 취소"),
 
     // 회원 정보 관리 및 탈퇴
-    USER_INFO_MANAGE_FRAGMENT(3, "회원 정보 관리 및 탈퇴"),
+    USER_INFO_MANAGE_TYPE(4, "회원 정보 관리 및 탈퇴"),
 
     // 회원 정보 수정
-    USER_INFO_MODIFY_FRAGMENT(4, "회원 정보 수정"),
+    USER_INFO_MODIFY_TYPE(5, "회원 정보 수정"),
 
     // 배송지 관리
-    USER_ADDRESS_MANAGE_FRAGMENT(5, "배송지 관리")
+    USER_ADDRESS_MANAGE_TYPE(6, "배송지 관리"),
+
+    // 비밀번호 변경
+    USER_INFO_MODIFY_PW_TYPE(7,"비밀번호 변경"),
 }
     
     // 홈 화면 탭 레이아웃 분류
@@ -74,3 +79,17 @@ enum class ProductCategoryDetailType(var number: Int, var str: String) {
     PRODUCT_CATEGORY_SALE(11,"특가"),
 
 }
+
+enum class BottomNavSubType(var number: Int, var str: String){
+    // 카테고리
+    BOTTOM_NAV_SUB_CATEGORY_TYPE(0,"카테고리"),
+    // 홈
+    BOTTOM_NAV_SUB_HOME_TYPE(1,"홈"),
+    // 장바구니
+    BOTTOM_NAV_SUB_CART_TYPE(2,"장바구니"),
+    // 내정보
+    BOTTOM_NAV_SUB_USER_INFO_TYPE(3,"내정보"),
+    // 홈 검색
+    BOTTOM_NAV_SUB_SEARCH_TYPE(4,"검색화면")
+}
+

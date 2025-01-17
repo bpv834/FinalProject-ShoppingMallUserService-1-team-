@@ -77,10 +77,10 @@ class UserHomeTabFirstFragment : Fragment(), ProductItemClickListener {
     override fun onClickProductItem(product: TempProduct) {
         // 상세 정보로 이동
         Toast.makeText(requireContext(), product.productName, Toast.LENGTH_SHORT).show()
-        homeActivity.supportFragmentManager.beginTransaction()
+       /* homeActivity.supportFragmentManager.beginTransaction()
             .replace(R.id.containerCombination, UserProductInfoFragment())
             .addToBackStack("UserHomeTabFirstFragment")
-            .commit()
+            .commit()*/
     }
 
     companion object {

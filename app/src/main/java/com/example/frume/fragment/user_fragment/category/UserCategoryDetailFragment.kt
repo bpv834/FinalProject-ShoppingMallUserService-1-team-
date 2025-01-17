@@ -6,8 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,16 +13,12 @@ import com.example.frume.HomeActivity
 import com.example.frume.R
 import com.example.frume.databinding.FragmentUserCategoryDetailBinding
 import com.example.frume.databinding.ItemProductBinding
-import com.example.frume.fragment.BottomNavFragment
 import com.example.frume.fragment.SubMainFragmentName
-import com.example.frume.fragment.user_fragment.product_info.UserProductInfoFragment
-import com.example.frume.fragment_main.ProductSubFragment
+import com.example.frume.fragment_main.BottomNavMainFragment
 import com.example.frume.util.ProductInfoType
-import com.google.android.material.divider.MaterialDividerItemDecoration
-import com.google.firebase.firestore.auth.User
 
 
-class UserCategoryDetailFragment(val userCategoryFragment : UserCategoryFragment) : Fragment() {
+class UserCategoryDetailFragment(val bottomNavMainFragment : BottomNavMainFragment) : Fragment() {
 
     lateinit var homeActivity: HomeActivity
     lateinit var fragmentUserCategoryDetailBinding: FragmentUserCategoryDetailBinding
@@ -103,8 +97,10 @@ class UserCategoryDetailFragment(val userCategoryFragment : UserCategoryFragment
         Log.d("test100","UserCategoryDetailFragment putint databundle 완성 combinationFragment.replaceFragment 보내기->  ${dataBundle}")
 
         //userCategoryFragment.bottomNavFragment.combinationFragment.replaceFragment(SubMainFragmentName.PRODUCT_MAIN_FRAGMENT,false,true,dataBundle)
-       userCategoryFragment.bottomNavFragment.combinationFragment.replaceFragment(SubMainFragmentName.PRODUCT_MAIN_FRAGMENT,true,true,dataBundle)
-
+        // 원래 있던 코드
+        // bottomNavMainFragment.bottomNavFragment.combinationFragment.replaceFragment(SubMainFragmentName.PRODUCT_MAIN_FRAGMENT,true,true,dataBundle)
+        // 수정 코드
+        bottomNavMainFragment.combinationFragment.replaceFragment(SubMainFragmentName.PRODUCT_MAIN_FRAGMENT,true,true,dataBundle)
     }
 
 }

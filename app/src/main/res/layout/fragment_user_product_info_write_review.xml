@@ -10,7 +10,9 @@
 	<androidx.constraintlayout.widget.ConstraintLayout
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		tools:context=".fragment.user_fragment.product_info.UserProductInfoWriteReviewFragment">
+		tools:context=".fragment.user_fragment.product_info.UserProductInfoWriteReviewFragment"
+		android:transitionGroup="true"
+		>
 
 		<com.google.android.material.appbar.MaterialToolbar
 			android:id="@+id/toolbarUserProductInfoWriteReview"

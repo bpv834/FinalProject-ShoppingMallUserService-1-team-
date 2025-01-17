@@ -23,7 +23,8 @@ import com.example.frume.fragment_main.UserInfoMainFragment
 
 class UserAddressManageFragment(userInfoMainFragment: UserInfoMainFragment) : Fragment() {
 
-
+    lateinit var fragmentUserAddressManageBinding : FragmentUserAddressManageBinding
+    lateinit var homeActivity: HomeActivity
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -81,8 +82,5 @@ class UserAddressManageFragment(userInfoMainFragment: UserInfoMainFragment) : Fr
         }
 
     }
-}
-
-
 }
 

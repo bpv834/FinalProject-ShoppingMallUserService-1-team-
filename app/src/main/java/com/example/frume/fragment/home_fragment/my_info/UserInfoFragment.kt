@@ -8,22 +8,26 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.example.frume.HomeActivity
-import com.example.frume.MainActivity
 import com.example.frume.R
 import com.example.frume.databinding.FragmentUserInfoBinding
-import com.example.frume.fragment.BottomNavFragment
 import com.example.frume.fragment.SubMainFragmentName
-import com.example.frume.fragment_main.ProductSubFragment
+import com.example.frume.fragment_main.BottomNavSubFragmentName
+import com.example.frume.fragment_main.UserInfoMainFragment
 import com.example.frume.util.ProductInfoType
 import com.example.frume.util.UserInfoType
 
-class UserInfoFragment(val bottomNavFragment: BottomNavFragment) : Fragment() {
+class UserInfoFragment(val userInfoMain: UserInfoMainFragment) : Fragment() {
 
     lateinit var homeActivity: HomeActivity
     lateinit var fragmentUserInfoBinding: FragmentUserInfoBinding
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        fragmentUserInfoBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_user_info, container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        fragmentUserInfoBinding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_user_info, container, false)
         homeActivity = activity as HomeActivity
         // 주문 내역 리스너 실행
         onClickOrderHistory()
@@ -37,16 +41,27 @@ class UserInfoFragment(val bottomNavFragment: BottomNavFragment) : Fragment() {
     }
 
 
-
     // 주문 내역 리스너
     fun onClickOrderHistory() {
         fragmentUserInfoBinding.textViewUserInfoOrderHistory.setOnClickListener {
             val dataBundle = Bundle()
-            Log.d("test100","UserInfoType.USER_ORDER_HISTORY_FRAGMENT.number : ${UserInfoType.USER_ORDER_HISTORY_FRAGMENT.number}")
-            dataBundle.putInt("UserInfoType", UserInfoType.USER_ORDER_HISTORY_FRAGMENT.number)
-           bottomNavFragment.combinationFragment.replaceFragment(
+            Log.d(
+                "test100",
+                "UserInfoType.USER_ORDER_HISTORY_FRAGMENT.number : ${UserInfoType.USER_ORDER_HISTORY_TYPE.number}"
+            )
+            dataBundle.putInt("UserInfoType", UserInfoType.USER_ORDER_HISTORY_TYPE.number)
+
+            // 구조 수정으로 인한 변경
+            /*       bottomNavMainFragment.(
                 SubMainFragmentName.USER_INFO_MAIN_FRAGMENT,
                 true,
+                true,
+                dataBundle
+            )*/
+
+            // 구조 변경후 수정. 변경점 : ( userInfFragment와 UserInfoMain 과 BottomNavMain이 연결됨. 이전엔 바텀네비와만 연결돼있었음 (UserInfo, bottomNav)
+            userInfoMain.bottomNavMainFragment.replaceFragment(
+                BottomNavSubFragmentName.BOTTOM_NAV_SUB_USER_INFO_FRAGMENT, true,
                 true,
                 dataBundle
             )
@@ -57,12 +72,23 @@ class UserInfoFragment(val bottomNavFragment: BottomNavFragment) : Fragment() {
     fun onClickDeliverySpotManagement() {
         fragmentUserInfoBinding.textViewUserInfoShippingInfo.setOnClickListener {
             val dataBundle = Bundle()
-            Log.d("test100","UserInfoType.USER_ADDRESS_MANAGE_FRAGMENT.number : ${UserInfoType.USER_ADDRESS_MANAGE_FRAGMENT}")
+            Log.d(
+                "test100",
+                "UserInfoType.USER_ADDRESS_MANAGE_FRAGMENT.number : ${UserInfoType.USER_ADDRESS_MANAGE_TYPE}"
+            )
 
-            dataBundle.putInt("UserInfoType", UserInfoType.USER_ADDRESS_MANAGE_FRAGMENT.number)
-            bottomNavFragment.combinationFragment.replaceFragment(
-                SubMainFragmentName.USER_INFO_MAIN_FRAGMENT,
-                true,
+            dataBundle.putInt("UserInfoType", UserInfoType.USER_ADDRESS_MANAGE_TYPE.number)
+            // 구조 수정으로 인해 변경
+            /*   userInfoMain.combinationFragment.replaceFragment(
+                   SubMainFragmentName.USER_INFO_MAIN_FRAGMENT,
+                   true,
+                   true,
+                   dataBundle
+               )*/
+
+            // 구조 변경후 수정. 변경점 : ( userInfFragment와 UserInfoMain 과 BottomNavMain이 연결됨. 이전엔 바텀네비와만 연결돼있었음 (UserInfo, bottomNav)
+            userInfoMain.bottomNavMainFragment.replaceFragment(
+                BottomNavSubFragmentName.BOTTOM_NAV_SUB_USER_INFO_FRAGMENT, true,
                 true,
                 dataBundle
             )
@@ -73,8 +99,24 @@ class UserInfoFragment(val bottomNavFragment: BottomNavFragment) : Fragment() {
     fun onClickTextViewUserReview() {
         fragmentUserInfoBinding.TextViewUserInfoReview.setOnClickListener {
             val dataBundle = Bundle()
-            dataBundle.putInt("ProductInfoType",ProductInfoType.USER_PRODUCT_INFO_REVIEW_TYPE.number)
-            bottomNavFragment.combinationFragment.replaceFragment(SubMainFragmentName.PRODUCT_MAIN_FRAGMENT,true,true,dataBundle)
+            dataBundle.putInt(
+                "ProductInfoType",
+                ProductInfoType.USER_PRODUCT_INFO_REVIEW_TYPE.number
+            )
+            // 구조 수정으로 인해 변경
+            /*    userInfoMain.combinationFragment.replaceFragment(
+                    SubMainFragmentName.PRODUCT_MAIN_FRAGMENT,
+                    true,
+                    true,
+                    dataBundle
+                )*/
+
+            // 구조 수정으로인한 수정후. 변경점 : ( userInfFragment와 UserInfoMain 과 BottomNavMain이 연결됨. 이전엔 바텀네비와만 연결돼있었음 (UserInfo, bottomNav)
+            userInfoMain.bottomNavMainFragment.replaceFragment(
+                BottomNavSubFragmentName.BOTTOM_NAV_SUB_USER_INFO_FRAGMENT, true,
+                true,
+                dataBundle
+            )
         }
     }
 
@@ -82,12 +124,23 @@ class UserInfoFragment(val bottomNavFragment: BottomNavFragment) : Fragment() {
     fun onClickUserInfoManagementOrLeave() {
         fragmentUserInfoBinding.textViewUserInfoAccountInfo.setOnClickListener {
             val dataBundle = Bundle()
-            Log.d("test100","UserInfoType.USER_INFO_MANAGE_FRAGMENT.number : ${UserInfoType.USER_INFO_MANAGE_FRAGMENT.number}")
+            Log.d(
+                "test100",
+                "UserInfoType.USER_INFO_MANAGE_FRAGMENT.number : ${UserInfoType.USER_INFO_MANAGE_TYPE.number}"
+            )
 
-            dataBundle.putInt("UserInfoType", UserInfoType.USER_INFO_MANAGE_FRAGMENT.number)
-            bottomNavFragment.combinationFragment.replaceFragment(
+            // 구조 수정으로 인해 변경
+            /*dataBundle.putInt("UserInfoType", UserInfoType.USER_INFO_MANAGE_TYPE.number)
+            userInfoMain.combinationFragment.replaceFragment(
                 SubMainFragmentName.USER_INFO_MAIN_FRAGMENT,
                 true,
+                true,
+                dataBundle
+            )*/
+
+            // 구조 변경후 수정. 변경점 : ( userInfFragment와 UserInfoMain 과 BottomNavMain이 연결됨. 이전엔 바텀네비와만 연결돼있었음 (UserInfo, bottomNav)
+            userInfoMain.bottomNavMainFragment.replaceFragment(
+                BottomNavSubFragmentName.BOTTOM_NAV_SUB_USER_INFO_FRAGMENT, true,
                 true,
                 dataBundle
             )

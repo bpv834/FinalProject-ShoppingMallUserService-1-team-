@@ -10,7 +10,9 @@
 	<androidx.constraintlayout.widget.ConstraintLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		tools:context=".fragment.user_fragment.product_info.UserProductInfoDialogFragment">
+		tools:context=".fragment.user_fragment.product_info.UserProductInfoDialogFragment"
+		android:transitionGroup="true"
+		>
 
 		<com.google.android.material.imageview.ShapeableImageView
 			android:id="@+id/imageViewUserProductDialogThumbNail"

@@ -7,7 +7,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragment.home_fragment.my_info.UserOderDetailFragment">
+        tools:context=".fragment.home_fragment.my_info.UserOderDetailFragment"
+        android:transitionGroup="true"
+        >
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbarUserOrderDetail"

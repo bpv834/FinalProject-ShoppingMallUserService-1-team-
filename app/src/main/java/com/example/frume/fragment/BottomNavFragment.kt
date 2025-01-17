@@ -1,3 +1,4 @@
+/*
 package com.example.frume.fragment
 
 import android.os.Bundle
@@ -18,6 +19,7 @@ import com.example.frume.fragment.home_fragment.user_home.UserProductShowListFra
 import com.example.frume.fragment.user_fragment.category.UserCategoryDetailFragment
 import com.example.frume.fragment.user_fragment.category.UserCategoryFragment
 import com.example.frume.fragment.user_fragment.user_cart.UserCartFragment
+import com.example.frume.fragment_main.BottomNavSubFragmentName
 import com.google.android.material.transition.MaterialSharedAxis
 
 
@@ -34,7 +36,8 @@ class BottomNavFragment(val combinationFragment: CombinationFragment) : Fragment
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        bottomNavBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_bottom_nav, container, false)
+        bottomNavBinding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_bottom_nav, container, false)
         homeActivity = activity as HomeActivity
 
         // Inflate the layout for this fragment
@@ -55,14 +58,22 @@ class BottomNavFragment(val combinationFragment: CombinationFragment) : Fragment
         bottomNavBinding.bottomNavMain.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.menu_category -> {
-                    replaceFragment(BottomNavSubFragmentName.USER_CATEGORY_FRAGMENT, true, false, null)
+                    replaceFragment(
+                        BottomNavSubFragmentName.USER_CATEGORY_FRAGMENT,
+                        true,
+                        false,
+                        null
+                    )
                 }
+
                 R.id.menu_home -> {
                     replaceFragment(BottomNavSubFragmentName.USER_HOME_FRAGMENT, true, false, null)
                 }
+
                 R.id.menu_profile -> {
                     replaceFragment(BottomNavSubFragmentName.USER_INFO_FRAGMENT, true, false, null)
                 }
+
                 R.id.menu_cart -> {
                     replaceFragment(BottomNavSubFragmentName.USER_CART_FRAGMENT, true, false, null)
                 }
@@ -71,7 +82,8 @@ class BottomNavFragment(val combinationFragment: CombinationFragment) : Fragment
         }
     }
 
-    // 프래그먼트를 교체하는 함수
+  */
+/*  // 프래그먼트를 교체하는 함수
     fun replaceFragment(
         fragmentName: BottomNavSubFragmentName,
         isAddToBackStack: Boolean,
@@ -91,6 +103,7 @@ class BottomNavFragment(val combinationFragment: CombinationFragment) : Fragment
             BottomNavSubFragmentName.USER_PRODUCT_SHOW_LIST_FRAGMENT -> UserProductShowListFragment()
 //            // hyeonseo 0116 13:52 추가
 //            BottomNavSubFragmentName.USER_CATEGORY_DETAIL_FRAGMENT -> UserCategoryDetailFragment()
+            BottomNavSubFragmentName.USER_CART_FRAGMENT1 -> TODO()
         }
 
         // bundle 객체가 null이 아니라면
@@ -119,7 +132,8 @@ class BottomNavFragment(val combinationFragment: CombinationFragment) : Fragment
                 addToBackStack(fragmentName.str)
             }
         }
-    }
+    }*//*
+
 
     // 프래그먼트를 BackStack에서 제거하는 메서드
     fun removeFragment(fragmentName: BottomNavSubFragmentName) {
@@ -129,21 +143,30 @@ class BottomNavFragment(val combinationFragment: CombinationFragment) : Fragment
         )
     }
 }
-
+*/
+/*
 // 하위 프래그먼트들의 이름
 enum class BottomNavSubFragmentName(var number: Int, var str: String) {
+    // 카테고리
     USER_CATEGORY_FRAGMENT(0, "UserCategoryFragment"),
+
+    // 홈
     USER_HOME_FRAGMENT(1, "UserHomeFragment"),
 
     // 내정보
-    USER_INFO_FRAGMENT(2,"UserInfoFragment"),
-    // 장바구니
-    USER_CART_FRAGMENT(3,"UserCartFragment"),
-      // 상품 리스트 뷰 -> 검색결과
-    USER_PRODUCT_SHOW_LIST_FRAGMENT(4,"userProductShowListFragment"),
-  
-//
-//    // 카테고리 선택 -> 상품 리스트 뷰
-//    USER_CATEGORY_DETAIL_FRAGMENT(5,"UserCategoryDetailFragment")
-}
+    USER_INFO_FRAGMENT(2, "UserInfoFragment"), // UserInfoMainFragment()
 
+    // 장바구니
+    USER_CART_FRAGMENT(3, "UserCartFragment"),
+
+    // 상품 리스트 뷰 -> 검색결과
+    USER_PRODUCT_SHOW_LIST_FRAGMENT(4, "userProductShowListFragment"),
+    USER_CART_FRAGMENT1(5, "UserCartFragment1"),
+    // 카테고리 선택 -> 상품 리스트 뷰
+    //USER_CATEGORY_DETAIL_FRAGMENT(5,"UserCategoryDetailFragment")
+}*//*
+
+
+
+
+*/

@@ -13,9 +13,10 @@ import com.example.frume.HomeActivity
 import com.example.frume.R
 import com.example.frume.databinding.FragmentUserSearchBinding
 import com.example.frume.fragment.CombinationFragment
+import com.example.frume.fragment_main.BottomNavMainFragment
 
 
-class UserSearchFragment() : Fragment() {
+class UserSearchFragment(bottomNavMainFragment: BottomNavMainFragment) : Fragment() {
     private var _binding: FragmentUserSearchBinding? = null
     private val binding get() = _binding!!
     lateinit var homeActivity: HomeActivity

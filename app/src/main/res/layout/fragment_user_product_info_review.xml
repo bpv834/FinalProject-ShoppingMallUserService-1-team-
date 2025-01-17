@@ -10,7 +10,9 @@
 	<androidx.constraintlayout.widget.ConstraintLayout
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		tools:context=".fragment.user_fragment.product_info.UserProductInfoReviewFragment">
+		tools:context=".fragment.user_fragment.product_info.UserProductInfoReviewFragment"
+		android:transitionGroup="true"
+		>
 
 		<Button
 			android:id="@+id/buttonUserProductInfoReview"

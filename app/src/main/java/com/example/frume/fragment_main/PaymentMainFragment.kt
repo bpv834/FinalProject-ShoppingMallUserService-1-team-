@@ -142,8 +142,7 @@ enum class PaymentSubFragment(var number:Int, var str:String){
 }*/
 
     enum class PaymentSubFragment(var number: Int, var str: String) {
-        USER_CART_FRAGMENT(1, "UserCartFragment"),
-        USER_CART_FRAGMENT1(2, "UserCartFragment1"),
+
         USER_PAYMENT_SCREEN_FRAGMENT(3, "UserPaymentScreenFragment"),
     }
 }
