@@ -31,6 +31,8 @@ class UserCategoryFragment(val bottomNavFragment: BottomNavFragment) : Fragment(
         homeActivity = activity as HomeActivity
         userCategoryBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_user_category, container, false)
 
+        Log.d("test100","UserCategoryFragment!!!")
+
         // 클릭 리스너. 과일 이름을 클릭하면 넘어가도록한다.
         onClickCategory()
 
@@ -64,13 +66,13 @@ class UserCategoryFragment(val bottomNavFragment: BottomNavFragment) : Fragment(
             putInt("ProductCategoryDetailType", categoryNumber)  // 숫자만 전달
         }
 
-//
         bottomNavFragment.combinationFragment.replaceFragment(
             SubMainFragmentName.PRODUCT_MAIN_FRAGMENT,
             true,
             true,
             dataBundle
         )
+
 
     }
 }

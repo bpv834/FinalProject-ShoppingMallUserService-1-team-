@@ -20,6 +20,25 @@ enum class UserInfoType(var number: Int, var str: String) {
     USER_ADDRESS_MANAGE_FRAGMENT(5,"배송지 관리")
 }
 
+enum class ProductInfoType(var number: Int, var str: String){
+    // 상품 (tabLayout을 갖고있는 화면)
+    USER_PRODUCT_INFO_TYPE(0,"UserProductInfoFragment"),
+    // 상품 설명
+    USER_PRODUCT_INFO_DESCRIPTION_TYPE(1, "UserProductInfoDescription"),
+    // 상품 상세 정보
+    USER_PRODUCT_INFO_DETAIL_TYPE(2,"UserProductInfoDetailFragment"),
+    // 상품 후기
+    USER_PRODUCT_INFO_REVIEW_TYPE(3,"UserProductInfoReviewFragment"),
+    // 상품 후기 작성
+    USER_PRODUCT_INFO_WRITE_TYPE(4,"UserProductWriteReviewFragment"),
+    // 상품 주문 다이얼로그
+    USER_PRODUCT_INFO_DIALOG_TYPE(5,"UserProductInfoDialogFragment"),
+    // 상품 리스트 뷰
+    USER_PRODUCT_SHOW_LIST_TYPE(6,"userProductShowListFragment")
+    // 구매 뷰
+}
+
+
 enum class ProductCategoryDetailType(var number: Int, var str: String) {
 
     PRODUCT_CATEGORY_STRAWBERRY(0,"딸기"),
@@ -36,3 +55,4 @@ enum class ProductCategoryDetailType(var number: Int, var str: String) {
     PRODUCT_CATEGORY_SALE(11,"특가"),
 
 }
+

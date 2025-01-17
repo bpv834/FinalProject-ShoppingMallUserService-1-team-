@@ -17,6 +17,7 @@ class UserSignUpFragment : Fragment() {
 
     lateinit var userSignUpBinding: FragmentUserSignUpBinding
     lateinit var userActivity: UserActivity
+    lateinit var homeActivity: HomeActivity
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,7 +27,13 @@ class UserSignUpFragment : Fragment() {
         userActivity = activity as UserActivity
         userSignUpBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_user_sign_up,container,false)
 
+        // 툴바 세팅(뒤로 가기)
+        settingToolbar()
+
+        // 회원 가입 완료 및 홈화면으로 이동
         onClickSignUpButton()
+
+
 
         return userSignUpBinding.root
     }
@@ -39,6 +46,20 @@ class UserSignUpFragment : Fragment() {
             val homeIntent = Intent(userActivity, HomeActivity::class.java)
             startActivity(homeIntent)
             userActivity.finish()
+        }
+    }
+
+    // 툴바 세팅
+    fun settingToolbar(){
+
+        userSignUpBinding.toolbarUserSignUp.bringToFront()
+        userSignUpBinding.toolbarUserSignUp.isFocusable = true
+        userSignUpBinding.toolbarUserSignUp.isClickable = true
+
+        // 툴바 뒤로가기 버튼 클릭
+        userSignUpBinding.toolbarUserSignUp.setNavigationOnClickListener {
+            // 다시 로그인 화면으로 돌아간다
+            userActivity.replaceFragment(UserActivity.UserFragmentName.USER_LOGIN_FRAGMENT,false,true,null)
         }
     }
 }

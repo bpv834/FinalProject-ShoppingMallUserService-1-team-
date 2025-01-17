@@ -14,6 +14,7 @@ import com.example.frume.HomeActivity
 import com.example.frume.MainActivity
 import com.example.frume.R
 import com.example.frume.databinding.FragmentProductMainBinding
+import com.example.frume.fragment.BottomNavFragment
 import com.example.frume.fragment.CombinationFragment
 import com.example.frume.fragment.home_fragment.my_info.UserAddressManageFragment
 import com.example.frume.fragment.home_fragment.my_info.UserCancelAndReturnFragment
@@ -24,12 +25,14 @@ import com.example.frume.fragment.home_fragment.my_info.UserOrderHistoryFragment
 import com.example.frume.fragment.home_fragment.my_info.UserPwModifyFragment
 import com.example.frume.fragment.home_fragment.user_home.UserProductShowListFragment
 import com.example.frume.fragment.user_fragment.category.UserCategoryDetailFragment
+import com.example.frume.fragment.user_fragment.category.UserCategoryFragment
 import com.example.frume.fragment.user_fragment.product_info.UserProductInfoDescriptionFragment
 import com.example.frume.fragment.user_fragment.product_info.UserProductInfoDetailFragment
 import com.example.frume.fragment.user_fragment.product_info.UserProductInfoDialogFragment
 import com.example.frume.fragment.user_fragment.product_info.UserProductInfoFragment
 import com.example.frume.fragment.user_fragment.product_info.UserProductInfoReviewFragment
 import com.example.frume.util.ProductCategoryDetailType
+import com.example.frume.util.ProductInfoType
 import com.example.frume.util.UserInfoType
 import com.google.android.material.transition.MaterialSharedAxis
 
@@ -37,11 +40,13 @@ import com.google.android.material.transition.MaterialSharedAxis
 class ProductMainFragment(val combinationFragment: CombinationFragment) : Fragment() {
 
     lateinit var fragmentProductMainBinding : FragmentProductMainBinding
-    lateinit var mainActivity: MainActivity
+    // lateinit var mainActivity: MainActivity
     private lateinit var homeActivity: HomeActivity
 
     // 카테고리 타입값
     lateinit var productCategoryDetailType : Number
+    // 상품화면 타입값
+    var productInfoType: ProductInfoType = ProductInfoType.USER_PRODUCT_INFO_TYPE
 
     // 현재 Fragment와 다음 Fragment를 담을 변수(애니메이션 이동 때문에...)
     var newFragment: Fragment? = null
@@ -57,50 +62,60 @@ class ProductMainFragment(val combinationFragment: CombinationFragment) : Fragme
             container,
             false
         )
-        arguments?.getInt("ProductCategoryDetailType")
+        //arguments?.getInt("ProductCategoryDetailType")
 
-        // settingProductCategoryDetailType()
-
-        // Log.d("test100", "과일 넘버 : ${arguments?.getInt("ProductCategoryDetailType")}")
         homeActivity = activity as HomeActivity
 
-        replaceFragmentByArguments()
+
+        Log.d("test100", "ProductMainFragment 진입완료 ${arguments}")
+
+
+        // 특정 과일 카테고리 화면(UserCategoryDetailFragment)으로 이동
+        //replaceFragmentByArguments()
+
+
+        val arguments = arguments ?: Bundle() // arguments가 null일 경우 빈 Bundle 생성
+
+        when {
+            arguments.containsKey("ProductCategoryDetailType") -> {
+                productCategoryDetailType = arguments.getInt("ProductCategoryDetailType")
+
+            }
+            arguments.containsKey("ProductInfoType") -> {
+                // productInfoType = arguments.getInt("ProductInfoType")
+
+            }
+            else -> {
+
+            }
+        }
+
+
+
+
+
 
         return fragmentProductMainBinding.root
     }
 
+    // 입력받은 카테고리 번호를 문자열로 바꾸어 UserCategoryDetailFragment로 전달한다.
+    // 이때 바꾼 문자열은 툴바의 title이 된다.
     fun replaceFragmentByArguments(){
 
+        // 카테고리 번호
         val productCategoryDetailType = arguments?.getInt("ProductCategoryDetailType")?: -1
-        // Log.d("test100","확인용2 : ${productCategoryDetailType}")
+        // 카테고리 번호 str로 변경
+        val productCategoryDetailTypeStr = ProductCategoryDetailType.values().find { it.number == productCategoryDetailType }?.str
+            ?: "알 수 없는 카테고리" // 번호가 없을 때 기본값
 
-        when (productCategoryDetailType) {
-            ProductCategoryDetailType.PRODUCT_CATEGORY_STRAWBERRY.number -> {
-                Log.d("test100", "딸기 카테고리 선택")
-                replaceFragment(
+        replaceFragment(
                     ProductSubFragment.USER_CATEGORY_DETAIL_FRAGMENT,
                     isAddToBackStack = false,
                     animate = true,
                     dataBundle = Bundle().apply {
-                        putString("selectedFruit", "딸기")
+                         putString("selectedFruit", productCategoryDetailTypeStr)
                     }
                 )
-            }
-
-            else -> {
-                Log.d("test100", "기타 카테고리 선택됨!")
-                replaceFragment(
-                    ProductSubFragment.USER_CATEGORY_DETAIL_FRAGMENT,
-                    isAddToBackStack = false,
-                    animate = true,
-                    dataBundle = Bundle().apply {
-                        putString("selectedFruit", "기타")
-                    }
-                )
-            }
-
-
-        }
 
     }
 
@@ -121,16 +136,20 @@ class ProductMainFragment(val combinationFragment: CombinationFragment) : Fragme
         }
         // 프래그먼트 객체
         newFragment = when (fragmentName) {
+
             // 추후 연결
-//            ProductSubFragment.USER_PRODUCT_INFO_FRAGMENT -> UserProductInfoFragment()
+            ProductSubFragment.USER_PRODUCT_INFO_FRAGMENT -> UserProductInfoFragment()
 //            ProductSubFragment.USER_PRODUCT_INFO_DESCRIPTION_FRAGMENT -> UserProductInfoDescriptionFragment()
 //            ProductSubFragment.USER_PRODUCT_INFO_DETAIL_FRAGMENT -> UserProductInfoDetailFragment()
 //            ProductSubFragment.USER_PRODUCT_INFO_REVIEW_FRAGMENT -> UserProductInfoReviewFragment()
 //            ProductSubFragment.USER_PRODUCT_INFO_WRITE_REVIEW_FRAGMENT -> UserProductWriteReviewFragment()
 //            ProductSubFragment.USER_PRODUCT_INFO_DIALOG_FRAGMENT -> UserProductInfoDialogFragment()
 //            ProductSubFragment.USER_PRODUCT_SHOW_LIST_FRAGMENT -> UserProductShowListFragment()
-            ProductSubFragment.USER_CATEGORY_DETAIL_FRAGMENT -> UserCategoryDetailFragment()
-            else -> null // 예상치 못한 경우에 대비
+
+            ProductSubFragment.USER_CATEGORY_DETAIL_FRAGMENT -> UserCategoryDetailFragment(
+                UserCategoryFragment(BottomNavFragment(CombinationFragment()))
+            )
+            else -> null
         }
 
         // bundle 객체가 null이 아니라면
