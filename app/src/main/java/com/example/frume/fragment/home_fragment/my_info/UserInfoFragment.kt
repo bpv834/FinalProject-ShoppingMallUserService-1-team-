@@ -13,6 +13,8 @@ import com.example.frume.R
 import com.example.frume.databinding.FragmentUserInfoBinding
 import com.example.frume.fragment.BottomNavFragment
 import com.example.frume.fragment.SubMainFragmentName
+import com.example.frume.fragment_main.ProductSubFragment
+import com.example.frume.util.ProductInfoType
 import com.example.frume.util.UserInfoType
 
 class UserInfoFragment(val bottomNavFragment: BottomNavFragment) : Fragment() {
@@ -23,15 +25,20 @@ class UserInfoFragment(val bottomNavFragment: BottomNavFragment) : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         fragmentUserInfoBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_user_info, container, false)
         homeActivity = activity as HomeActivity
-        // Inflate the layout for this fragment
+        // 주문 내역 리스너 실행
         onClickOrderHistory()
+        // 배송지 관리 리스너 실행
         onClickDeliverySpotManagement()
+        // 회원 관리 및 탈퇴 리스너 실행
         onClickUserInfoManagementOrLeave()
+        // 후기 리스너 실행
+        onClickTextViewUserReview()
         return fragmentUserInfoBinding.root
     }
 
 
 
+    // 주문 내역 리스너
     fun onClickOrderHistory() {
         fragmentUserInfoBinding.textViewUserInfoOrderHistory.setOnClickListener {
             val dataBundle = Bundle()
@@ -45,6 +52,8 @@ class UserInfoFragment(val bottomNavFragment: BottomNavFragment) : Fragment() {
             )
         }
     }
+
+    // 배송지 관리 리스너
     fun onClickDeliverySpotManagement() {
         fragmentUserInfoBinding.textViewUserInfoShippingInfo.setOnClickListener {
             val dataBundle = Bundle()
@@ -58,9 +67,18 @@ class UserInfoFragment(val bottomNavFragment: BottomNavFragment) : Fragment() {
                 dataBundle
             )
         }
-
     }
 
+    // 후기 텍스트뷰 클릭 리스너
+    fun onClickTextViewUserReview() {
+        fragmentUserInfoBinding.TextViewUserInfoReview.setOnClickListener {
+            val dataBundle = Bundle()
+            dataBundle.putInt("ProductInfoType",ProductInfoType.USER_PRODUCT_INFO_REVIEW_TYPE.number)
+            bottomNavFragment.combinationFragment.replaceFragment(SubMainFragmentName.PRODUCT_MAIN_FRAGMENT,true,true,dataBundle)
+        }
+    }
+
+    // 회원 정보 및 탈퇴 리스너
     fun onClickUserInfoManagementOrLeave() {
         fragmentUserInfoBinding.textViewUserInfoAccountInfo.setOnClickListener {
             val dataBundle = Bundle()

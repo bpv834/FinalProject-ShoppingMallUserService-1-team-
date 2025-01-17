@@ -1,6 +1,7 @@
 package com.example.frume.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,9 +35,12 @@ class CombinationFragment : Fragment() {
 
         combinationBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_combination, container, false)
         homeActivity= activity as HomeActivity
-        // Inflate the layout for this fragment
 
-        replaceFragment(SubMainFragmentName.NAV_MAIN_FRAGMENT,false, false, null)
+        Log.d("test100","combiFragment")
+
+
+         replaceFragment(SubMainFragmentName.NAV_MAIN_FRAGMENT,false, false, null)
+        //   replaceFragment(SubMainFragmentName.PRODUCT_MAIN_FRAGMENT,true,true,null)
         return combinationBinding.root
     }
 
@@ -45,8 +49,6 @@ class CombinationFragment : Fragment() {
     // 프래그먼트를 교체하는 함수
     fun replaceFragment(fragmentName: SubMainFragmentName, isAddToBackStack:Boolean, animate:Boolean, dataBundle: Bundle?){
         // newFragment가 null이 아니라면 oldFragment 변수에 담아준다.
-
-
         if(newFragment != null){
             oldFragment = newFragment
         }
@@ -82,7 +84,6 @@ class CombinationFragment : Fragment() {
 
             replace(R.id.containerCombination, newFragment!!)
             if(isAddToBackStack){
-
                 addToBackStack(fragmentName.str)
             }
         }

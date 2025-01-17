@@ -32,16 +32,16 @@ class UserHomeFragment(val bottomNavFragment: BottomNavFragment) : Fragment() {
 
 
 
-    fun showSearchFragment() {
+  /*  fun showSearchFragment() {
         bottomNavFragment.replaceFragment(BottomNavSubFragmentName.USER_PRODUCT_SHOW_LIST_FRAGMENT,true,true,null)
-    }
+    }*/
 
     private fun showSearchView() {
         fragmentUserHomeBinding.toolbarUserHome.setOnMenuItemClickListener { item->
             when(item.itemId){
                 R.id.menuSearch->{
                     Log.d("test400","tttt")
-                    showSearchFragment()
+                  /*  showSearchFragment()*/
                     true
                 }
 

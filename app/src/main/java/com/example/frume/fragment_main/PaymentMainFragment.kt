@@ -116,11 +116,17 @@ class PaymentMainFragment(val combinationFragment: CombinationFragment) : Fragme
                     oldFragment?.reenterTransition = MaterialSharedAxis(MaterialSharedAxis.X, false)
                 }
 
+
                 newFragment?.exitTransition = MaterialSharedAxis(MaterialSharedAxis.X, true)
                 newFragment?.reenterTransition = MaterialSharedAxis(MaterialSharedAxis.X, false)
                 newFragment?.enterTransition = MaterialSharedAxis(MaterialSharedAxis.X, true)
                 newFragment?.returnTransition = MaterialSharedAxis(MaterialSharedAxis.X, false)
             }
+enum class PaymentSubFragment(var number:Int, var str:String){
+
+    // 결제
+    USER_PAYMENT_SCREEN_FRAGMENT(3,"UserPaymentScreenFragment"),
+
 
             replace(R.id.containerPaymentMain, newFragment!!)
             if (isAddToBackStack) {

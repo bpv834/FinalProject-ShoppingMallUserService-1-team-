@@ -19,10 +19,10 @@ import com.example.frume.fragment.CombinationFragment
 import com.example.frume.fragment.home_fragment.user_home.UserHomeFragment
 import com.example.frume.fragment.user_fragment.user_cart.UserCartFragment
 import com.google.android.material.divider.MaterialDividerItemDecoration
+import com.example.frume.fragment_main.UserInfoMainFragment
 
-class UserAddressManageFragment() : Fragment() {
-    lateinit var fragmentUserAddressManageBinding: FragmentUserAddressManageBinding
-    lateinit var homeActivity: HomeActivity
+class UserAddressManageFragment(userInfoMainFragment: UserInfoMainFragment) : Fragment() {
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,6 +39,7 @@ class UserAddressManageFragment() : Fragment() {
         // Inflate the layout for this fragment
         return fragmentUserAddressManageBinding.root
     }
+
 
     // RecyclerView를 구성하는 메서드
     fun settingRecyclerViewUserAddressManage() {
@@ -80,5 +81,8 @@ class UserAddressManageFragment() : Fragment() {
         }
 
     }
+}
+
+
 }
 

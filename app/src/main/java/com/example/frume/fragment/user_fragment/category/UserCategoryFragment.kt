@@ -6,9 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.frume.R
+import com.example.frume.fragment.BottomNavFragment
 
 
-class UserCategoryFragment : Fragment() {
+class UserCategoryFragment(val bottomNavFragment: BottomNavFragment) : Fragment() {
 
 
     override fun onCreateView(

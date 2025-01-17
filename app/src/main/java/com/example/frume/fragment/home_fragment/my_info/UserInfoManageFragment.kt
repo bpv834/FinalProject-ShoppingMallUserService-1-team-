@@ -34,6 +34,7 @@ class UserInfoManageFragment(val userInfoMainFragment: UserInfoMainFragment) : F
         return fragmentUserInfoManageBinding.root
     }
 
+    // 유저 정보 수정 리스너
     fun onClickButtonUserInfoModify() {
         fragmentUserInfoManageBinding.buttonUserInfoManageModifyUserInfo.setOnClickListener {
             userInfoMainFragment.replaceFragment(
@@ -45,6 +46,7 @@ class UserInfoManageFragment(val userInfoMainFragment: UserInfoMainFragment) : F
         }
     }
 
+    // 유저 비밀번호 수정 리스너
     fun onClickButtonModifyPw() {
         fragmentUserInfoManageBinding.buttonUserInfoManageModifyPW.setOnClickListener {
             userInfoMainFragment.replaceFragment(UserInfoSubFragment.USER_PW_MODIFY_FRAGMENT,true,true,null)

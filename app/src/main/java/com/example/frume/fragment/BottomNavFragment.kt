@@ -29,7 +29,6 @@ class BottomNavFragment(val combinationFragment: CombinationFragment) : Fragment
     var newFragment: Fragment? = null
     var oldFragment: Fragment? = null
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -85,10 +84,13 @@ class BottomNavFragment(val combinationFragment: CombinationFragment) : Fragment
         // 프래그먼트 객체
         newFragment = when (fragmentName) {
             BottomNavSubFragmentName.USER_HOME_FRAGMENT -> UserHomeFragment(this@BottomNavFragment)
+
             BottomNavSubFragmentName.USER_INFO_FRAGMENT -> UserInfoFragment(this)
             BottomNavSubFragmentName.USER_CATEGORY_FRAGMENT -> UserCategoryFragment()
             BottomNavSubFragmentName.USER_CART_FRAGMENT -> UserCartFragment(this@BottomNavFragment)
             BottomNavSubFragmentName.USER_PRODUCT_SHOW_LIST_FRAGMENT -> UserProductShowListFragment()
+
+
         }
 
         // bundle 객체가 null이 아니라면
@@ -132,8 +134,15 @@ class BottomNavFragment(val combinationFragment: CombinationFragment) : Fragment
 enum class BottomNavSubFragmentName(var number: Int, var str: String) {
     USER_CATEGORY_FRAGMENT(0, "UserCategoryFragment"),
     USER_HOME_FRAGMENT(1, "UserHomeFragment"),
-    USER_INFO_FRAGMENT(2, "UserInfoFragment"),
-    USER_CART_FRAGMENT(3, "UserCartFragment"),
-    USER_PRODUCT_SHOW_LIST_FRAGMENT(4, "userProductShowListFragment"),
+
+  
+
+    // 내정보
+    USER_INFO_FRAGMENT(2,"UserInfoFragment"),
+    // 장바구니
+    USER_CART_FRAGMENT(3,"UserCartFragment"),
+    
+}
+
 
 }

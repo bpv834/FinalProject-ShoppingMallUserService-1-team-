@@ -76,7 +76,7 @@
                     android:text="적립금"
                     app:layout_constraintTop_toTopOf="@id/viewUserInfoCost"
                     app:layout_constraintStart_toStartOf="@id/viewUserInfoCost"
-                    app:layout_constraintEnd_toStartOf="@id/reviewTextViewUserInfo"
+                    app:layout_constraintEnd_toStartOf="@id/TextViewUserInfoReview"
                     android:fontFamily="@font/nanumsquareneo_5"
                     android:textColor="@color/black"
                     android:layout_marginTop="30dp" />
@@ -88,13 +88,13 @@
                     android:text="1000 원"
                     app:layout_constraintTop_toBottomOf="@id/TextViewUserInfoReWard"
                     app:layout_constraintStart_toStartOf="@id/viewUserInfoCost"
-                    app:layout_constraintEnd_toStartOf="@id/reviewTextViewUserInfo"
+                    app:layout_constraintEnd_toStartOf="@id/TextViewUserInfoReview"
                     android:fontFamily="@font/nanumsquareneo_5"
                     android:textColor="@color/black"
                     android:layout_marginTop="15dp" />
 
                 <TextView
-                    android:id="@+id/reviewTextViewUserInfo"
+                    android:id="@+id/TextViewUserInfoReview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="후기"
@@ -109,10 +109,10 @@
                     android:id="@+id/reviewCostTextViewUserInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1000 원"
+                    android:text="2 건"
                     app:layout_constraintStart_toEndOf="@id/reWardCostTextViewUserInfo"
                     app:layout_constraintEnd_toEndOf="@id/viewUserInfoCost"
-                    app:layout_constraintTop_toBottomOf="@id/reviewTextViewUserInfo"
+                    app:layout_constraintTop_toBottomOf="@id/TextViewUserInfoReview"
                     android:fontFamily="@font/nanumsquareneo_5"
                     android:textColor="@color/black"
                     android:layout_marginTop="15dp" />
