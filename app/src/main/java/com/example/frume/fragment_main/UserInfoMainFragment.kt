@@ -27,14 +27,16 @@ import com.google.android.material.transition.MaterialSharedAxis
 
 class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragment() {
 
-    // 게시 판 타입값
+    // 게시 판 타입값  -> 데이터번들로 받은것
     lateinit var userInfoType: UserInfoType
 
     // 현재 Fragment와 다음 Fragment를 담을 변수(애니메이션 이동 때문에...)
     var newFragment: Fragment? = null
     var oldFragment: Fragment? = null
+
     lateinit var fragmentUserInfoMainFragment: FragmentUserInfoMainBinding
     lateinit var homeActivity: HomeActivity
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,11 +47,11 @@ class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragm
             container,
             false
         )
-        arguments?.getInt("UserInfoType")
+        arguments?.getInt("UserInfoType") // 여기서 받음 데이터번들.. 이 값으로 분기해서
         settingUserInfoType()
         Log.d("test100", "bundle 값: ${arguments?.getInt("UserInfoType")}")
         homeActivity = activity as HomeActivity
-        replaceFragmentByArguments()
+        replaceFragmentByArguments() // 여기서 받은 값에 따라 화면을 넘김.
         return fragmentUserInfoMainFragment.root
     }
 
@@ -57,19 +59,22 @@ class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragm
         when (userInfoType) {
             // 회원 주문 내역
             UserInfoType.USER_ORDER_HISTORY_FRAGMENT -> {
+                // 주문 내역 및 배송조회
                 replaceFragment(UserInfoSubFragment.USER_ORDER_HISTORY_FRAGMENT, false, true, null)
             }
 
             UserInfoType.USER_ORDER_DETAIL_FRAGMENT -> {
+                // 주문 상세정보
 
             }
 
             UserInfoType.USER_CANCEL_AND_RETURN_FRAGMENT -> {
+                // 주문 반품 및 취소
 
             }
 
             UserInfoType.USER_INFO_MANAGE_FRAGMENT -> {
-                // 회원 정보관리
+                // 회원 정보 수정
                  replaceFragment(UserInfoSubFragment.USER_INFO_MANAGE_FRAGMENT, false, true, null)
             }
 
@@ -79,6 +84,7 @@ class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragm
 
             // 회원 배송지 관리
             UserInfoType.USER_ADDRESS_MANAGE_FRAGMENT -> {
+                // 비밀번호 변경하기
                  replaceFragment(UserInfoSubFragment.USER_ADDRESS_MANAGE_FRAGMENT, false, true, null)
 
             }
@@ -187,6 +193,10 @@ class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragm
     }
 
 }
+
+
+
+
 
 
 enum class UserInfoSubFragment(var number: Int, var str: String) {

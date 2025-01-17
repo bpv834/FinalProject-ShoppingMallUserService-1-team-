@@ -27,6 +27,7 @@
 			android:background="@color/green100"
 			/>
 
+
 		<!--    이름은 코드 내부에서 설정	        -->
 		<!--    상품 설명, 상세 정보, 후기, 문의	-->
 		<com.google.android.material.tabs.TabLayout

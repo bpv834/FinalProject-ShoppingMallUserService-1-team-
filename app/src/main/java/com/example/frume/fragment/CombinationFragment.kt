@@ -35,10 +35,7 @@ class CombinationFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         combinationBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_combination, container, false)
-
-
         homeActivity= activity as HomeActivity
         replaceFragment(SubMainFragmentName.NAV_MAIN_FRAGMENT,false, false, null)
         //   replaceFragment(SubMainFragmentName.PRODUCT_MAIN_FRAGMENT,true,true,null)
@@ -49,8 +46,8 @@ class CombinationFragment : Fragment() {
 
     // 프래그먼트를 교체하는 함수
     fun replaceFragment(fragmentName: SubMainFragmentName, isAddToBackStack: Boolean, animate: Boolean, dataBundle: Bundle?) {
+      
         // newFragment가 null이 아니라면 oldFragment 변수에 담아준다.
-
         if(newFragment != null){
             oldFragment = newFragment
         }
@@ -90,6 +87,8 @@ class CombinationFragment : Fragment() {
                 addToBackStack(fragmentName.str)
             }
         }
+
+
     }
 
     // 프래그먼트를 BackStack에서 제거하는 메서드

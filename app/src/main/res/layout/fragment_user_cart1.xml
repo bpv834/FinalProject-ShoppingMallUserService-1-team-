@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
 
-	
-
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -157,6 +155,7 @@
             app:layout_anchorGravity="bottom|center_horizontal"
             app:layout_constraintTop_toBottomOf="@id/textViewUserCartDialogPriceLabel"
             android:layout_marginTop="50dp"/>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
