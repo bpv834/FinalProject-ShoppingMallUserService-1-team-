@@ -16,6 +16,7 @@ import com.example.frume.databinding.ItemUsercartListBinding
 import com.example.frume.fragment.home_fragment.my_info.UserAddressManageFragment
 import com.example.frume.fragment.user_fragment.user_payment.UserPaymentScreenFragment
 import com.example.frume.fragment_main.PaymentMainFragment
+import com.example.frume.util.UserInfoType
 import com.example.frume.util.UserPaymentType
 import com.google.android.material.divider.MaterialDividerItemDecoration
 
@@ -51,6 +52,10 @@ class UserCartFragment1(val userCartFragment: UserCartFragment) : Fragment() {
         fragmentUserCart1Binding.buttonUserCartDialogModifyAddress.setOnClickListener {
             // UserAddressManageFragment로 이동
             val fragment = UserAddressManageFragment()
+            // 필요 시 데이터 전달
+            val bundle = Bundle()
+            bundle.putInt("userInfoType", UserInfoType.USER_ADDRESS_MANAGE_FRAGMENT.number)
+            fragment.arguments = bundle
             navigateToFragment(fragment)
         }
     }
