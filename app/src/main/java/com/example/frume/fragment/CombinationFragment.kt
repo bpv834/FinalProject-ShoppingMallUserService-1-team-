@@ -1,6 +1,7 @@
 package com.example.frume.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,10 +37,12 @@ class CombinationFragment : Fragment() {
     ): View? {
 
         combinationBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_combination, container, false)
-        homeActivity = activity as HomeActivity
-        // Inflate the layout for this fragment
 
-        replaceFragment(SubMainFragmentName.NAV_MAIN_FRAGMENT, false, false, null)
+
+        homeActivity= activity as HomeActivity
+        replaceFragment(SubMainFragmentName.NAV_MAIN_FRAGMENT,false, false, null)
+        //   replaceFragment(SubMainFragmentName.PRODUCT_MAIN_FRAGMENT,true,true,null)
+
         return combinationBinding.root
     }
 
@@ -48,8 +51,7 @@ class CombinationFragment : Fragment() {
     fun replaceFragment(fragmentName: SubMainFragmentName, isAddToBackStack: Boolean, animate: Boolean, dataBundle: Bundle?) {
         // newFragment가 null이 아니라면 oldFragment 변수에 담아준다.
 
-
-        if (newFragment != null) {
+        if(newFragment != null){
             oldFragment = newFragment
         }
         // 프래그먼트 객체
@@ -83,8 +85,8 @@ class CombinationFragment : Fragment() {
             }
 
             replace(R.id.containerCombination, newFragment!!)
-            if (isAddToBackStack) {
 
+            if(isAddToBackStack){
                 addToBackStack(fragmentName.str)
             }
         }
@@ -106,8 +108,9 @@ enum class SubMainFragmentName(var number: Int, var str: String) {
     PRODUCT_MAIN_FRAGMENT(1, "ProductMainFragment"),
 
     // 유저 정보 스크린
-    USER_INFO_MAIN_FRAGMENT(2, "UserInfoMainFragment"),
-
+  
+    USER_INFO_MAIN_FRAGMENT(2,"UserInfoMainFragment"),
     // 결제 스크린
-    PAYMENT_MAIN_FRAGMENT(3, "PaymentMainFragment"),
+    PAYMENT_MAIN_FRAGMENT(3,"PaymentMainFragment"),
+
 }

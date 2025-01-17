@@ -41,7 +41,6 @@ class UserHomeFragment(
         setLayout()
     }
 
-
     fun showSearchFragment() {
         homeActivity.supportFragmentManager.beginTransaction()
             .replace(R.id.containerCombination, UserSearchFragment())
@@ -60,6 +59,11 @@ class UserHomeFragment(
         )
     }
 
+  /*  fun showSearchFragment() {
+        bottomNavFragment.replaceFragment(BottomNavSubFragmentName.USER_PRODUCT_SHOW_LIST_FRAGMENT,true,true,null)
+    }*/
+
+
 
     private fun showSearchView() {
         fragmentUserHomeBinding.toolbarUserHome.setOnMenuItemClickListener { item ->
@@ -67,6 +71,7 @@ class UserHomeFragment(
                 R.id.menuSearch -> {
                       showSearchFragment()
                    // test()
+
                     true
                 }
 

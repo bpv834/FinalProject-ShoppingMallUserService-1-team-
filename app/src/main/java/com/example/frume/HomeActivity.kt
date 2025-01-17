@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.graphics.Rect
 import android.os.Bundle
 import android.os.SystemClock
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -37,6 +38,7 @@ class HomeActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        Log.d("test100","homeActivity")
         // 첫 프래그먼트를 보여준다.
         replaceFragment(HomeFragmentName.COMBINATION_FRAGMENT, false, false, null)
     }

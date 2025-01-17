@@ -7,12 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.frume.R
+
 import com.example.frume.databinding.FragmentUserCategoryBinding
 
 
 class UserCategoryFragment : Fragment() {
     private var _binding: FragmentUserCategoryBinding? = null
     private val binding get() = _binding!!
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -43,6 +43,9 @@ android {
     dataBinding {
         enable = true
     }
+    viewBinding {
+        enable = true
+    }
 }
 
 dependencies {
@@ -52,6 +55,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.legacy.support.v4)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -64,7 +68,11 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation("com.google.android.material:material:1.9.0")
 
+
     // sehoon jetPackNavigation 임포트
     implementation("androidx.navigation:navigation-fragment:2.8.4")
     implementation("androidx.navigation:navigation-ui:2.8.4")
+    
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
+
 }
