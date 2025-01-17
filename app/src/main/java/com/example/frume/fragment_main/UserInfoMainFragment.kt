@@ -55,6 +55,7 @@ class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragm
 
     private fun replaceFragmentByArguments() {
         when (userInfoType) {
+            // 회원 주문 내역
             UserInfoType.USER_ORDER_HISTORY_FRAGMENT -> {
                 replaceFragment(UserInfoSubFragment.USER_ORDER_HISTORY_FRAGMENT, false, true, null)
             }
@@ -76,6 +77,7 @@ class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragm
                 // 정보 수정
             }
 
+            // 회원 배송지 관리
             UserInfoType.USER_ADDRESS_MANAGE_FRAGMENT -> {
                  replaceFragment(UserInfoSubFragment.USER_ADDRESS_MANAGE_FRAGMENT, false, true, null)
 
@@ -98,12 +100,12 @@ class UserInfoMainFragment(val combinationFragment: CombinationFragment) : Fragm
         // 프래그먼트 객체
         newFragment = when (fragmentName) {
 
-            UserInfoSubFragment.USER_ORDER_HISTORY_FRAGMENT -> UserOrderHistoryFragment()
-            UserInfoSubFragment.USER_ORDER_DETAIL_FRAGMENT -> UserOderDetailFragment()
-            UserInfoSubFragment.USER_CANCEL_AND_RETURN_FRAGMENT -> UserCancelAndReturnFragment()
+            UserInfoSubFragment.USER_ORDER_HISTORY_FRAGMENT -> UserOrderHistoryFragment(this@UserInfoMainFragment)
+            UserInfoSubFragment.USER_ORDER_DETAIL_FRAGMENT -> UserOderDetailFragment(this@UserInfoMainFragment)
+            UserInfoSubFragment.USER_CANCEL_AND_RETURN_FRAGMENT -> UserCancelAndReturnFragment(this@UserInfoMainFragment)
             UserInfoSubFragment.USER_INFO_MANAGE_FRAGMENT -> UserInfoManageFragment(this@UserInfoMainFragment)
             UserInfoSubFragment.USER_INFO_MODIFY_FRAGMENT -> UserInfoModifyFragment(this@UserInfoMainFragment)
-            UserInfoSubFragment.USER_ADDRESS_MANAGE_FRAGMENT -> UserAddressManageFragment()
+            UserInfoSubFragment.USER_ADDRESS_MANAGE_FRAGMENT -> UserAddressManageFragment(this@UserInfoMainFragment)
             UserInfoSubFragment.USER_PW_MODIFY_FRAGMENT -> UserPwModifyFragment(this@UserInfoMainFragment)
         }
 

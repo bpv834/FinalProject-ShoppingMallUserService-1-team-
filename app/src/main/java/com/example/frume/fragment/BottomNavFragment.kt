@@ -86,7 +86,7 @@ class BottomNavFragment(val combinationFragment: CombinationFragment) : Fragment
         newFragment = when(fragmentName){
             // 로그인
             BottomNavSubFragmentName.USER_HOME_FRAGMENT -> UserHomeFragment(this@BottomNavFragment)
-            BottomNavSubFragmentName.USER_INFO_FRAGMENT -> UserInfoFragment(this)
+            BottomNavSubFragmentName.USER_INFO_FRAGMENT -> UserInfoFragment(this@BottomNavFragment)
             BottomNavSubFragmentName.USER_CATEGORY_FRAGMENT -> UserCategoryFragment(this@BottomNavFragment)
             BottomNavSubFragmentName.USER_CART_FRAGMENT -> UserCartFragment()
         }
@@ -137,5 +137,6 @@ enum class BottomNavSubFragmentName(var number:Int, var str:String){
     USER_INFO_FRAGMENT(2,"UserInfoFragment"),
     // 장바구니
     USER_CART_FRAGMENT(3,"UserCartFragment"),
+    
 }
 

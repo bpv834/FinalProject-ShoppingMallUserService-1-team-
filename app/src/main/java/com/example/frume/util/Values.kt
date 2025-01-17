@@ -36,7 +36,4 @@ enum class ProductInfoType(var number: Int, var str: String){
     // 상품 리스트 뷰
     USER_PRODUCT_SHOW_LIST_TYPE(6,"userProductShowListFragment")
     // 구매 뷰
-
-
-
 }

@@ -34,10 +34,7 @@ class PaymentMainFragment(val combinationFragment: CombinationFragment) : Fragme
 }
 
 enum class PaymentSubFragment(var number:Int, var str:String){
-    // 장바구니
-    USER_CART_FRAGMENT(1, "UserCartFragment"),
-    // 장바구니 2
-    USER_CART_FRAGMENT2(2, "UserCartFragment2"),
+
     // 결제
     USER_PAYMENT_SCREEN_FRAGMENT(3,"UserPaymentScreenFragment"),
 

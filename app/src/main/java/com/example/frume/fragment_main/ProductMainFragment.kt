@@ -37,7 +37,7 @@ import com.google.android.material.transition.MaterialSharedAxis
 class ProductMainFragment(val combinationFragment: CombinationFragment) : Fragment() {
 
     // 상품화면 타입값
-    var productInfoType: ProductInfoType = ProductInfoType.USER_PRODUCT_INFO_TYPE
+    lateinit var productInfoType: ProductInfoType
 
     lateinit var fragmentProductMainBinding : FragmentProductMainBinding
     lateinit var homeActivity: HomeActivity
@@ -53,18 +53,21 @@ class ProductMainFragment(val combinationFragment: CombinationFragment) : Fragme
         fragmentProductMainBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_product_main,container,false)
         homeActivity = activity as HomeActivity
 
-        // test
-        // Log.d("test100","productMainFragment")
-
         arguments?.getInt("ProductInfoType")
-        settingUserInfoType()
-        // arguments를 통해 화면 전환 메서드 실행
-        // 아규먼트를 이용해  화면 분기에 사용할 UserInfoType을 지정해줌
-        if(arguments != null){
+        Log.d("test100","arg : ${arguments}")
+
+        if(arguments == null){
+            replaceFragment(ProductSubFragment.USER_PRODUCT_INFO_FRAGMENT,true,true,null)
+        }else{
+            settingUserInfoType()
+
+            // 아규먼트를 이용해  화면 분기에 사용할 UserInfoType을 지정해줌 아규면트가 없다면
             replaceFragmentByArguments()
         }
 
-        replaceFragment(ProductSubFragment.USER_PRODUCT_INFO_FRAGMENT,true,true,null)
+
+
+
         return fragmentProductMainBinding.root
     }
 
@@ -135,36 +138,38 @@ class ProductMainFragment(val combinationFragment: CombinationFragment) : Fragme
     // 유저 보드 타입 값을 담는 메서드
     fun settingUserInfoType() {
         val tempType = arguments?.getInt("ProductInfoType")!!
-        Log.d("test100", "tempType = ${tempType}")
-        when (tempType) {
-            // 상품 0
-            ProductInfoType.USER_PRODUCT_INFO_TYPE.number->{
-                productInfoType = ProductInfoType.USER_PRODUCT_INFO_TYPE
-            }
 
-            // 상품 설명 1
-            ProductInfoType.USER_PRODUCT_INFO_DESCRIPTION_TYPE.number ->{
-                productInfoType = ProductInfoType.USER_PRODUCT_INFO_DESCRIPTION_TYPE
-            }
+            Log.d("test100", "tempType = ${tempType}")
+            when (tempType) {
+                // 상품 0
+                ProductInfoType.USER_PRODUCT_INFO_TYPE.number->{
+                    productInfoType = ProductInfoType.USER_PRODUCT_INFO_TYPE
+                }
+
+                // 상품 설명 1
+                ProductInfoType.USER_PRODUCT_INFO_DESCRIPTION_TYPE.number ->{
+                    productInfoType = ProductInfoType.USER_PRODUCT_INFO_DESCRIPTION_TYPE
+                }
                 // 상품 상세 정보 2
-            ProductInfoType.USER_PRODUCT_INFO_DETAIL_TYPE.number->{
-                productInfoType = ProductInfoType.USER_PRODUCT_INFO_DETAIL_TYPE
-            }
+                ProductInfoType.USER_PRODUCT_INFO_DETAIL_TYPE.number->{
+                    productInfoType = ProductInfoType.USER_PRODUCT_INFO_DETAIL_TYPE
+                }
                 // 상품 후기 3
-            ProductInfoType.USER_PRODUCT_INFO_REVIEW_TYPE.number-> {
-                productInfoType = ProductInfoType.USER_PRODUCT_INFO_REVIEW_TYPE
-            }
+                ProductInfoType.USER_PRODUCT_INFO_REVIEW_TYPE.number-> {
+                    productInfoType = ProductInfoType.USER_PRODUCT_INFO_REVIEW_TYPE
+                }
                 // 상품 후기 작성 4
-            ProductInfoType.USER_PRODUCT_INFO_WRITE_TYPE.number->{
-                productInfoType = ProductInfoType.USER_PRODUCT_INFO_WRITE_TYPE
-            }
+                ProductInfoType.USER_PRODUCT_INFO_WRITE_TYPE.number->{
+                    productInfoType = ProductInfoType.USER_PRODUCT_INFO_WRITE_TYPE
+                }
                 // 상품 주문 다이얼로그 5
-            ProductInfoType.USER_PRODUCT_INFO_DIALOG_TYPE.number->{
-                productInfoType = ProductInfoType.USER_PRODUCT_INFO_DIALOG_TYPE
-            }
+                ProductInfoType.USER_PRODUCT_INFO_DIALOG_TYPE.number->{
+                    productInfoType = ProductInfoType.USER_PRODUCT_INFO_DIALOG_TYPE
+                }
                 // 상품 리스트 뷰
-            ProductInfoType.USER_PRODUCT_SHOW_LIST_TYPE.number->{
-                productInfoType = ProductInfoType.USER_PRODUCT_SHOW_LIST_TYPE
+                ProductInfoType.USER_PRODUCT_SHOW_LIST_TYPE.number->{
+                    productInfoType = ProductInfoType.USER_PRODUCT_SHOW_LIST_TYPE
+
             }
         }
     }

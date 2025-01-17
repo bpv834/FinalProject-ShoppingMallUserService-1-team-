@@ -6,6 +6,10 @@ class DummyReviewClass(var ratingPoint :Float = 0.0f, var data : String, var tit
 
 }
 
+class DummyOrderItemClass(var deliverState : String, var productName : String, var imgPath: Int){
+
+}
+
 class DummyData {
     companion object {
         val dummyImages = listOf(
@@ -23,5 +27,12 @@ class DummyData {
                 imgPath = dummyImages[index ] // 이미지를 순환하여 할당
             )
         }
+
+        val dummyShippingItems : MutableList<DummyOrderItemClass> = MutableList(3){index ->
+            DummyOrderItemClass("배송상태 ${index}","상품 이름 : ${index}", dummyImages[index]
+
+            )
+        }
+
     }
 }
