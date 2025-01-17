@@ -19,13 +19,9 @@ class UserInfoFragment(val bottomNavFragment: BottomNavFragment) : Fragment() {
 
     lateinit var homeActivity: HomeActivity
     lateinit var fragmentUserInfoBinding: FragmentUserInfoBinding
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
 
-        fragmentUserInfoBinding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_user_info, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        fragmentUserInfoBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_user_info, container, false)
         homeActivity = activity as HomeActivity
         // Inflate the layout for this fragment
         onClickOrderHistory()

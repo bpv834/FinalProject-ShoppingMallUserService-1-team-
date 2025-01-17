@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import com.example.frume.HomeActivity
 import com.example.frume.MainActivity
 import com.example.frume.R
 import com.example.frume.databinding.FragmentProductMainBinding
@@ -15,7 +16,7 @@ import com.example.frume.fragment.CombinationFragment
 class ProductMainFragment(val combinationFragment: CombinationFragment) : Fragment() {
 
     lateinit var fragmentProductMainBinding : FragmentProductMainBinding
-    lateinit var mainActivity: MainActivity
+    lateinit var homeActivity: HomeActivity
 
     // 현재 Fragment와 다음 Fragment를 담을 변수(애니메이션 이동 때문에...)
     var newFragment: Fragment? = null
@@ -26,7 +27,7 @@ class ProductMainFragment(val combinationFragment: CombinationFragment) : Fragme
     ): View? {
         // Inflate the layout for this fragment
         fragmentProductMainBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_product_main,container,false)
-        mainActivity = activity as MainActivity
+        homeActivity = activity as HomeActivity
         return fragmentProductMainBinding.root
     }
 
